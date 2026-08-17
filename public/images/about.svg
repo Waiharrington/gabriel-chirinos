@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="1000">
+      <stop offset="0%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="24" fill="#333" text-anchor="middle" opacity="0.3">ABOUT PHOTO</text>
+  <text x="400" y="515" font-family="Arial, sans-serif" font-size="14" fill="#444" text-anchor="middle" opacity="0.3">Replace with Gabriel's photo</text>
+</svg>
