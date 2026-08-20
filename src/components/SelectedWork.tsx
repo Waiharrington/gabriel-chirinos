@@ -22,7 +22,7 @@ function ProjectCard({
         className="group cursor-pointer"
         onClick={() => onSelect(project)}
       >
-        <div className="relative aspect-[3/4] overflow-hidden bg-[#111] mb-4">
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#111] mb-4">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
@@ -42,7 +42,7 @@ function ProjectCard({
         <p className="font-ui-light text-[8px] tracking-dramatic text-white/25 uppercase mb-1.5">
           {project.type}
         </p>
-        <p className="font-heading text-white text-lg mb-1">{project.title}</p>
+        <p className="font-heading text-white text-base mb-1">{project.title}</p>
         <p className="font-ui-light text-xs text-white/30">{project.views}</p>
       </motion.div>
     </ScrollReveal>
@@ -155,7 +155,7 @@ export default function SelectedWork() {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6">
           {siteData.selectedWork.map((project, i) => (
             <ProjectCard
               key={project.id}
