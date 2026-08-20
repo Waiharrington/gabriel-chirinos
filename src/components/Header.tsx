@@ -4,8 +4,8 @@ import { siteData } from "@/data/siteData";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-white/10">
+      <div className="w-full mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#home" className="flex flex-col leading-none">
           <span className="text-white text-sm font-bold tracking-wider">GABRIEL</span>
           <span className="text-white text-sm font-bold tracking-wider">CHIRINOS</span>
