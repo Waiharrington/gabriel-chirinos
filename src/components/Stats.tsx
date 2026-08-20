@@ -4,17 +4,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { siteData } from "@/data/siteData";
 import ScrollReveal from "./ScrollReveal";
 
-function StatItem({
-  value,
-  label,
-  numericValue,
-  delay,
-}: {
-  value: string;
-  label: string;
-  numericValue: number;
-  delay: number;
-}) {
+function StatItem({ value, label, numericValue, delay }: { value: string; label: string; numericValue: number; delay: number }) {
   const { count, ref } = useCountUp(numericValue, 2000);
   const hasPlus = value.includes("+");
   const hasK = value.includes("K");
@@ -33,12 +23,8 @@ function StatItem({
 
   return (
     <ScrollReveal delay={delay} className="text-center">
-      <div ref={ref} className="font-heading text-white text-[clamp(1.5rem,3vw,2.2rem)] leading-none mb-2">
-        {displayValue}
-      </div>
-      <p className="font-ui-light text-[9px] tracking-dramatic text-white/25 uppercase">
-        {label}
-      </p>
+      <div ref={ref} className="font-heading text-white text-3xl md:text-4xl mb-2">{displayValue}</div>
+      <p className="text-[10px] font-medium tracking-[0.15em] text-white/30 uppercase">{label}</p>
     </ScrollReveal>
   );
 }
@@ -46,16 +32,10 @@ function StatItem({
 export default function Stats() {
   return (
     <section className="bg-[#0a0a0a] py-16 md:py-20">
-      <div className="w-full max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {siteData.stats.map((stat, i) => (
-            <StatItem
-              key={stat.label}
-              value={stat.value}
-              label={stat.label}
-              numericValue={stat.numericValue}
-              delay={i * 0.1}
-            />
+            <StatItem key={stat.label} value={stat.value} label={stat.label} numericValue={stat.numericValue} delay={i * 0.1} />
           ))}
         </div>
       </div>

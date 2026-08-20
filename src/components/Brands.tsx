@@ -5,20 +5,22 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function Brands() {
   return (
-    <section id="brands" className="bg-[#0a0a0a] py-16 md:py-20 border-t border-white/5">
-      <div className="w-full max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
+    <section id="brands" className="bg-[#0a0a0a] py-16 md:py-20 border-t border-white/10">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal className="mb-10">
           <div className="flex items-center gap-3">
-            <span className="w-6 h-[1px] bg-[#c9a96e]/30" />
-            <p className="font-ui-light text-[9px] tracking-dramatic text-white/25 uppercase">MARCAS CON LAS QUE HE TRABAJADO</p>
+            <span className="w-6 h-px bg-[#c9a96e]/40" />
+            <span className="text-[10px] font-medium tracking-[0.2em] text-white/30 uppercase">
+              Marcas Con Las Que He Trabajado
+            </span>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
           {siteData.brands.map((brand, i) => (
             <ScrollReveal key={brand} delay={i * 0.05}>
-              <div className="flex items-center justify-center h-10 opacity-25 hover:opacity-60 transition-all duration-500">
-                <span className="font-heading-light text-sm text-white tracking-wide-custom">{brand}</span>
+              <div className="text-center opacity-30 hover:opacity-70 transition-opacity duration-300">
+                <span className="text-white text-sm font-light tracking-[0.1em]">{brand}</span>
               </div>
             </ScrollReveal>
           ))}

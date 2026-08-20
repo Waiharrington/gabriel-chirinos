@@ -5,18 +5,25 @@ import { siteData } from "@/data/siteData";
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center bg-[#0a0a0a]">
-      <div className="w-full max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20 pt-24 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div>
+    <section id="home" className="relative min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-40"
+        style={{ backgroundImage: `url('${siteData.heroImage}')` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40" />
+
+      <div className="relative z-10 flex items-center min-h-screen">
+        <div className="w-full max-w-5xl mx-auto px-6 py-20 md:py-32">
+          <div className="max-w-xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex items-center gap-3 mb-6"
+              className="flex items-center gap-3 mb-8"
             >
-              <span className="w-6 h-[1px] bg-[#c9a96e]" />
-              <span className="font-ui-light text-[#c9a96e] text-[10px] tracking-dramatic uppercase">
+              <span className="w-8 h-px bg-[#c9a96e]" />
+              <span className="text-[#c9a96e] text-[11px] font-medium tracking-[0.2em] uppercase">
                 {siteData.personal.availability}
               </span>
             </motion.div>
@@ -25,7 +32,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-heading text-white text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] mb-4"
+              className="font-heading text-white text-5xl md:text-7xl leading-none mb-2"
             >
               {siteData.personal.firstName}
             </motion.h1>
@@ -34,7 +41,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="font-heading text-white/20 text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] mb-6"
+              className="font-heading text-white/20 text-5xl md:text-7xl leading-none mb-8"
             >
               {siteData.personal.lastName}
             </motion.h2>
@@ -43,7 +50,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-ui-light text-[#c9a96e] text-xs tracking-wide-custom uppercase mb-6"
+              className="text-[#c9a96e] text-xs font-medium tracking-[0.15em] uppercase mb-4"
             >
               {siteData.personal.tagline}
             </motion.p>
@@ -52,7 +59,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="font-ui-light text-white/40 text-sm leading-[1.8] max-w-md mb-8"
+              className="text-white/50 text-sm leading-relaxed max-w-md mb-10"
             >
               {siteData.personal.description}
             </motion.p>
@@ -61,35 +68,22 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex gap-4"
             >
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 bg-[#c9a96e] text-[#0a0a0a] px-6 py-3 font-ui-medium text-[10px] tracking-dramatic uppercase hover:bg-[#c9a96e]/90 transition-all duration-300"
+                className="bg-[#c9a96e] text-[#0a0a0a] px-7 py-3.5 text-[11px] font-medium tracking-[0.15em] uppercase hover:bg-[#c9a96e]/90 transition-colors"
               >
                 VER TRABAJO
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 border border-white/15 text-white px-6 py-3 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-white/30 transition-all duration-300"
+                className="border border-white/20 text-white px-7 py-3.5 text-[11px] font-medium tracking-[0.15em] uppercase hover:border-white/40 transition-colors"
               >
                 CONTACTAR
               </a>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="relative aspect-[3/4] max-h-[500px] overflow-hidden"
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${siteData.heroImage}')` }}
-            />
-            <div className="absolute inset-0 border border-white/5" />
-          </motion.div>
         </div>
       </div>
     </section>
