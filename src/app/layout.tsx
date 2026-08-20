@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,17 +8,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const dancingScript = Dancing_Script({
+  variable: "--font-script",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Chirinos | Fitness, Running & Lifestyle",
+  title: "Gabriel Chirinos | Creador de Contenido & Atleta",
   description:
-    "Gabriel Chirinos, creador venezolano de fitness, running y lifestyle. Fundador de La Vuelta Run Club. Contenido que mueve, motiva y conecta.",
+    "Creador de contenido fitness y running. Conecto marcas con personas en movimiento. Fundador de La Vuelta Run Club.",
   keywords: [
     "Gabriel Chirinos",
     "fitness Venezuela",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     locale: "es_VE",
     url: "https://gabrielchirinos.com",
     siteName: "Gabriel Chirinos",
-    title: "Gabriel Chirinos | Fitness, Running & Lifestyle",
+    title: "Gabriel Chirinos | Creador de Contenido & Atleta",
     description:
-      "Creador venezolano de fitness, running y lifestyle. Fundador de La Vuelta Run Club.",
+      "Creador de contenido fitness y running. Conecto marcas con personas en movimiento.",
     images: [
       {
         url: "/images/og-image.svg",
@@ -55,8 +55,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="min-h-screen bg-white text-black antialiased">
+    <html lang="es" className={`${inter.variable} ${dancingScript.variable}`}>
+      <body className="min-h-screen bg-[#0a0a0a] text-white antialiased">
         {children}
       </body>
     </html>

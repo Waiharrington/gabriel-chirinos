@@ -1,25 +1,27 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Stats from "@/components/Stats";
-import Work from "@/components/Work";
-import Brands from "@/components/Brands";
-import Audience from "@/components/Audience";
-import Services from "@/components/Services";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Nichos from "@/components/Nichos";
+import Comunidad from "@/components/Comunidad";
+import Servicios from "@/components/Servicios";
+import RunClub from "@/components/RunClub";
+import Marcas from "@/components/Marcas";
+import Testimonios from "@/components/Testimonios";
+import FooterCTA from "@/components/FooterCTA";
 
 export default function Home() {
   return (
     <main>
+      <Header />
       <Hero />
-      <About />
       <Stats />
-      <Work />
-      <Brands />
-      <Audience />
-      <Services />
-      <Contact />
-      <Footer />
+      <Nichos />
+      <Comunidad />
+      <Servicios />
+      <RunClub />
+      <Marcas />
+      <Testimonios />
+      <FooterCTA />
     </main>
   );
 }
