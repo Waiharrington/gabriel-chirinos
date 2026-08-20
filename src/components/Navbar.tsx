@@ -37,7 +37,7 @@ export default function Navbar() {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
+        <div className="max-w-[1100px] mx-auto px-6 md:px-10 flex items-center justify-between">
           <a href="#home" className="group flex items-center gap-3">
             <span className="font-heading text-white text-xl tracking-tight">
               {siteData.personal.monogram}

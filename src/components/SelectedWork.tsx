@@ -134,7 +134,7 @@ export default function SelectedWork() {
 
   return (
     <section id="work" className="bg-[#0a0a0a] py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
         <div className="flex items-end justify-between mb-16">
           <ScrollReveal>
             <div className="flex items-center gap-4 mb-4">

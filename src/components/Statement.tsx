@@ -21,7 +21,7 @@ export default function Statement() {
 
   return (
     <section ref={containerRef} className="bg-[#0a0a0a] py-32 md:py-44 lg:py-52 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
         <div className="space-y-1">
           <motion.div style={{ opacity: opacity1, y: y1 }}>
             <h2 className="font-heading text-white text-[clamp(2rem,7vw,5.5rem)] leading-[0.95] tracking-tight">

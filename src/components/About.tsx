@@ -33,7 +33,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-[#111] py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <ScrollReveal direction="left">
             <div className="relative aspect-[4/5] bg-[#0a0a0a] overflow-hidden">
