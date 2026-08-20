@@ -34,14 +34,14 @@ const icons: Record<string, React.ReactNode> = {
 export default function Servicios() {
   return (
     <section id="services" className="bg-[#0a0a0a] py-16 md:py-24 border-t border-white/10">
-      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-white text-xl md:text-2xl font-bold mb-12"
+          className="text-center text-white text-2xl md:text-3xl font-black mb-12 tracking-wide"
         >
-          ¿QUÉ PUEDO HACER POR <span className="text-[#E53935] font-black">TU MARCA?</span>
+          ¿QUÉ PUEDO HACER POR <span className="text-[#E53935]">TU MARCA?</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -52,17 +52,19 @@ export default function Servicios() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="border border-white/10 p-5 hover:border-[#E53935]/30 transition-colors group"
+              className="bg-[#121212] border border-white/10 p-6 rounded-xl hover:border-[#E53935]/50 hover:bg-[#161616] transition-all group flex flex-col justify-between shadow-lg"
             >
-              <div className="text-[#E53935] mb-3 group-hover:scale-110 transition-transform">
-                {icons[service.icon]}
+              <div>
+                <div className="w-12 h-12 bg-[#E53935]/10 rounded-lg flex items-center justify-center text-[#E53935] mb-5 group-hover:scale-110 transition-transform">
+                  {icons[service.icon]}
+                </div>
+                <h3 className="text-white text-sm font-black tracking-wider uppercase mb-3 leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-white/60 text-xs leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-white text-xs font-bold tracking-wider uppercase mb-2">
-                {service.title}
-              </h3>
-              <p className="text-white/40 text-[11px] leading-relaxed">
-                {service.description}
-              </p>
             </motion.div>
           ))}
         </div>

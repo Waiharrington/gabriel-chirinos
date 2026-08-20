@@ -30,8 +30,8 @@ const icons: Record<string, React.ReactNode> = {
 export default function Stats() {
   return (
     <section className="bg-[#111] py-12 border-y border-white/10">
-      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 justify-items-center">
           {siteData.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -39,14 +39,14 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-4 w-full justify-center md:justify-start lg:justify-center"
             >
-              <div className="text-[#E53935]">
+              <div className="text-[#E53935] p-3 bg-[#E53935]/10 rounded-lg">
                 {icons[stat.icon]}
               </div>
               <div>
                 <div className="text-white text-2xl md:text-3xl font-black">{stat.value}</div>
-                <div className="text-white/40 text-[10px] font-medium tracking-wider whitespace-pre-line uppercase">
+                <div className="text-white/50 text-[10px] font-semibold tracking-wider whitespace-pre-line uppercase">
                   {stat.label}
                 </div>
               </div>

@@ -40,17 +40,17 @@ const icons: Record<string, React.ReactNode> = {
 export default function Nichos() {
   return (
     <section className="bg-[#0a0a0a] py-16 md:py-20">
-      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-white text-xl md:text-2xl font-bold mb-12"
+          className="text-center text-white text-2xl md:text-3xl font-black mb-12 tracking-wide"
         >
-          NICHOS EN LOS QUE <span className="text-[#E53935] font-black">CONECTO</span>
+          NICHOS EN LOS QUE <span className="text-[#E53935]">CONECTO</span>
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {siteData.niches.map((niche, i) => (
             <motion.div
               key={niche.label}
@@ -58,12 +58,12 @@ export default function Nichos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex flex-col items-center text-center p-4"
+              className="flex flex-col items-center justify-center text-center p-5 bg-[#121212] border border-white/10 rounded-lg hover:border-[#E53935]/50 hover:bg-[#181818] transition-all group"
             >
-              <div className="text-[#E53935] mb-3">
+              <div className="text-[#E53935] mb-3 group-hover:scale-110 transition-transform">
                 {icons[niche.icon]}
               </div>
-              <span className="text-white/60 text-[10px] font-medium tracking-wider uppercase whitespace-pre-line leading-tight">
+              <span className="text-white/80 text-[11px] font-bold tracking-wider uppercase whitespace-pre-line leading-tight">
                 {niche.label}
               </span>
             </motion.div>
