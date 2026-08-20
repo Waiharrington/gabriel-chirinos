@@ -5,8 +5,15 @@ import { siteData } from "@/data/siteData";
 
 export default function FooterCTA() {
   return (
-    <footer id="contact" className="bg-[#0a0a0a] border-t border-white/10">
-      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-24">
+    <footer id="contact" className="relative bg-[#0a0a0a] border-t border-white/10 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-left md:bg-center opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: `url('/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg')`,
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent pointer-events-none" />
+      <div className="relative z-10 max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <motion.div

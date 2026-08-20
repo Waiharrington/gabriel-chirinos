@@ -41,11 +41,11 @@ export const siteData = {
       { type: "MUJERES", percentage: 32 },
     ],
     videos: [
-      { title: "10K", views: "2.1M", image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=300&q=80&auto=format&fit=crop" },
-      { title: "MI RUTINA\nDE PIERNA", views: "1.6M", image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&q=80&auto=format&fit=crop" },
-      { title: "5 CONSEJOS\nPARA CORRER\nMEJOR", views: "952K", image: "https://images.unsplash.com/photo-1550345332-09e3ac987658?w=300&q=80&auto=format&fit=crop" },
-      { title: "NUNCA\nTE RINDAS", views: "1.2M", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&q=80&auto=format&fit=crop" },
-      { title: "LA VUELTA\nRUN CLUB", views: "870K", image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=300&q=80&auto=format&fit=crop" },
+      { title: "10K", views: "2.1M", image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg" },
+      { title: "MI RUTINA\nDE PIERNA", views: "1.6M", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg" },
+      { title: "5 CONSEJOS\nPARA CORRER\nMEJOR", views: "952K", image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM.jpeg" },
+      { title: "NUNCA\nTE RINDAS", views: "1.2M", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg" },
+      { title: "LA VUELTA\nRUN CLUB", views: "870K", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg" },
     ],
   },
 
@@ -83,12 +83,13 @@ export const siteData = {
     description:
       "Fundador de La Vuelta Run Club, un espacio que promueve el running, la disciplina y la comunidad.",
     images: [
-      "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80&auto=format&fit=crop",
+      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM.jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (1).jpeg",
+      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg",
     ],
   },
 
