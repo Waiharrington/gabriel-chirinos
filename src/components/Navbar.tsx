@@ -9,7 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -20,86 +20,96 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           scrolled
-            ? "bg-black/95 backdrop-blur-md py-3"
-            : "bg-transparent py-5"
+            ? "bg-[#0a0a0a]/90 backdrop-blur-xl py-4"
+            : "bg-transparent py-8"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <span className="font-heading text-white text-lg tracking-wider">
+          <a href="#home" className="group flex items-center gap-4">
+            <span className="font-heading text-white text-2xl tracking-tight">
               {siteData.personal.monogram}
             </span>
-            <span className="hidden sm:block font-heading text-white text-sm tracking-[0.3em] uppercase">
-              {siteData.personal.name}
+            <span className="hidden sm:block font-ui text-white/40 text-[10px] tracking-dramatic uppercase">
+              {siteData.personal.firstName}
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {siteData.navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="font-ui text-white/70 text-xs tracking-[0.2em] uppercase hover:text-white transition-colors duration-300"
+                className="font-ui-light text-white/40 text-[11px] tracking-wide-custom uppercase hover:text-white transition-colors duration-500"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-[5px] p-2"
             aria-label="Toggle menu"
           >
             <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-[2px] bg-white"
+              animate={
+                mobileOpen
+                  ? { rotate: 45, y: 7, width: "24px" }
+                  : { rotate: 0, y: 0, width: "24px" }
+              }
+              transition={{ duration: 0.3 }}
+              className="block h-[1px] bg-white"
             />
             <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-[2px] bg-white"
+              animate={mobileOpen ? { opacity: 0, width: 0 } : { opacity: 1, width: "24px" }}
+              transition={{ duration: 0.3 }}
+              className="block h-[1px] bg-white"
             />
             <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-[2px] bg-white"
+              animate={
+                mobileOpen
+                  ? { rotate: -45, y: -7, width: "24px" }
+                  : { rotate: 0, y: 0, width: "24px" }
+              }
+              transition={{ duration: 0.3 }}
+              className="block h-[1px] bg-white"
             />
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/98 flex flex-col items-center justify-center gap-8"
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-[#0a0a0a]/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-10"
           >
             {siteData.navLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ delay: i * 0.1 }}
+                exit={{ opacity: 0, y: 40 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
                 onClick={() => setMobileOpen(false)}
-                className="font-heading text-white text-3xl tracking-[0.2em] uppercase hover:text-white/70 transition-colors"
+                className="font-heading-light text-white/60 text-4xl md:text-5xl tracking-wide-custom hover:text-white transition-colors duration-500"
               >
                 {link.label}
               </motion.a>

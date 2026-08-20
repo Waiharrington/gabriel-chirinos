@@ -7,68 +7,72 @@ export default function Audience() {
   const { audience } = siteData;
 
   return (
-    <section className="bg-zinc-50 py-24 md:py-32">
+    <section className="bg-[#111] py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <ScrollReveal className="mb-14">
-          <p className="font-ui text-[10px] tracking-[0.35em] text-black/40 uppercase">
-            MY COMMUNITY
-          </p>
+        <ScrollReveal className="mb-20">
+          <div className="flex items-center gap-4">
+            <span className="w-12 h-[1px] bg-[#c9a96e]/30" />
+            <p className="font-ui-light text-[10px] tracking-dramatic text-white/25 uppercase">
+              MY COMMUNITY
+            </p>
+          </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
-          {/* Main Stats */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24">
           <div>
-            <div className="grid grid-cols-3 gap-8 mb-14">
+            <div className="grid grid-cols-3 gap-8 mb-16">
               <ScrollReveal>
                 <div>
-                  <p className="font-heading text-[clamp(1.8rem,3.5vw,3rem)] text-black leading-none mb-2">
+                  <p className="font-heading text-[clamp(2rem,4vw,3.5rem)] text-white leading-none mb-3">
                     {audience.followers}
                   </p>
-                  <p className="font-ui text-[9px] tracking-[0.2em] text-black/35 uppercase">
+                  <div className="w-6 h-[1px] bg-[#c9a96e]/30 mb-3" />
+                  <p className="font-ui-light text-[8px] tracking-dramatic text-white/25 uppercase">
                     Instagram Followers
                   </p>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={0.1}>
                 <div>
-                  <p className="font-heading text-[clamp(1.8rem,3.5vw,3rem)] text-black leading-none mb-2">
+                  <p className="font-heading text-[clamp(2rem,4vw,3.5rem)] text-white leading-none mb-3">
                     {audience.monthlyViews}
                   </p>
-                  <p className="font-ui text-[9px] tracking-[0.2em] text-black/35 uppercase">
+                  <div className="w-6 h-[1px] bg-[#c9a96e]/30 mb-3" />
+                  <p className="font-ui-light text-[8px] tracking-dramatic text-white/25 uppercase">
                     Monthly Views
                   </p>
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <div>
-                  <p className="font-heading text-[clamp(1.8rem,3.5vw,3rem)] text-black leading-none mb-2">
+                  <p className="font-heading text-[clamp(2rem,4vw,3.5rem)] text-white leading-none mb-3">
                     {audience.accountsReached}
                   </p>
-                  <p className="font-ui text-[9px] tracking-[0.2em] text-black/35 uppercase">
+                  <div className="w-6 h-[1px] bg-[#c9a96e]/30 mb-3" />
+                  <p className="font-ui-light text-[8px] tracking-dramatic text-white/25 uppercase">
                     Accounts Reached
                   </p>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* Media Kit Buttons */}
             <ScrollReveal delay={0.3}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-6">
                 <a
                   href="#"
-                  className="group inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-ui-medium text-[10px] tracking-[0.25em] uppercase hover:bg-black/80 transition-all duration-300"
+                  className="group inline-flex items-center gap-4 border border-white/15 text-white px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-[#c9a96e]/40 hover:text-[#c9a96e] transition-all duration-500"
                 >
                   VIEW MEDIA KIT
-                  <span className="group-hover:translate-x-1.5 transition-transform duration-300">
+                  <span className="group-hover:translate-x-2 transition-transform duration-500">
                     →
                   </span>
                 </a>
                 <a
                   href="#"
-                  className="group inline-flex items-center gap-3 border border-black/20 text-black px-8 py-4 font-ui-medium text-[10px] tracking-[0.25em] uppercase hover:border-black hover:bg-black/5 transition-all duration-300"
+                  className="group inline-flex items-center gap-4 text-white/30 px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:text-white transition-all duration-500"
                 >
-                  DOWNLOAD MEDIA KIT
-                  <span className="group-hover:translate-y-0.5 transition-transform duration-300">
+                  DOWNLOAD
+                  <span className="group-hover:translate-y-1 transition-transform duration-500">
                     ↓
                   </span>
                 </a>
@@ -76,26 +80,25 @@ export default function Audience() {
             </ScrollReveal>
           </div>
 
-          {/* Demographics */}
-          <div className="space-y-10">
+          <div className="space-y-12">
             <ScrollReveal>
               <div>
-                <p className="font-ui text-[9px] tracking-[0.25em] text-black/35 uppercase mb-5">
+                <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-6">
                   AGE DISTRIBUTION
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {audience.demographics.age.map((age) => (
-                    <div key={age.range} className="flex items-center gap-4">
-                      <span className="font-ui text-xs text-black/50 w-14">
+                    <div key={age.range} className="flex items-center gap-5">
+                      <span className="font-ui-light text-xs text-white/40 w-14">
                         {age.range}
                       </span>
-                      <div className="flex-1 h-[6px] bg-black/[0.06] rounded-full overflow-hidden">
+                      <div className="flex-1 h-[2px] bg-white/5 overflow-hidden">
                         <div
-                          className="h-full bg-black rounded-full transition-all duration-1000"
+                          className="h-full bg-[#c9a96e]/60 transition-all duration-1000"
                           style={{ width: `${age.percentage}%` }}
                         />
                       </div>
-                      <span className="font-ui text-xs text-black/35 w-10 text-right">
+                      <span className="font-ui-light text-xs text-white/25 w-10 text-right">
                         {age.percentage}%
                       </span>
                     </div>
@@ -106,14 +109,14 @@ export default function Audience() {
 
             <ScrollReveal delay={0.1}>
               <div>
-                <p className="font-ui text-[9px] tracking-[0.25em] text-black/35 uppercase mb-4">
+                <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-5">
                   GENDER
                 </p>
-                <div className="flex gap-8">
+                <div className="flex gap-10">
                   {audience.demographics.gender.map((g) => (
-                    <div key={g.type} className="flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 bg-black rounded-full" />
-                      <span className="font-ui text-sm text-black/70">
+                    <div key={g.type} className="flex items-center gap-4">
+                      <div className="w-2 h-2 bg-[#c9a96e]/60 rounded-full" />
+                      <span className="font-ui-light text-sm text-white/50">
                         {g.type} {g.percentage}%
                       </span>
                     </div>
@@ -123,26 +126,26 @@ export default function Audience() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 gap-10">
                 <div>
-                  <p className="font-ui text-[9px] tracking-[0.25em] text-black/35 uppercase mb-3">
+                  <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-4">
                     TOP COUNTRIES
                   </p>
-                  <div className="space-y-1.5">
+                  <div className="space-y-2">
                     {audience.demographics.topCountries.map((country, i) => (
-                      <p key={country} className="font-ui text-sm text-black/70">
+                      <p key={country} className="font-ui-light text-sm text-white/50">
                         {i + 1}. {country}
                       </p>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <p className="font-ui text-[9px] tracking-[0.25em] text-black/35 uppercase mb-3">
+                  <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-4">
                     TOP CITIES
                   </p>
-                  <div className="space-y-1.5">
+                  <div className="space-y-2">
                     {audience.demographics.topCities.map((city, i) => (
-                      <p key={city} className="font-ui text-sm text-black/70">
+                      <p key={city} className="font-ui-light text-sm text-white/50">
                         {i + 1}. {city}
                       </p>
                     ))}

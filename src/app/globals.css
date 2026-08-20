@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #000000;
+  --color-background: #0a0a0a;
   --color-foreground: #ffffff;
-  --font-heading: "Oswald", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
   --font-ui: "Inter", sans-serif;
 }
 
@@ -18,54 +18,46 @@ html {
 }
 
 body {
-  background: #000000;
+  background: #0a0a0a;
   color: #ffffff;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
 }
 
-/* Custom scrollbar */
+::selection {
+  background: rgba(201, 169, 110, 0.3);
+  color: #ffffff;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #222222;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444444;
+  background: #333333;
 }
 
-/* Selection */
-::selection {
-  background: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-}
-
-/* Writing mode utility */
-.writing-mode-vertical {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-}
-
-/* Font classes */
 .font-heading {
-  font-family: "Oswald", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-.font-heading-semibold {
-  font-family: "Oswald", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
+.font-heading-light {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
 }
 
 .font-ui {
@@ -77,40 +69,28 @@ body {
   font-weight: 500;
 }
 
-/* Image hover scale */
-.image-hover-scale {
-  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.font-ui-light {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
 }
 
-.group:hover .image-hover-scale {
-  transform: scale(1.05);
+.tracking-dramatic {
+  letter-spacing: 0.25em;
 }
 
-/* Line reveal animation */
-@keyframes lineReveal {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+.tracking-wide-custom {
+  letter-spacing: 0.12em;
 }
 
-.line-reveal {
-  animation: lineReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-/* Focus styles */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 1px solid rgba(255, 255, 255, 0.5);
+  outline: 1px solid rgba(201, 169, 110, 0.5);
   outline-offset: 2px;
 }
 
-/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

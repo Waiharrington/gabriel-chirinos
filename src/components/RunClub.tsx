@@ -7,30 +7,31 @@ export default function RunClub() {
   const { runClub } = siteData;
 
   return (
-    <section id="runclub" className="bg-zinc-950 py-24 md:py-32 overflow-hidden">
+    <section id="runclub" className="bg-[#111] py-28 md:py-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <ScrollReveal direction="left">
-            <div className="relative aspect-[16/10] bg-zinc-900 overflow-hidden">
+            <div className="relative aspect-[16/10] bg-[#0a0a0a] overflow-hidden">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${siteData.runClubImage}')` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 border border-white/5" />
             </div>
           </ScrollReveal>
 
-          {/* Content */}
           <div>
             <ScrollReveal>
-              <p className="font-ui text-[9px] tracking-[0.35em] text-white/30 uppercase mb-5">
-                FOUNDER OF
-              </p>
+              <div className="flex items-center gap-4 mb-8">
+                <span className="w-12 h-[1px] bg-[#c9a96e]/30" />
+                <p className="font-ui-light text-[9px] tracking-dramatic text-white/25 uppercase">
+                  FOUNDER OF
+                </p>
+              </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h2 className="font-heading text-white text-[clamp(1.8rem,4.5vw,3.5rem)] leading-[0.9] mb-6">
+              <h2 className="font-heading text-white text-[clamp(2rem,5vw,4rem)] leading-[0.9] mb-8">
                 {runClub.name.split(" ").map((word, i) => (
                   <span key={i} className="block">
                     {word}
@@ -40,25 +41,25 @@ export default function RunClub() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <h3 className="font-heading-semibold text-white/70 text-[clamp(0.9rem,1.8vw,1.2rem)] tracking-wide mb-5">
+              <h3 className="font-heading-light text-[#c9a96e]/70 text-[clamp(0.9rem,1.8vw,1.2rem)] tracking-wide-custom mb-6">
                 {runClub.headline}
               </h3>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <p className="font-ui text-sm text-white/45 leading-[1.8] mb-10 max-w-md">
+              <p className="font-ui-light text-sm text-white/35 leading-[1.9] mb-12 max-w-md">
                 {runClub.description}
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
-              <div className="flex items-center gap-10 mb-10">
+              <div className="flex items-center gap-12 mb-12">
                 {runClub.stats.map((stat) => (
                   <div key={stat.label}>
-                    <p className="font-heading text-white text-xl md:text-2xl mb-1">
+                    <p className="font-heading text-white text-2xl md:text-3xl mb-2">
                       {stat.value}
                     </p>
-                    <p className="font-ui text-[9px] tracking-[0.2em] text-white/30 uppercase">
+                    <p className="font-ui-light text-[8px] tracking-dramatic text-white/25 uppercase">
                       {stat.label}
                     </p>
                   </div>
@@ -69,10 +70,10 @@ export default function RunClub() {
             <ScrollReveal delay={0.5}>
               <a
                 href="#"
-                className="group inline-flex items-center gap-3 border border-white/20 text-white px-8 py-4 font-ui-medium text-[11px] tracking-[0.25em] uppercase hover:border-white hover:bg-white/5 transition-all duration-300"
+                className="group inline-flex items-center gap-4 border border-white/15 text-white px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-[#c9a96e]/40 hover:text-[#c9a96e] transition-all duration-500"
               >
                 JOIN THE CLUB
-                <span className="group-hover:translate-x-1.5 transition-transform duration-300">
+                <span className="group-hover:translate-x-2 transition-transform duration-500">
                   →
                 </span>
               </a>

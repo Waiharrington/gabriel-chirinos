@@ -48,11 +48,12 @@ function StatItem({
     <ScrollReveal delay={delay} className="flex flex-col items-center text-center">
       <div
         ref={ref}
-        className="font-heading text-[clamp(2.5rem,4.5vw,4.2rem)] text-black leading-none mb-3"
+        className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] text-white leading-none mb-4"
       >
         {displayValue}
       </div>
-      <div className="font-ui text-[9px] md:text-[10px] tracking-[0.25em] text-black/40 uppercase">
+      <div className="w-8 h-[1px] bg-[#c9a96e]/30 mb-4" />
+      <div className="font-ui-light text-[9px] md:text-[10px] tracking-dramatic text-white/30 uppercase">
         {label}
       </div>
     </ScrollReveal>
@@ -61,18 +62,18 @@ function StatItem({
 
 export default function Stats() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-[#0a0a0a] py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <ScrollReveal className="mb-14">
-          <p className="font-ui text-[10px] tracking-[0.35em] text-black/40 uppercase mb-2">
-            MEDIA &amp; BRAND
-          </p>
-          <p className="font-ui text-[10px] tracking-[0.35em] text-black/40 uppercase">
-            PERFORMANCE SNAPSHOT
-          </p>
+        <ScrollReveal className="mb-20">
+          <div className="flex items-center gap-4">
+            <span className="w-12 h-[1px] bg-[#c9a96e]/30" />
+            <p className="font-ui-light text-[10px] tracking-dramatic text-white/25 uppercase">
+              PERFORMANCE
+            </p>
+          </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-12 md:gap-8">
           {siteData.stats.map((stat, i) => (
             <StatItem
               key={stat.label}
@@ -84,12 +85,9 @@ export default function Stats() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.6} className="mt-14 text-right">
-          <p className="font-ui text-[9px] tracking-[0.2em] text-black/25 uppercase">
-            *Last 30 days
-          </p>
-          <p className="font-ui text-[9px] tracking-[0.2em] text-black/25 uppercase">
-            Instagram performance
+        <ScrollReveal delay={0.6} className="mt-20 text-right">
+          <p className="font-ui-light text-[9px] tracking-wide-custom text-white/15 uppercase">
+            *Last 30 days · Instagram performance
           </p>
         </ScrollReveal>
       </div>

@@ -44,124 +44,106 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      {/* Background Image */}
+    <section id="home" className="relative min-h-screen flex items-center bg-[#0a0a0a]">
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-right bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{ backgroundImage: `url('${siteData.heroImage}')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/50" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-24">
-        <div className="max-w-2xl">
-          {/* Categories */}
+        <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap items-center gap-3 mb-10"
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex items-center gap-4 mb-12"
           >
-            {siteData.categories.map((cat, i) => (
-              <span key={cat} className="flex items-center gap-3">
-                <span className="font-ui text-white/50 text-[11px] tracking-[0.35em] uppercase">
-                  {cat}
-                </span>
-                {i < siteData.categories.length - 1 && (
-                  <span className="w-[3px] h-[3px] rounded-full bg-white/30" />
-                )}
-              </span>
-            ))}
+            <span className="w-12 h-[1px] bg-[#c9a96e]" />
+            <span className="font-ui-light text-white/30 text-[10px] tracking-dramatic uppercase">
+              {siteData.personal.availability}
+            </span>
           </motion.div>
 
-          {/* Name */}
           <motion.h1
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-heading text-white leading-[0.82] mb-8"
+            transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="font-heading text-white leading-[0.9] mb-8"
           >
-            <span className="block text-[clamp(3rem,9vw,8.5rem)]">
+            <span className="block text-[clamp(3.5rem,10vw,9rem)]">
               {siteData.personal.firstName}
             </span>
-            <span className="block text-[clamp(3rem,9vw,8.5rem)]">
+            <span className="block text-[clamp(3.5rem,10vw,9rem)] text-white/20">
               {siteData.personal.lastName}
             </span>
           </motion.h1>
 
-          {/* Tagline */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="font-heading text-white text-[clamp(1.1rem,2.5vw,1.8rem)] tracking-[0.1em] mb-6"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="font-heading-light text-[#c9a96e] text-[clamp(1rem,2vw,1.4rem)] tracking-wide-custom mb-8"
           >
             {siteData.personal.tagline}
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="font-ui text-white/60 text-sm md:text-[15px] leading-[1.7] max-w-lg mb-10"
+            transition={{ duration: 0.8, delay: 1 }}
+            className="font-ui-light text-white/35 text-sm md:text-[15px] leading-[1.9] max-w-lg mb-14"
           >
             {siteData.personal.description}
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-wrap gap-4 mb-14"
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="flex flex-wrap gap-6 mb-20"
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-3 bg-white text-black px-9 py-4 font-ui-medium text-[11px] tracking-[0.25em] uppercase hover:bg-white/90 transition-all duration-300"
+              className="group inline-flex items-center gap-4 border border-white/20 text-white px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-[#c9a96e] hover:text-[#c9a96e] transition-all duration-500"
             >
               VIEW WORK
-              <span className="group-hover:translate-x-1.5 transition-transform duration-300">
+              <span className="group-hover:translate-x-2 transition-transform duration-500">
                 →
               </span>
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-3 border border-white/25 text-white px-9 py-4 font-ui-medium text-[11px] tracking-[0.25em] uppercase hover:border-white hover:bg-white/5 transition-all duration-300"
+              className="group inline-flex items-center gap-4 text-white/30 px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:text-white transition-all duration-500"
             >
               LET&apos;S COLLABORATE
-              <span className="group-hover:translate-x-1.5 transition-transform duration-300">
-                →
-              </span>
             </a>
           </motion.div>
 
-          {/* Location + Availability */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex items-center gap-4 text-white/30 font-ui text-[10px] tracking-[0.2em] uppercase"
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="flex items-center gap-6 text-white/20 font-ui-light text-[9px] tracking-wide-custom uppercase"
           >
             <span>{siteData.personal.location}</span>
-            <span className="w-[3px] h-[3px] rounded-full bg-white/20" />
-            <span>{siteData.personal.availability}</span>
+            <span className="w-[3px] h-[3px] rounded-full bg-[#c9a96e]/40" />
+            <span>{siteData.categories.join(" · ")}</span>
           </motion.div>
         </div>
       </div>
 
-      {/* Social Icons - Right Side */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1.4 }}
-        className="hidden md:flex absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-5"
+        transition={{ duration: 0.8, delay: 1.6 }}
+        className="hidden md:flex absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-6"
       >
-        <span className="font-ui text-white/40 text-[9px] tracking-[0.4em] uppercase writing-mode-vertical mb-3">
-          FOLLOW ME
+        <span className="font-ui-light text-white/20 text-[8px] tracking-dramatic uppercase writing-mode-vertical mb-4">
+          FOLLOW
         </span>
         {socialIcons.map((social) => (
           <a
@@ -169,7 +151,7 @@ export default function Hero() {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 border border-white/15 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:border-white/50 hover:bg-white/5 transition-all duration-300"
+            className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/25 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 transition-all duration-500"
             aria-label={social.name}
           >
             {social.icon}
@@ -177,22 +159,28 @@ export default function Hero() {
         ))}
       </motion.div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
       >
-        <span className="font-ui text-white/30 text-[9px] tracking-[0.3em] uppercase">
+        <span className="font-ui-light text-white/20 text-[8px] tracking-dramatic uppercase">
           SCROLL
         </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="w-[1px] h-10 bg-gradient-to-b from-white/40 to-transparent"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="w-[1px] h-12 bg-gradient-to-b from-white/20 to-transparent"
         />
       </motion.div>
+
+      <style jsx>{`
+        .writing-mode-vertical {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+        }
+      `}</style>
     </section>
   );
 }
