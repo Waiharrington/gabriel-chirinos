@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
@@ -11,19 +10,16 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Stats />
-        <Work />
-        <Brands />
-        <Audience />
-        <Services />
-        <Contact />
-      </main>
+    <main>
+      <Hero />
+      <About />
+      <Stats />
+      <Work />
+      <Brands />
+      <Audience />
+      <Services />
+      <Contact />
       <Footer />
-    </>
+    </main>
   );
 }

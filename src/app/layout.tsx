@@ -16,58 +16,36 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Chirinos | Fitness, Running & Lifestyle Creator",
+  title: "Gabriel Chirinos | Fitness, Running & Lifestyle",
   description:
-    "Gabriel Chirinos is a Venezuelan fitness, running and lifestyle creator, founder of La Vuelta Run Club, collaborating with brands through content, campaigns and community.",
+    "Gabriel Chirinos, creador venezolano de fitness, running y lifestyle. Fundador de La Vuelta Run Club. Contenido que mueve, motiva y conecta.",
   keywords: [
     "Gabriel Chirinos",
-    "Gabriel Chirinos Venezuela",
-    "fitness creator Venezuela",
-    "running creator Venezuela",
-    "fitness influencer Venezuela",
-    "running influencer Venezuela",
-    "creador de contenido fitness Venezuela",
-    "fitness content creator",
-    "running community",
-    "brand partnerships",
+    "fitness Venezuela",
+    "running Venezuela",
+    "creador de contenido",
+    "embajador de marcas",
+    "La Vuelta Run Club",
   ],
   authors: [{ name: "Gabriel Chirinos" }],
   creator: "Gabriel Chirinos",
   metadataBase: new URL("https://gabrielchirinos.com"),
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "es_VE",
     url: "https://gabrielchirinos.com",
     siteName: "Gabriel Chirinos",
-    title: "Gabriel Chirinos | Fitness, Running & Lifestyle Creator",
+    title: "Gabriel Chirinos | Fitness, Running & Lifestyle",
     description:
-      "Venezuelan fitness, running and lifestyle creator. Founder of La Vuelta Run Club. Building content that moves, motivates and connects.",
+      "Creador venezolano de fitness, running y lifestyle. Fundador de La Vuelta Run Club.",
     images: [
       {
         url: "/images/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Gabriel Chirinos - Fitness, Running & Lifestyle Creator",
+        alt: "Gabriel Chirinos",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gabriel Chirinos | Fitness, Running & Lifestyle Creator",
-    description:
-      "Venezuelan fitness, running and lifestyle creator. Founder of La Vuelta Run Club.",
-    images: ["/images/og-image.svg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 };
 
@@ -76,41 +54,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Gabriel Chirinos",
-    url: "https://gabrielchirinos.com",
-    jobTitle: "Content Creator",
-    description:
-      "Venezuelan fitness, running and lifestyle creator, founder of La Vuelta Run Club.",
-    nationality: {
-      "@type": "Country",
-      name: "Venezuela",
-    },
-    sameAs: [
-      "https://instagram.com/gabrielechirinos",
-      "https://tiktok.com/@gabrielechirinos",
-      "https://youtube.com/@gabrielechirinos",
-    ],
-    knowsAbout: [
-      "Fitness",
-      "Running",
-      "Lifestyle",
-      "Content Creation",
-      "Brand Partnerships",
-    ],
-  };
-
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-        />
-      </head>
-      <body className="min-h-screen bg-[#0a0a0a] text-white antialiased">
+    <html lang="es" className={`${inter.variable} ${cormorant.variable}`}>
+      <body className="min-h-screen bg-white text-black antialiased">
         {children}
       </body>
     </html>
