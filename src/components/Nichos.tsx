@@ -40,7 +40,7 @@ const icons: Record<string, React.ReactNode> = {
 export default function Nichos() {
   return (
     <section className="bg-[#0a0a0a] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

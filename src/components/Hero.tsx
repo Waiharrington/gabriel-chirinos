@@ -17,14 +17,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/30" />
 
       <div className="relative z-10 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-6 w-full pt-20">
+        <div className="w-full max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16 pt-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="inline-block border border-[#E53935]/50 px-3 py-1 mb-6"
+                className="inline-block border border-[#E53935]/50 px-4 py-1.5 mb-6"
               >
                 <span className="text-[#E53935] text-[10px] font-bold tracking-[0.2em]">
                   {siteData.personal.tagline}
@@ -35,7 +35,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-white text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black leading-[0.95] uppercase mb-4"
+                className="text-white text-[2.8rem] md:text-[4rem] lg:text-[5rem] font-black leading-[0.9] uppercase mb-4"
               >
                 {siteData.personal.headline}
               </motion.h1>
@@ -44,7 +44,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="font-script text-[#E53935] text-[2rem] md:text-[2.5rem] lg:text-[3rem] mb-6 -mt-2"
+                className="font-script text-[#E53935] text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] mb-6 -mt-2"
               >
                 {siteData.personal.headlineScript}
               </motion.p>
@@ -53,7 +53,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-white/60 text-sm leading-relaxed max-w-md mb-8"
+                className="text-white/60 text-sm leading-relaxed max-w-lg mb-8"
               >
                 {siteData.personal.description}
               </motion.p>
@@ -66,7 +66,7 @@ export default function Hero() {
               >
                 <a
                   href="#contact"
-                  className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3 text-xs font-bold tracking-wider flex items-center gap-2 transition-colors"
+                  className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3.5 text-xs font-bold tracking-wider flex items-center gap-2 transition-colors"
                 >
                   VER MEDIA KIT
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="#contact"
-                  className="border border-white/30 hover:border-white text-white px-6 py-3 text-xs font-bold tracking-wider flex items-center gap-2 transition-colors"
+                  className="border border-white/30 hover:border-white text-white px-6 py-3.5 text-xs font-bold tracking-wider flex items-center gap-2 transition-colors"
                 >
                   TRABAJEMOS JUNTOS
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function Hero() {
               className="hidden lg:flex justify-end items-center"
             >
               <div className="text-right">
-                <div className="text-white/20 text-[4rem] xl:text-[5rem] font-black leading-none tracking-tighter">
+                <div className="text-white/20 text-[5rem] xl:text-[6rem] font-black leading-none tracking-tighter">
                   LA VUELTA.
                 </div>
                 <div className="text-[#E53935] text-xs font-bold tracking-[0.3em] mt-2">

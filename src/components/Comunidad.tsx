@@ -8,7 +8,7 @@ export default function Comunidad() {
 
   return (
     <section className="bg-[#0a0a0a] py-16 md:py-24 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-8 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <motion.div
@@ -50,7 +50,7 @@ export default function Comunidad() {
             </motion.div>
           </div>
 
-          <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex gap-3 overflow-x-auto pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             {community.videos.map((video, i) => (
               <motion.div
                 key={video.title}
