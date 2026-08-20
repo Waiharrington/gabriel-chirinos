@@ -55,29 +55,29 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-24">
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex items-center gap-4 mb-12"
+            className="flex items-center gap-4 mb-8"
           >
-            <span className="w-12 h-[1px] bg-[#c9a96e]" />
+            <span className="w-8 h-[1px] bg-[#c9a96e]" />
             <span className="font-ui-light text-white/30 text-[10px] tracking-dramatic uppercase">
               {siteData.personal.availability}
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-heading text-white leading-[0.9] mb-8"
+            transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="font-heading text-white leading-[0.95] mb-6"
           >
-            <span className="block text-[clamp(3.5rem,10vw,9rem)]">
+            <span className="block text-[clamp(2.5rem,6vw,5rem)]">
               {siteData.personal.firstName}
             </span>
-            <span className="block text-[clamp(3.5rem,10vw,9rem)] text-white/20">
+            <span className="block text-[clamp(2.5rem,6vw,5rem)] text-white/20">
               {siteData.personal.lastName}
             </span>
           </motion.h1>
@@ -86,7 +86,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="font-heading-light text-[#c9a96e] text-[clamp(1rem,2vw,1.4rem)] tracking-wide-custom mb-8"
+            className="font-heading-light text-[#c9a96e] text-[clamp(0.9rem,1.5vw,1.1rem)] tracking-wide-custom mb-6"
           >
             {siteData.personal.tagline}
           </motion.h2>
@@ -95,7 +95,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="font-ui-light text-white/35 text-sm md:text-[15px] leading-[1.9] max-w-lg mb-14"
+            className="font-ui-light text-white/35 text-sm leading-[1.8] max-w-md mb-10"
           >
             {siteData.personal.description}
           </motion.p>
@@ -104,22 +104,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap gap-6 mb-20"
+            className="flex flex-wrap gap-5 mb-16"
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-4 border border-white/20 text-white px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-[#c9a96e] hover:text-[#c9a96e] transition-all duration-500"
+              className="group inline-flex items-center gap-3 border border-white/20 text-white px-8 py-4 font-ui-light text-[10px] tracking-dramatic uppercase hover:border-[#c9a96e] hover:text-[#c9a96e] transition-all duration-500"
             >
-              VIEW WORK
-              <span className="group-hover:translate-x-2 transition-transform duration-500">
+              VER TRABAJO
+              <span className="group-hover:translate-x-1 transition-transform duration-500">
                 →
               </span>
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-4 text-white/30 px-10 py-5 font-ui-light text-[10px] tracking-dramatic uppercase hover:text-white transition-all duration-500"
+              className="group inline-flex items-center gap-3 text-white/30 px-8 py-4 font-ui-light text-[10px] tracking-dramatic uppercase hover:text-white transition-all duration-500"
             >
-              LET&apos;S COLLABORATE
+              COLABORAR
             </a>
           </motion.div>
 
@@ -127,7 +127,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="flex items-center gap-6 text-white/20 font-ui-light text-[9px] tracking-wide-custom uppercase"
+            className="flex items-center gap-5 text-white/20 font-ui-light text-[9px] tracking-wide-custom uppercase"
           >
             <span>{siteData.personal.location}</span>
             <span className="w-[3px] h-[3px] rounded-full bg-[#c9a96e]/40" />
@@ -140,10 +140,10 @@ export default function Hero() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.6 }}
-        className="hidden md:flex absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-6"
+        className="hidden md:flex absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-5"
       >
-        <span className="font-ui-light text-white/20 text-[8px] tracking-dramatic uppercase writing-mode-vertical mb-4">
-          FOLLOW
+        <span className="font-ui-light text-white/20 text-[8px] tracking-dramatic uppercase writing-mode-vertical mb-3">
+          SEGUIR
         </span>
         {socialIcons.map((social) => (
           <a
@@ -151,7 +151,7 @@ export default function Hero() {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/25 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 transition-all duration-500"
+            className="w-8 h-8 border border-white/10 rounded-full flex items-center justify-center text-white/25 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 transition-all duration-500"
             aria-label={social.name}
           >
             {social.icon}
@@ -163,15 +163,15 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
         <span className="font-ui-light text-white/20 text-[8px] tracking-dramatic uppercase">
           SCROLL
         </span>
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-[1px] h-12 bg-gradient-to-b from-white/20 to-transparent"
+          className="w-[1px] h-10 bg-gradient-to-b from-white/20 to-transparent"
         />
       </motion.div>
 

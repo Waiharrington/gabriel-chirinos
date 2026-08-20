@@ -41,29 +41,29 @@ const iconMap: Record<string, React.ReactElement> = {
 
 export default function Partnerships() {
   return (
-    <section id="partnerships" className="bg-[#0a0a0a] py-28 md:py-40">
+    <section id="partnerships" className="bg-[#0a0a0a] py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <ScrollReveal className="mb-20">
+        <ScrollReveal className="mb-16">
           <div className="flex items-center gap-4">
-            <span className="w-12 h-[1px] bg-[#c9a96e]/30" />
-            <p className="font-ui-light text-[10px] tracking-dramatic text-white/25 uppercase">
-              LET&apos;S CREATE IMPACT TOGETHER
+            <span className="w-8 h-[1px] bg-[#c9a96e]/30" />
+            <p className="font-ui-light text-[9px] tracking-dramatic text-white/25 uppercase">
+              CREEMOS IMPACTO JUNTOS
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {siteData.partnerships.map((item, i) => (
-            <ScrollReveal key={item.title} delay={i * 0.08}>
+            <ScrollReveal key={item.title} delay={i * 0.06}>
               <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.4 }}
-                className="group border border-white/5 p-10 hover:border-[#c9a96e]/20 transition-all duration-700"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+                className="group border border-white/5 p-8 hover:border-[#c9a96e]/20 transition-all duration-500"
               >
-                <div className="text-white/15 group-hover:text-[#c9a96e]/60 transition-colors duration-700 mb-8">
+                <div className="text-white/15 group-hover:text-[#c9a96e]/60 transition-colors duration-500 mb-6">
                   {iconMap[item.icon]}
                 </div>
-                <h3 className="font-heading-light text-lg text-white mb-4">
+                <h3 className="font-heading-light text-base text-white mb-3">
                   {item.title}
                 </h3>
                 <p className="font-ui-light text-sm text-white/35 leading-[1.8]">

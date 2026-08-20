@@ -32,9 +32,9 @@ export default function About() {
   const { about } = siteData;
 
   return (
-    <section id="about" className="bg-[#111] py-28 md:py-40">
+    <section id="about" className="bg-[#111] py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <ScrollReveal direction="left">
             <div className="relative aspect-[4/5] bg-[#0a0a0a] overflow-hidden">
               <div
@@ -47,26 +47,26 @@ export default function About() {
 
           <div>
             <ScrollReveal>
-              <div className="flex items-center gap-4 mb-12">
-                <span className="w-12 h-[1px] bg-[#c9a96e]/30" />
-                <p className="font-ui-light text-[10px] tracking-dramatic text-white/25 uppercase">
-                  ABOUT ME
+              <div className="flex items-center gap-4 mb-10">
+                <span className="w-8 h-[1px] bg-[#c9a96e]/30" />
+                <p className="font-ui-light text-[9px] tracking-dramatic text-white/25 uppercase">
+                  SOBRE MÍ
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h2 className="font-heading text-[clamp(1.8rem,4vw,3.5rem)] text-white leading-[1.05] mb-12">
-                I create content that{" "}
-                <span className="text-white/20">moves, motivates</span>{" "}
-                and connects.
+              <h2 className="font-heading text-[clamp(1.5rem,3vw,2.5rem)] text-white leading-[1.1] mb-8">
+                Creo contenido que{" "}
+                <span className="text-white/20">mueve, motiva</span>{" "}
+                y conecta.
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="space-y-5 mb-14">
+              <div className="space-y-4 mb-10">
                 {about.text.map((t, i) => (
-                  <p key={i} className="font-ui-light text-sm text-white/40 leading-[1.9]">
+                  <p key={i} className="font-ui-light text-sm text-white/40 leading-[1.8]">
                     {t}
                   </p>
                 ))}
@@ -74,14 +74,14 @@ export default function About() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="grid grid-cols-2 gap-x-10 gap-y-8 border-t border-white/5 pt-10">
+              <div className="grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/5 pt-8">
                 {about.details.map((detail) => (
-                  <div key={detail.label} className="flex items-start gap-4">
+                  <div key={detail.label} className="flex items-start gap-3">
                     <span className="text-white/15 mt-0.5 flex-shrink-0">
                       {iconMap[detail.icon]}
                     </span>
                     <div>
-                      <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-2">
+                      <p className="font-ui-light text-[8px] tracking-dramatic text-white/20 uppercase mb-1">
                         {detail.label}
                       </p>
                       <p className="font-ui-medium text-sm text-white">{detail.value}</p>

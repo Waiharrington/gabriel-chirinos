@@ -4,44 +4,44 @@ export const siteData = {
     firstName: "GABRIEL",
     lastName: "CHIRINOS",
     monogram: "GC",
-    tagline: "I MOVE PEOPLE.",
+    tagline: "MOVO A LA GENTE.",
     description:
-      "I'm a Venezuelan creator building an audience around fitness, discipline, movement, lifestyle and community. I integrate brands naturally into content people actually want to watch.",
+      "Soy un creador venezolano construyendo audiencia alrededor del fitness, la disciplina, el movimiento, el estilo de vida y la comunidad. Integro marcas de forma natural en contenido que la gente realmente quiere ver.",
     location: "Venezuela",
     email: "hello@gabrielchirinos.com",
     whatsapp: "+58 412 123 4567",
     instagram: "@gabrielechirinos",
     tiktok: "@gabrielechirinos",
     youtube: "@gabrielechirinos",
-    availability: "AVAILABLE FOR BRAND PARTNERSHIPS",
+    availability: "DISPONIBLE PARA ALIANZAS DE MARCA",
   },
 
-  categories: ["FITNESS", "RUNNING", "LIFESTYLE", "CREATOR"],
+  categories: ["FITNESS", "CORRER", "ESTILO DE VIDA", "CREADOR"],
 
   navLinks: [
-    { label: "HOME", href: "#home" },
-    { label: "ABOUT", href: "#about" },
-    { label: "WORK", href: "#work" },
+    { label: "INICIO", href: "#home" },
+    { label: "SOBRE MÍ", href: "#about" },
+    { label: "TRABAJO", href: "#work" },
     { label: "RUN CLUB", href: "#runclub" },
-    { label: "PARTNERSHIPS", href: "#partnerships" },
-    { label: "CONTACT", href: "#contact" },
+    { label: "ALIANZAS", href: "#partnerships" },
+    { label: "CONTACTO", href: "#contact" },
   ],
 
   stats: [
-    { value: "23.1K", label: "FOLLOWERS", numericValue: 23100 },
-    { value: "+3M", label: "MONTHLY VIEWS", numericValue: 3000000 },
-    { value: "1.75M", label: "ACCOUNTS REACHED", numericValue: 1750000 },
-    { value: "91.2%", label: "NON-FOLLOWER REACH", numericValue: 91.2 },
-    { value: "+676", label: "NEW FOLLOWERS", numericValue: 676 },
+    { value: "23.1K", label: "SEGUIDORES", numericValue: 23100 },
+    { value: "+3M", label: "VISITAS MENSUALES", numericValue: 3000000 },
+    { value: "1.75M", label: "ALCANCE", numericValue: 1750000 },
+    { value: "91.2%", label: "ALCANCE NO SEGUIDORES", numericValue: 91.2 },
+    { value: "+676", label: "NUEVOS SEGUIDORES", numericValue: 676 },
   ],
 
   statement: {
-    line1: "23K FOLLOWERS",
-    line2: "DON'T TELL",
-    line3: "THE WHOLE STORY.",
+    line1: "23K SEGUIDORES",
+    line2: "NO CUENTAN",
+    line3: "LA HISTORIA COMPLETA.",
     reveal1: "3,000,000+",
-    reveal2: "MONTHLY VIEWS",
-    reveal3: "DO.",
+    reveal2: "VISITAS MENSUALES",
+    reveal3: "SÍ.",
   },
 
   heroImage:
@@ -57,13 +57,13 @@ export const siteData = {
     {
       id: 1,
       brand: "GYMSHARK",
-      type: "BRAND COLLABORATION",
-      title: "Gymshark Campaign",
-      views: "1.2M Views",
+      type: "COLABORACIÓN DE MARCA",
+      title: "Campaña Gymshark",
+      views: "1.2M Vistas",
       image:
         "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&auto=format&fit=crop",
       description:
-        "Full campaign content creation for Gymshark's seasonal launch.",
+        "Creación de contenido completo para el lanzamiento estacional de Gymshark.",
       format: "Reels + Stories",
       reach: "1.2M",
       interactions: "89K",
@@ -71,12 +71,12 @@ export const siteData = {
     {
       id: 2,
       brand: "ESN",
-      type: "FITNESS REEL",
-      title: "Strength Day",
-      views: "843K Views",
+      type: "REEL DE FITNESS",
+      title: "Día de Fuerza",
+      views: "843K Vistas",
       image:
         "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80&auto=format&fit=crop",
-      description: "Training content showcasing discipline and consistency.",
+      description: "Contenido de entrenamiento que muestra disciplina y constancia.",
       format: "Reel",
       reach: "843K",
       interactions: "62K",
@@ -84,25 +84,25 @@ export const siteData = {
     {
       id: 3,
       brand: "STRAVA",
-      type: "RUNNING CAMPAIGN",
-      title: "Run Club Activation",
-      views: "1.1M Views",
+      type: "CAMPAÑA DE CORRER",
+      title: "Activación Run Club",
+      views: "1.1M Vistas",
       image:
         "https://images.unsplash.com/photo-1550345332-09e3ac987658?w=600&q=80&auto=format&fit=crop",
-      description: "Community-driven running campaign with La Vuelta Run Club.",
-      format: "Reels + Carousel",
+      description: "Campaña de running impulsada por la comunidad de La Vuelta Run Club.",
+      format: "Reels + Carrusel",
       reach: "1.1M",
       interactions: "78K",
     },
     {
       id: 4,
       brand: "MVMT",
-      type: "LIFESTYLE CONTENT",
-      title: "Daily Discipline",
-      views: "483K Views",
+      type: "CONTENIDO DE ESTILO DE VIDA",
+      title: "Disciplina Diaria",
+      views: "483K Vistas",
       image:
         "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80&auto=format&fit=crop",
-      description: "Lifestyle content integrating MVMT watches naturally.",
+      description: "Contenido de estilo de vida integrando relojes MVMT de forma natural.",
       format: "Reel + Stories",
       reach: "483K",
       interactions: "34K",
@@ -110,25 +110,25 @@ export const siteData = {
     {
       id: 5,
       brand: "LA VUELTA RUN CLUB",
-      type: "EVENT COVERAGE",
+      type: "COBERTURA DE EVENTO",
       title: "La Vuelta 10K",
-      views: "672K Views",
+      views: "672K Vistas",
       image:
         "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80&auto=format&fit=crop",
-      description: "Full event coverage of La Vuelta's flagship 10K run.",
-      format: "Reels + Documentary",
+      description: "Cobertura completa del evento insignia de La Vuelta 10K.",
+      format: "Reels + Documental",
       reach: "672K",
       interactions: "51K",
     },
     {
       id: 6,
       brand: "UGC",
-      type: "UGC / PAID MEDIA",
-      title: "Travel & Lifestyle",
-      views: "391K Views",
+      type: "UGC / MEDIA PAGADO",
+      title: "Viajes y Estilo de Vida",
+      views: "391K Vistas",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop",
-      description: "High-performing UGC content for paid media campaigns.",
+      description: "Contenido UGC de alto rendimiento para campañas de media pagado.",
       format: "UGC Reels",
       reach: "391K",
       interactions: "28K",
@@ -136,46 +136,46 @@ export const siteData = {
   ],
 
   about: {
-    headline: "I create content that moves, motivates and connects.",
+    headline: "Creo contenido que mueve, motiva y conecta.",
     text: [
-      "I'm Gabriel Chirinos, a Venezuelan creator and athlete passionate about fitness, running and living with purpose.",
-      "My content is built around real moments, real results and real connection.",
-      "I help brands become part of the story through authentic, high-impact content that drives attention and builds trust.",
+      "Soy Gabriel Chirinos, un creador y atleta venezolano apasionado por el fitness, correr y vivir con propósito.",
+      "Mi contenido se construye alrededor de momentos reales, resultados reales y conexión real.",
+      "Ayudo a las marcas a ser parte de la historia a través de contenido auténtico e impactante que genera atención y confianza.",
     ],
     details: [
-      { label: "FROM", value: "Venezuela", icon: "location" },
-      { label: "FOCUS", value: "Fitness • Running • Lifestyle", icon: "focus" },
+      { label: "ORIGEN", value: "Venezuela", icon: "location" },
+      { label: "ENFOQUE", value: "Fitness • Correr • Estilo de Vida", icon: "focus" },
       {
-        label: "PLATFORMS",
+        label: "PLATAFORMAS",
         value: "Instagram • TikTok • YouTube",
         icon: "platform",
       },
-      { label: "LANGUAGES", value: "Español • English", icon: "language" },
+      { label: "IDIOMAS", value: "Español • Inglés", icon: "language" },
     ],
   },
 
   contentPillars: [
     {
       title: "FITNESS",
-      subtitle: "Strength. Progress. Discipline.",
+      subtitle: "Fuerza. Progreso. Disciplina.",
       image:
         "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80&auto=format&fit=crop",
     },
     {
-      title: "RUNNING",
-      subtitle: "Movement. Performance. Community.",
+      title: "CORRER",
+      subtitle: "Movimiento. Rendimiento. Comunidad.",
       image:
         "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?w=800&q=80&auto=format&fit=crop",
     },
     {
-      title: "LIFESTYLE",
-      subtitle: "Experiences. Travel. Everyday life.",
+      title: "ESTILO DE VIDA",
+      subtitle: "Experiencias. Viajes. Día a día.",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&auto=format&fit=crop",
     },
     {
       title: "MINDSET",
-      subtitle: "Consistency. Growth. Motivation.",
+      subtitle: "Constancia. Crecimiento. Motivación.",
       image:
         "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80&auto=format&fit=crop",
     },
@@ -183,13 +183,13 @@ export const siteData = {
 
   runClub: {
     name: "LA VUELTA RUN CLUB",
-    headline: "BUILDING A COMMUNITY THAT MOVES.",
+    headline: "CONSTRUYENDO UNA COMMUNITY QUE SE MUEVE.",
     description:
-      "Founder of La Vuelta Run Club, a running community in Venezuela focused on connection, consistency and becoming better every day.",
+      "Fundador de La Vuelta Run Club, una comunidad de running en Venezuela enfocada en la conexión, la constancia y ser mejor cada día.",
     stats: [
-      { value: "2 RUNS", label: "PER WEEK" },
-      { value: "+370K", label: "MONTHLY VIEWS" },
-      { value: "GROWING", label: "EVERYDAY" },
+      { value: "2 CORRIDAS", label: "POR SEMANA" },
+      { value: "+370K", label: "VISITAS MENSUALES" },
+      { value: "CRECIENDO", label: "CADA DÍA" },
     ],
   },
 
@@ -214,49 +214,49 @@ export const siteData = {
         { range: "45+", percentage: 8 },
       ],
       gender: [
-        { type: "Male", percentage: 68 },
-        { type: "Female", percentage: 32 },
+        { type: "Hombres", percentage: 68 },
+        { type: "Mujeres", percentage: 32 },
       ],
-      topCountries: ["Venezuela", "Colombia", "Mexico", "Spain", "USA"],
+      topCountries: ["Venezuela", "Colombia", "México", "España", "USA"],
       topCities: ["Caracas", "Maracaibo", "Valencia", "Bogotá", "Madrid"],
     },
   },
 
   partnerships: [
     {
-      title: "BRAND PARTNERSHIPS",
+      title: "ALIANZAS DE MARCA",
       description:
-        "Long-term collaborations that align with my values and resonate with my audience.",
+        "Colaboraciones a largo plazo que se alinean con mis valores y conectan con mi audiencia.",
       icon: "handshake",
     },
     {
-      title: "AMBASSADORSHIPS",
+      title: "EMBAJADORÍAS",
       description:
-        "Represent your brand authentically and consistently across platforms.",
+        "Representa tu marca de forma auténtica y constante en todas las plataformas.",
       icon: "star",
     },
     {
-      title: "SOCIAL CAMPAIGNS",
+      title: "CAMPAÑAS SOCIALES",
       description:
-        "Creative campaigns that drive awareness, engagement and conversions.",
+        "Campañas creativas que generan conciencia, engagement y conversiones.",
       icon: "megaphone",
     },
     {
-      title: "EVENTS & EXPERIENCES",
+      title: "EVENTOS Y EXPERIENCIAS",
       description:
-        "Live coverage and storytelling to highlight your event and maximize reach.",
+        "Cobertura en vivo y storytelling para destacar tu evento y maximizar el alcance.",
       icon: "calendar",
     },
     {
-      title: "COMMUNITY ACTIVATIONS",
+      title: "ACTIVACIONES COMUNITARIAS",
       description:
-        "Activate and engage communities through movement, challenges and authentic experiences.",
+        "Activa e involucra comunidades a través del movimiento, retos y experiencias auténticas.",
       icon: "users",
     },
     {
-      title: "PAID MEDIA CONTENT",
+      title: "CONTENIDO PARA MEDIA PAGADO",
       description:
-        "High-performing UGC and paid media content built for results.",
+        "Contenido UGC y de media pagado de alto rendimiento diseñado para resultados.",
       icon: "play",
     },
   ],
