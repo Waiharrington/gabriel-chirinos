@@ -18,7 +18,7 @@ export const siteData = {
   stats: [
     { value: "22.885", label: "SEGUIDORES", icon: "users" },
     { value: "3.097.230", label: "VISUALIZACIONES\n(30 DÍAS)", icon: "eye" },
-    { value: "1.754.791", label: "ALCANZ\n(30 DÍAS)", icon: "signal" },
+    { value: "1.754.791", label: "ALCANCE\n(30 DÍAS)", icon: "signal" },
     { value: "+676", label: "NUEVOS SEGUIDORES\n(30 DÍAS)", icon: "trending" },
   ],
 

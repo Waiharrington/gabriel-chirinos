@@ -12,7 +12,7 @@ import FooterCTA from "@/components/FooterCTA";
 export default function Home() {
   return (
     <div className="w-full bg-[#050505] min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
-      <div className="w-full max-w-[1100px] bg-[#0a0a0a] shadow-2xl relative border-x border-white/5 my-0 md:my-4">
+      <main className="w-full max-w-[1150px] bg-[#0a0a0a] shadow-2xl relative border-x border-white/5 my-0 sm:my-3">
         <Header />
         <Hero />
         <Stats />
@@ -23,7 +23,7 @@ export default function Home() {
         <Marcas />
         <Testimonios />
         <FooterCTA />
-      </div>
+      </main>
     </div>
   );
 }

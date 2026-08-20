@@ -33,38 +33,41 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Servicios() {
   return (
-    <section id="services" className="bg-[#0a0a0a] py-16 md:py-24 border-t border-white/10">
-      <div className="max-w-[1240px] mx-auto px-6 md:px-12">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+    <section id="services" className="bg-[#0a0a0a] py-14 sm:py-20 px-6 sm:px-10 lg:px-12 border-t border-white/10">
+      <div className="w-full">
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-white text-2xl md:text-3xl font-black mb-12 tracking-wide"
+          className="text-center mb-10"
         >
-          ¿QUÉ PUEDO HACER POR <span className="text-[#E53935]">TU MARCA?</span>
-        </motion.h2>
+          <h2 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-wider font-bebas">
+            ¿QUÉ PUEDO HACER POR <span className="text-[#E53935] italic">TU MARCA?</span>
+          </h2>
+          <div className="w-16 h-[2px] bg-[#E53935] mx-auto mt-2 opacity-80" />
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* 5 Service Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
           {siteData.services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-[#121212] border border-white/10 p-6 rounded-xl hover:border-[#E53935]/50 hover:bg-[#161616] transition-all group flex flex-col justify-between shadow-lg"
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              className="bg-[#111111] border border-white/10 p-5 rounded-xl hover:border-[#E53935]/50 transition-all group flex flex-col justify-start shadow-lg"
             >
-              <div>
-                <div className="w-12 h-12 bg-[#E53935]/10 rounded-lg flex items-center justify-center text-[#E53935] mb-5 group-hover:scale-110 transition-transform">
-                  {icons[service.icon]}
-                </div>
-                <h3 className="text-white text-sm font-black tracking-wider uppercase mb-3 leading-tight">
-                  {service.title}
-                </h3>
-                <p className="text-white/60 text-xs leading-relaxed">
-                  {service.description}
-                </p>
+              <div className="text-[#E53935] mb-4 group-hover:scale-110 transition-transform">
+                {icons[service.icon]}
               </div>
+              <h3 className="text-white text-sm font-black tracking-wider uppercase mb-2 leading-tight font-bebas">
+                {service.title}
+              </h3>
+              <p className="text-white/60 text-[11px] sm:text-xs leading-relaxed font-inter">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>
