@@ -50,7 +50,7 @@ export default function Comunidad() {
             </motion.div>
           </div>
 
-          <div className="flex gap-3 overflow-x-auto pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          <div className="flex gap-4 overflow-x-auto pb-4 pt-2" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             {community.videos.map((video, i) => (
               <motion.div
                 key={video.title}
@@ -58,23 +58,26 @@ export default function Comunidad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex-shrink-0 w-36 md:w-40"
+                className="flex-shrink-0 w-44 md:w-48 group cursor-pointer"
               >
-                <div className="aspect-[9/16] bg-[#111] rounded-lg overflow-hidden relative mb-2">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${video.image})` }}
+                <div className="aspect-[9/16] bg-[#141414] rounded-xl overflow-hidden relative border border-white/10 group-hover:border-[#E53935]/50 transition-colors shadow-lg">
+                  <img
+                    src={video.image}
+                    alt={video.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <p className="text-white text-[10px] font-bold uppercase whitespace-pre-line leading-tight mb-1">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  
+                  <div className="absolute top-3 right-3">
+                    <span className="text-white text-[11px] font-bold bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10 flex items-center gap-1">
+                      <span className="text-[#E53935] text-[9px]">▶</span> {video.views}
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-4 left-3 right-3">
+                    <p className="text-white text-xs font-black uppercase whitespace-pre-line leading-tight">
                       {video.title}
                     </p>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <span className="text-white text-[10px] font-bold bg-black/50 px-2 py-0.5 rounded">
-                      ▶ {video.views}
-                    </span>
                   </div>
                 </div>
               </motion.div>

@@ -53,11 +53,12 @@ export default function RunClub() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex-shrink-0 w-64 md:w-72 aspect-[4/3] bg-[#111] overflow-hidden"
+                className="flex-shrink-0 w-64 md:w-80 aspect-[4/3] bg-[#141414] rounded-lg overflow-hidden border border-white/10"
               >
-                <div
-                  className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-500"
-                  style={{ backgroundImage: `url(${img})` }}
+                <img
+                  src={img}
+                  alt={`La Vuelta Run Club ${i + 1}`}
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
               </motion.div>
             ))}
