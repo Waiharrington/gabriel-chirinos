@@ -1,14 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Statement from "@/components/Statement";
-import SelectedWork from "@/components/SelectedWork";
 import About from "@/components/About";
-import ContentUniverse from "@/components/ContentUniverse";
-import RunClub from "@/components/RunClub";
+import Stats from "@/components/Stats";
+import Work from "@/components/Work";
 import Brands from "@/components/Brands";
 import Audience from "@/components/Audience";
-import Partnerships from "@/components/Partnerships";
+import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,15 +15,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Stats />
-        <Statement />
-        <SelectedWork />
         <About />
-        <ContentUniverse />
-        <RunClub />
+        <Stats />
+        <Work />
         <Brands />
         <Audience />
-        <Partnerships />
+        <Services />
         <Contact />
       </main>
       <Footer />

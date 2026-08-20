@@ -4,33 +4,23 @@ import { siteData } from "@/data/siteData";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 py-10">
+    <footer className="bg-[#0a0a0a] border-t border-white/5 py-8">
       <div className="max-w-[1100px] mx-auto px-8 md:px-12 lg:px-20">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <span className="font-heading text-white text-lg tracking-tight">
-              {siteData.personal.monogram}
-            </span>
-            <span className="font-ui-light text-white/30 text-[8px] tracking-dramatic uppercase">
-              {siteData.personal.name}
-            </span>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex items-center gap-2">
+            <span className="font-heading text-white text-base">{siteData.personal.monogram}</span>
+            <span className="font-ui-light text-white/30 text-[8px] tracking-dramatic uppercase">{siteData.personal.name}</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
             {siteData.footer.links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-ui-light text-white/20 text-[8px] tracking-wide-custom uppercase hover:text-[#c9a96e]/60 transition-colors duration-500"
-              >
+              <a key={link.label} href={link.href} className="font-ui-light text-white/20 text-[8px] tracking-wide-custom uppercase hover:text-[#c9a96e]/60 transition-colors duration-300">
                 {link.label}
               </a>
             ))}
           </div>
 
-          <p className="font-ui-light text-white/15 text-[8px] tracking-wide-custom">
-            {siteData.footer.copyright}
-          </p>
+          <p className="font-ui-light text-white/15 text-[8px] tracking-wide-custom">{siteData.footer.copyright}</p>
         </div>
       </div>
     </footer>
