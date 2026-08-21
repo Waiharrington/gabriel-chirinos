@@ -88,11 +88,11 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Hero Portrait of Gabriel with Vertical Watermark */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end h-full min-h-[460px] sm:min-h-[520px]">
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end h-[500px] sm:h-[560px] lg:h-[620px] select-none">
             
-            {/* Massive Vertical Watermark on Right Edge */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none hidden lg:flex flex-col items-center opacity-30">
-              <span className="outline-text text-[6.5rem] xl:text-[8rem] font-black uppercase font-bebas leading-none tracking-tighter [writing-mode:vertical-rl] rotate-180">
+            {/* Massive Vertical Watermark behind athlete on Right Edge */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none hidden lg:flex flex-col items-center opacity-40">
+              <span className="outline-text text-[6.5rem] xl:text-[8.5rem] font-black uppercase font-bebas leading-none tracking-tighter [writing-mode:vertical-rl] rotate-180">
                 LA VUELTA.
               </span>
               <span className="text-[#E53935] text-xs font-black tracking-[0.4em] uppercase font-bebas [writing-mode:vertical-rl] rotate-180 mt-3">
@@ -100,21 +100,25 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Seamless Hero Athlete Photo */}
+            {/* Seamless Cutout-Style Hero Athlete Photo (NO box, NO borders) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.85, delay: 0.2 }}
-              className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[420px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="relative z-10 w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] h-full flex items-end justify-center"
             >
-              <img
-                src="/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg"
-                alt="Gabriel Chirinos Atleta"
-                className="w-full h-full object-cover object-top"
-              />
-              {/* Cinematic Vignette Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 via-transparent to-transparent" />
+              <div className="relative w-full h-full overflow-hidden [mask-image:radial-gradient(ellipse_95%_90%_at_50%_40%,black_50%,transparent_100%)]">
+                <img
+                  src="/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg"
+                  alt="Gabriel Chirinos Atleta"
+                  className="w-full h-full object-cover object-top filter contrast-[1.05] brightness-95"
+                />
+
+                {/* Smooth Multi-directional Edge Gradients to blend into #0a0a0a */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a]/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-transparent opacity-80" />
+              </div>
             </motion.div>
 
           </div>
