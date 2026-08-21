@@ -11,8 +11,8 @@ export default function FooterCTA() {
         {/* Background Image with Dark Vignette */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg"
-            alt="Gabriel Chirinos Banner"
+            src="/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg"
+            alt="Gabriel Chirinos Running"
             className="w-full h-full object-cover object-left opacity-35 sm:opacity-45"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/85 to-transparent" />

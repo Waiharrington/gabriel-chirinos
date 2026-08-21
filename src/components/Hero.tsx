@@ -5,36 +5,38 @@ import { siteData } from "@/data/siteData";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[580px] lg:min-h-[640px] bg-[#0a0a0a] overflow-hidden flex items-center pt-8 pb-12">
-      {/* Background Glow / Atmosphere */}
-      <div className="absolute inset-0 bg-radial from-[#181818] via-[#0a0a0a] to-[#0a0a0a] opacity-90 pointer-events-none" />
+    <section id="home" className="relative min-h-[560px] lg:min-h-[620px] bg-[#0a0a0a] overflow-hidden flex items-center pt-8 pb-10">
+      {/* Cinematic Background Glow */}
+      <div className="absolute inset-0 bg-radial from-[#1e1e1e]/60 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
 
-      {/* Main 2-Column Content Grid */}
+      {/* Main 2-Column Grid */}
       <div className="relative z-10 w-full px-6 sm:px-10 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Headline, Subtitle, Copy, and CTAs */}
+          {/* Left Column: Headline, Tagline, Copy, and CTAs */}
           <div className="lg:col-span-7 z-20">
             {/* Tagline Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block border border-[#E53935]/70 bg-[#E53935]/10 px-3 py-1 mb-5 rounded-xs"
+              className="inline-block border border-[#E53935] bg-[#E53935]/15 px-3 py-1 mb-4 rounded-xs"
             >
-              <span className="text-[#E53935] text-[10px] font-black tracking-[0.25em] uppercase font-bebas">
+              <span className="text-[#E53935] text-[11px] font-black tracking-[0.25em] uppercase font-bebas">
                 {siteData.personal.tagline}
               </span>
             </motion.div>
 
-            {/* Massive Athletic Headline */}
+            {/* Massive Athletic 3-Line Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="text-white text-[3.2rem] sm:text-[4.5rem] lg:text-[5.2rem] font-black leading-[0.88] uppercase tracking-tight mb-2 font-bebas drop-shadow-md"
+              className="text-white text-[3.8rem] sm:text-[5rem] lg:text-[6.4rem] font-black leading-[0.82] uppercase tracking-tight font-bebas drop-shadow-lg"
             >
-              {siteData.personal.headline}
+              CONECTO<br />
+              MARCAS CON<br />
+              PERSONAS
             </motion.h1>
 
             {/* Signature Script Accent */}
@@ -42,7 +44,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="font-script text-[#E53935] text-[2.8rem] sm:text-[3.6rem] lg:text-[4.2rem] mb-6 -mt-2 drop-shadow"
+              className="font-script text-[#E53935] text-[3rem] sm:text-[4rem] lg:text-[4.8rem] -mt-3 sm:-mt-5 mb-4 select-none drop-shadow"
             >
               {siteData.personal.headlineScript}
             </motion.p>
@@ -52,7 +54,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-white/70 text-xs sm:text-sm leading-relaxed max-w-lg mb-8 font-inter"
+              className="text-white/70 text-xs sm:text-sm leading-relaxed max-w-md mb-7 font-inter"
             >
               {siteData.personal.description}
             </motion.p>
@@ -66,7 +68,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-red-900/30 rounded-xs uppercase font-bebas text-sm"
+                className="bg-[#E53935] hover:bg-[#C62828] text-white px-7 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-red-900/30 rounded-xs uppercase font-bebas text-sm"
               >
                 VER MEDIA KIT
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +77,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="bg-[#121212]/80 hover:bg-[#1c1c1c] border border-white/20 hover:border-white/50 text-white px-6 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 rounded-xs uppercase font-bebas text-sm"
+                className="bg-[#121212]/80 hover:bg-[#1c1c1c] border border-white/30 hover:border-white text-white px-7 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 rounded-xs uppercase font-bebas text-sm"
               >
                 TRABAJEMOS JUNTOS
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,29 +87,34 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Gabriel Photo with Side Watermark */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-center">
+          {/* Right Column: Hero Portrait of Gabriel with Vertical Watermark */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end h-full min-h-[460px] sm:min-h-[520px]">
             
-            {/* Background Watermark Text on Far Right */}
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 select-none pointer-events-none z-0 hidden lg:flex flex-col items-end opacity-15">
-              <div className="text-white text-[7.5rem] xl:text-[9rem] font-black leading-none tracking-tighter uppercase font-bebas rotate-90 origin-right translate-x-12">
+            {/* Massive Vertical Watermark on Right Edge */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none hidden lg:flex flex-col items-center opacity-30">
+              <span className="outline-text text-[6.5rem] xl:text-[8rem] font-black uppercase font-bebas leading-none tracking-tighter [writing-mode:vertical-rl] rotate-180">
                 LA VUELTA.
-              </div>
+              </span>
+              <span className="text-[#E53935] text-xs font-black tracking-[0.4em] uppercase font-bebas [writing-mode:vertical-rl] rotate-180 mt-3">
+                RUN CLUB
+              </span>
             </div>
 
-            {/* Gabriel Featured Athletic Photo */}
+            {/* Seamless Hero Athlete Photo */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.25 }}
-              className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] aspect-[4/5] rounded-xl overflow-hidden shadow-2xl border border-white/10"
+              transition={{ duration: 0.85, delay: 0.2 }}
+              className="relative z-10 w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[420px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
-                src="/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg"
-                alt="Gabriel Chirinos"
+                src="/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg"
+                alt="Gabriel Chirinos Atleta"
                 className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-50" />
+              {/* Cinematic Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 via-transparent to-transparent" />
             </motion.div>
 
           </div>
