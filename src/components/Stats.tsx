@@ -29,8 +29,8 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Stats() {
   return (
-    <section className="bg-[#0a0a0a] px-6 sm:px-10 lg:px-12 py-4">
-      <div className="w-full bg-[#111111] border border-white/10 rounded-xl p-6 shadow-xl">
+    <section className="bg-[#0a0a0a] px-6 sm:px-10 lg:px-12 py-6 w-full">
+      <div className="w-full max-w-[1240px] mx-auto bg-[#111111] border border-white/10 rounded-xl p-6 sm:p-7 shadow-xl">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
           {siteData.stats.map((stat, i) => (
             <motion.div

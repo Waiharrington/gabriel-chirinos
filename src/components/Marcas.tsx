@@ -63,8 +63,8 @@ const brandLogos = [
 
 export default function Marcas() {
   return (
-    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/10">
-      <div className="w-full">
+    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/10 w-full">
+      <div className="w-full max-w-[1240px] mx-auto">
         
         {/* Section Header with Horizontal Lines */}
         <div className="flex items-center justify-center gap-4 sm:gap-6 mb-10">

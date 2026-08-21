@@ -11,19 +11,17 @@ import FooterCTA from "@/components/FooterCTA";
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#050505] min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
-      <main className="w-full max-w-[1150px] bg-[#0a0a0a] shadow-2xl relative border-x border-white/5 my-0 sm:my-3">
-        <Header />
-        <Hero />
-        <Stats />
-        <Nichos />
-        <Comunidad />
-        <Servicios />
-        <RunClub />
-        <Marcas />
-        <Testimonios />
-        <FooterCTA />
-      </main>
-    </div>
+    <main className="w-full min-h-screen bg-[#0a0a0a] overflow-x-hidden">
+      <Header />
+      <Hero />
+      <Stats />
+      <Nichos />
+      <Comunidad />
+      <Servicios />
+      <RunClub />
+      <Marcas />
+      <Testimonios />
+      <FooterCTA />
+    </main>
   );
 }

@@ -20,7 +20,7 @@ export default function FooterCTA() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-12 py-14">
+        <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}

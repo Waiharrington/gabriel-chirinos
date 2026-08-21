@@ -39,8 +39,8 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Nichos() {
   return (
-    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/5">
-      <div className="w-full">
+    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/5 w-full">
+      <div className="w-full max-w-[1240px] mx-auto">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}

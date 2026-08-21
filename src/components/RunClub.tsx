@@ -15,8 +15,8 @@ export default function RunClub() {
   };
 
   return (
-    <section className="bg-[#0a0a0a] py-14 sm:py-20 px-6 sm:px-10 lg:px-12 border-t border-white/10">
-      <div className="w-full">
+    <section className="bg-[#0a0a0a] py-14 sm:py-20 px-6 sm:px-10 lg:px-12 border-t border-white/10 w-full">
+      <div className="w-full max-w-[1240px] mx-auto">
         {/* Title & Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
