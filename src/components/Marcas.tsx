@@ -63,38 +63,35 @@ const brandLogos = [
 
 export default function Marcas() {
   return (
-    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/10 w-full">
-      <div className="w-full max-w-[1240px] mx-auto">
-        
-        {/* Section Header with Horizontal Lines */}
-        <div className="flex items-center justify-center gap-4 sm:gap-6 mb-10">
-          <div className="h-[1px] bg-gradient-to-r from-transparent to-white/20 flex-1 max-w-[140px] sm:max-w-[200px]" />
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
+    <section className="w-full py-2">
+      {/* Section Header with Horizontal Lines */}
+      <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="h-[1px] bg-gradient-to-r from-transparent to-white/20 flex-1 max-w-[120px]" />
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-white text-lg sm:text-xl font-black uppercase tracking-wider font-bebas"
+        >
+          MARCAS QUE HAN <span className="text-[#E53935] italic">CONFIADO</span>
+        </motion.h2>
+        <div className="h-[1px] bg-gradient-to-l from-transparent to-white/20 flex-1 max-w-[120px]" />
+      </div>
+
+      {/* Brand Logos */}
+      <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 lg:gap-12 opacity-80 hover:opacity-100 transition-opacity">
+        {brandLogos.map((brand, i) => (
+          <motion.div
+            key={brand.name}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center text-white text-xl sm:text-2xl font-black uppercase tracking-wider font-bebas"
+            transition={{ duration: 0.4, delay: i * 0.04 }}
+            className="text-white/80 hover:text-white transition-colors flex items-center justify-center"
           >
-            MARCAS QUE HAN <span className="text-[#E53935] italic">CONFIADO</span>
-          </motion.h2>
-          <div className="h-[1px] bg-gradient-to-l from-transparent to-white/20 flex-1 max-w-[140px] sm:max-w-[200px]" />
-        </div>
-
-        {/* Brand Logos */}
-        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 lg:gap-14 opacity-75 hover:opacity-100 transition-opacity">
-          {brandLogos.map((brand, i) => (
-            <motion.div
-              key={brand.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="text-white/80 hover:text-white transition-colors flex items-center justify-center"
-            >
-              {brand.svg}
-            </motion.div>
-          ))}
-        </div>
+            {brand.svg}
+          </motion.div>
+        ))}
       </div>
     </section>
   );

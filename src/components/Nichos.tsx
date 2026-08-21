@@ -39,43 +39,42 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Nichos() {
   return (
-    <section className="bg-[#0a0a0a] py-14 sm:py-18 px-6 sm:px-10 lg:px-12 border-t border-white/5 w-full">
-      <div className="w-full max-w-[1240px] mx-auto">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
+    <section className="w-full py-2">
+      {/* Section Header with Horizontal Lines */}
+      <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="h-[1px] bg-gradient-to-r from-transparent to-[#E53935]/50 flex-1 max-w-[120px]" />
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-white text-lg sm:text-xl font-black uppercase tracking-wider font-bebas"
         >
-          <h2 className="text-white text-xl sm:text-2xl font-black uppercase tracking-wider font-bebas">
-            NICHOS EN LOS QUE <span className="text-[#E53935] italic">CONECTO</span>
-          </h2>
-          <div className="w-16 h-[2px] bg-[#E53935] mx-auto mt-2 opacity-80" />
-        </motion.div>
+          NICHOS EN LOS QUE <span className="text-[#E53935] italic">CONECTO</span>
+        </motion.h2>
+        <div className="h-[1px] bg-gradient-to-l from-transparent to-[#E53935]/50 flex-1 max-w-[120px]" />
+      </div>
 
-        {/* 6 Niches in 6 columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-2">
-          {siteData.niches.map((niche, i) => (
-            <motion.div
-              key={niche.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className={`flex flex-col items-center justify-center text-center py-4 px-2 group ${
-                i !== siteData.niches.length - 1 ? "lg:border-r lg:border-white/10" : ""
-              }`}
-            >
-              <div className="text-[#E53935] mb-3 group-hover:scale-110 transition-transform">
-                {icons[niche.icon]}
-              </div>
-              <span className="text-white/80 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase whitespace-pre-line leading-tight font-inter">
-                {niche.label}
-              </span>
-            </motion.div>
-          ))}
-        </div>
+      {/* 6 Niches in 6 columns */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+        {siteData.niches.map((niche, i) => (
+          <motion.div
+            key={niche.label}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            className={`flex flex-col items-center justify-center text-center py-3 px-2 group ${
+              i !== siteData.niches.length - 1 ? "lg:border-r lg:border-dashed lg:border-white/15" : ""
+            }`}
+          >
+            <div className="text-[#E53935] mb-2.5 group-hover:scale-110 transition-transform">
+              {icons[niche.icon]}
+            </div>
+            <span className="text-white/80 text-[10px] font-bold tracking-wider uppercase whitespace-pre-line leading-tight font-inter">
+              {niche.label}
+            </span>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

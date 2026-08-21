@@ -33,44 +33,42 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Servicios() {
   return (
-    <section id="services" className="bg-[#0a0a0a] py-14 sm:py-20 px-6 sm:px-10 lg:px-12 border-t border-white/10 w-full">
-      <div className="w-full max-w-[1240px] mx-auto">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <h2 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-wider font-bebas">
-            ¿QUÉ PUEDO HACER POR <span className="text-[#E53935] italic">TU MARCA?</span>
-          </h2>
-          <div className="w-16 h-[2px] bg-[#E53935] mx-auto mt-2 opacity-80" />
-        </motion.div>
+    <section id="services" className="w-full py-2">
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-6"
+      >
+        <h2 className="text-white text-xl sm:text-2xl font-black uppercase tracking-wider font-bebas">
+          ¿QUÉ PUEDO HACER POR <span className="text-[#E53935] italic">TU MARCA?</span>
+        </h2>
+        <div className="w-12 h-[2px] bg-[#E53935] mx-auto mt-1.5 opacity-80" />
+      </motion.div>
 
-        {/* 5 Service Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
-          {siteData.services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="bg-[#111111] border border-white/10 p-5 rounded-xl hover:border-[#E53935]/50 transition-all group flex flex-col justify-start shadow-lg"
-            >
-              <div className="text-[#E53935] mb-4 group-hover:scale-110 transition-transform">
-                {icons[service.icon]}
-              </div>
-              <h3 className="text-white text-sm font-black tracking-wider uppercase mb-2 leading-tight font-bebas">
-                {service.title}
-              </h3>
-              <p className="text-white/60 text-[11px] sm:text-xs leading-relaxed font-inter">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+      {/* 5 Service Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        {siteData.services.map((service, i) => (
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            className="bg-[#111111] border border-white/10 p-4 sm:p-5 rounded-xl hover:border-[#E53935]/50 transition-all group flex flex-col justify-start shadow-md"
+          >
+            <div className="text-[#E53935] mb-3 group-hover:scale-110 transition-transform">
+              {icons[service.icon]}
+            </div>
+            <h3 className="text-white text-xs sm:text-sm font-black tracking-wider uppercase mb-1.5 leading-tight font-bebas">
+              {service.title}
+            </h3>
+            <p className="text-white/60 text-[10px] sm:text-[11px] leading-relaxed font-inter">
+              {service.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
