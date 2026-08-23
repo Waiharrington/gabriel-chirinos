@@ -19,7 +19,7 @@ export default function Home() {
       <Hero />
 
       {/* Main Container for rest of sections */}
-      <main className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
+      <main className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
         <Stats />
         <Nichos />
         <Comunidad />
