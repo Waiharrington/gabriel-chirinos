@@ -17,9 +17,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/80 via-[#050505]/40 to-transparent w-full md:w-[60%]" />
       </div>
 
-      {/* Content Container aligned with the rest of the site */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center h-full">
-        <div className="max-w-xl py-6">
+      {/* Content Container positioned exactly in the dark pocket marked by user */}
+      <div className="relative z-10 w-full max-w-[1240px] mx-auto px-8 sm:px-14 lg:px-20 flex items-center h-full">
+        <div className="max-w-xl py-6 sm:ml-8 lg:ml-16">
           {/* Tagline Badge */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
