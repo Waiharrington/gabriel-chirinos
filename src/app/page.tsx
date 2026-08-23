@@ -12,9 +12,14 @@ import FooterCTA from "@/components/FooterCTA";
 export default function Home() {
   return (
     <div className="w-full bg-[#050505] min-h-screen text-white flex flex-col items-center justify-start antialiased selection:bg-[#E53935]/40 selection:text-white">
-      <main className="w-full max-w-[1080px] mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-6 flex flex-col gap-10 sm:gap-14">
-        <Header />
-        <Hero />
+      {/* Full-width Header */}
+      <Header />
+
+      {/* Full-width Hero Banner */}
+      <Hero />
+
+      {/* Main Container for rest of sections */}
+      <main className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
         <Stats />
         <Nichos />
         <Comunidad />
