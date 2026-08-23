@@ -6,16 +6,15 @@ import { siteData } from "@/data/siteData";
 export default function Hero() {
   return (
     <section id="home" className="relative w-full h-[540px] sm:h-[600px] lg:h-[640px] overflow-hidden flex items-center bg-[#050505]">
-      {/* Hero Background Image (Gabriel on the right, scaled naturally) */}
+      {/* Hero Background Image from SVG */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/photos/hero-banner.png"
-          alt="Gabriel Chirinos Hero"
-          className="w-full h-full object-cover object-[78%_center] lg:object-[82%_center] filter contrast-[1.05]"
+          src="/photos/hero-bg.svg"
+          alt="Gabriel Chirinos Hero Background"
+          className="w-full h-full object-cover object-center"
         />
-        {/* Smooth Dark Gradient Overlays for Clean Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/90 to-transparent w-full md:w-[65%] lg:w-[54%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/60" />
+        {/* Soft gradient to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/80 via-[#050505]/40 to-transparent w-full md:w-[60%]" />
       </div>
 
       {/* Content Container aligned with the rest of the site */}
