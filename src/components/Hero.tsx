@@ -18,8 +18,8 @@ export default function Hero() {
       </div>
 
       {/* Content Container positioned exactly in the dark pocket marked by user */}
-      <div className="relative z-10 w-full max-w-[1240px] mx-auto px-8 sm:px-14 lg:px-20 flex items-center h-full">
-        <div className="max-w-xl py-6 sm:ml-8 lg:ml-16">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center h-full">
+        <div className="max-w-xl py-6">
           {/* Tagline Badge */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -73,21 +73,21 @@ export default function Hero() {
             {/* Button 1: VER MEDIA KIT */}
             <a
               href="#contact"
-              className="bg-[#E53935] hover:bg-[#C62828] text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl text-xs sm:text-sm font-black tracking-wider uppercase inline-flex items-center justify-center gap-2.5 shadow-xl shadow-red-950/60 transition-all transform hover:-translate-y-0.5 active:translate-y-0 font-inter"
+              className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3 sm:px-7 sm:py-3.5 rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase inline-flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-red-950/40 font-inter"
             >
               <span>VER MEDIA KIT</span>
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
             </a>
-
+ 
             {/* Button 2: TRABAJEMOS JUNTOS */}
             <a
               href="#contact"
-              className="bg-black/75 hover:bg-black/95 border border-white/25 hover:border-white text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl text-xs sm:text-sm font-black tracking-wider uppercase inline-flex items-center justify-center gap-2.5 backdrop-blur-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 font-inter"
+              className="bg-black/75 hover:bg-black/95 border border-white/20 hover:border-white text-white px-6 py-3 sm:px-7 sm:py-3.5 rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase inline-flex items-center justify-center gap-2 backdrop-blur-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 font-inter"
             >
               <span>TRABAJEMOS JUNTOS</span>
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
             </a>

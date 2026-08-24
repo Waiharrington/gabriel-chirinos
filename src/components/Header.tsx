@@ -5,8 +5,8 @@ import { siteData } from "@/data/siteData";
 export default function Header() {
   return (
     <header className="sticky top-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-md border-b border-white/10 w-full">
-      <div className="w-full max-w-[1240px] mx-auto px-8 sm:px-14 lg:px-20 py-4 flex items-center justify-between">
-        <a href="#home" className="flex flex-col leading-none group sm:ml-8 lg:ml-16">
+      <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 py-4 flex items-center justify-between">
+        <a href="#home" className="flex flex-col leading-none group">
           <span className="text-white text-xl sm:text-2xl font-black italic tracking-wide font-bebas">GABRIEL</span>
           <span className="text-white/90 text-[10px] sm:text-[11px] font-bold tracking-[0.28em] uppercase -mt-0.5 font-inter group-hover:text-[#E53935] transition-colors">CHIRINOS</span>
         </a>
@@ -43,7 +43,7 @@ export default function Header() {
 
           <a
             href="#contact"
-            className="bg-[#E53935] hover:bg-[#C62828] text-white px-5 py-2 text-xs font-black tracking-wider uppercase transition-all shadow-md shadow-red-900/20 rounded-sm"
+            className="bg-[#E53935] hover:bg-[#C62828] text-white px-5 py-2.5 text-xs font-extrabold tracking-wider uppercase transition-all shadow-md shadow-red-950/40 rounded-lg"
           >
             CONTACTO
           </a>

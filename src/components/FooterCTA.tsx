@@ -40,22 +40,22 @@ export default function FooterCTA() {
                   Si tu marca busca impacto real, conexión auténtica y resultados medibles, estoy listo para sumarme a tu próximo proyecto.
                 </p>
 
-                {/* Buttons */}
+                 {/* Buttons */}
                 <div className="flex flex-wrap gap-3 mb-6">
                   <a
                     href="#"
-                    className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 rounded-xs shadow-lg shadow-red-900/30 font-bebas text-sm"
+                    className="bg-[#E53935] hover:bg-[#C62828] text-white px-6 py-3 rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase inline-flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-red-950/40 font-inter"
                   >
-                    VER MEDIA KIT
+                    <span>VER MEDIA KIT</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                   </a>
                   <a
                     href={`mailto:${siteData.personal.email}`}
-                    className="bg-[#181818] hover:bg-[#222222] border border-white/20 hover:border-white text-white px-6 py-3 text-xs font-black tracking-wider flex items-center gap-2 transition-all transform hover:-translate-y-0.5 rounded-xs font-bebas text-sm"
+                    className="bg-black/75 hover:bg-black/95 border border-white/20 hover:border-white text-white px-6 py-3 rounded-lg text-xs sm:text-sm font-extrabold tracking-wider uppercase inline-flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 font-inter"
                   >
-                    HABLEMOS
+                    <span>HABLEMOS</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
