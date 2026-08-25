@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       {/* Content Container positioned exactly in the dark pocket marked by user */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-12 flex items-center h-full">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 sm:px-16 lg:px-24 flex items-center h-full">
         <div className="max-w-xl py-6">
           {/* Tagline Badge */}
           <motion.div

@@ -30,8 +30,8 @@ const icons: Record<string, React.ReactNode> = {
 export default function Stats() {
   return (
     <section className="w-full">
-      <div className="bg-[#101010] border border-white/10 rounded-xl p-4 sm:p-5 shadow-xl">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-0 lg:divide-x lg:divide-white/10">
+      <div className="bg-[#101010] border border-white/5 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
           {siteData.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -39,16 +39,16 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="flex items-center gap-3.5 lg:px-6 justify-start"
+              className="flex items-center gap-4 lg:px-8 justify-start"
             >
               <div className="text-[#E53935] flex-shrink-0">
                 {icons[stat.icon]}
               </div>
               <div>
-                <div className="text-white text-2xl lg:text-3xl font-black font-bebas leading-none mb-1">
+                <div className="text-white text-3xl lg:text-4xl font-black font-bebas leading-none mb-1.5">
                   {stat.value}
                 </div>
-                <div className="text-white/40 text-[9px] font-bold tracking-wider whitespace-pre-line uppercase font-inter leading-tight">
+                <div className="text-white/40 text-[10px] font-bold tracking-wider whitespace-pre-line uppercase font-inter leading-tight">
                   {stat.label}
                 </div>
               </div>
