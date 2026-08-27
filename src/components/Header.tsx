@@ -1,18 +1,34 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { siteData } from "@/data/siteData";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-[#050505]/95 backdrop-blur-md border-b border-white/10 w-full">
-      <div className="w-full max-w-[1200px] mx-auto px-8 sm:px-16 lg:px-24 py-4 flex items-center justify-between">
-        <a href="#home" className="flex flex-col leading-none group">
-          <span className="text-white text-xl sm:text-2xl font-black italic tracking-wide font-bebas">GABRIEL</span>
-          <span className="text-white/90 text-[10px] sm:text-[11px] font-bold tracking-[0.28em] uppercase -mt-0.5 font-inter group-hover:text-[#E53935] transition-colors">CHIRINOS</span>
-        </a>
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[#050505]/85 backdrop-blur-xl border-b border-white/[0.08] w-full transition-all">
+      {/* Subtle top red glow line */}
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#E53935]/40 to-transparent" />
+      
+      <div className="w-full max-w-[1200px] mx-auto px-8 sm:px-16 lg:px-24 py-3.5 flex items-center justify-between">
+        {/* Brand Logo */}
+        <motion.a
+          href="#home"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex flex-col leading-none group cursor-pointer"
+        >
+          <span className="text-white text-xl sm:text-2xl font-black italic tracking-wider font-bebas group-hover:text-white transition-colors">
+            GABRIEL
+          </span>
+          <span className="text-white/80 text-[10px] sm:text-[11px] font-bold tracking-[0.3em] uppercase -mt-0.5 font-inter group-hover:text-[#E53935] group-hover:glow-text-red transition-all">
+            CHIRINOS
+          </span>
+        </motion.a>
 
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-4">
+        {/* Right side: Social links & Contact CTA */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-1 sm:gap-2">
             {siteData.socialLinks.map((link) => (
               <a
                 key={link.platform}
@@ -20,7 +36,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.platform}
-                className="text-white/60 hover:text-white transition-colors"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.08] hover:scale-110 active:scale-95 transition-all"
               >
                 {link.platform === "Instagram" && (
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -41,12 +57,17 @@ export default function Header() {
             ))}
           </div>
 
-          <a
+          <motion.a
             href="#contact"
-            className="bg-[#E53935] hover:bg-[#C62828] text-white px-5 py-2.5 text-xs font-extrabold tracking-wider uppercase transition-all shadow-md shadow-red-950/40 rounded-lg"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="relative group overflow-hidden bg-gradient-to-r from-[#E53935] to-[#C62828] hover:from-[#f04541] hover:to-[#d32f2f] text-white px-5 py-2 sm:px-6 sm:py-2.5 text-xs font-black tracking-wider uppercase rounded-lg shadow-lg shadow-red-950/50 hover:shadow-red-600/30 transition-all font-inter inline-flex items-center gap-1.5"
           >
-            CONTACTO
-          </a>
+            <span className="relative z-10">CONTACTO</span>
+            <span className="relative z-10 group-hover:translate-x-0.5 transition-transform">→</span>
+            {/* Shimmer light sweep */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform ease-out" />
+          </motion.a>
         </div>
       </div>
     </header>

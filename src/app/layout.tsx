@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,6 +37,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Gabriel Chirinos" }],
   creator: "Gabriel Chirinos",
+  openGraph: {
+    title: "Gabriel Chirinos | Creador de Contenido & Atleta",
+    description:
+      "Conecto marcas con personas en movimiento. Creador fitness, running y fundador de La Vuelta Run Club.",
+    type: "website",
+    locale: "es_VE",
+  },
 };
 
 export default function RootLayout({
@@ -48,7 +56,8 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${bebasNeue.variable} ${dancingScript.variable}`}
     >
-      <body className="min-h-screen bg-[#050505] text-white antialiased font-inter selection:bg-red-600/40">
+      <body className="min-h-screen bg-[#050505] text-white antialiased font-inter selection:bg-red-600/40 overflow-x-hidden">
+        <CustomCursor />
         {children}
       </body>
     </html>
