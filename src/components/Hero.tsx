@@ -55,7 +55,7 @@ export default function Hero() {
 
       {/* Hero Content Container positioned in the open area */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 sm:px-16 lg:px-24 flex items-center h-full">
-        <div className="max-w-xl py-6">
+        <div id="hero-content" className="max-w-xl py-6 transition-all">
           {/* Tagline Badge with Pulsing Live Status Dot */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -74,6 +74,7 @@ export default function Hero() {
 
           {/* 2-Line Athletic Headline */}
           <motion.h1
+            id="hero-title"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -85,6 +86,7 @@ export default function Hero() {
 
           {/* Signature Script Accent */}
           <motion.p
+            id="hero-script"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -105,6 +107,7 @@ export default function Hero() {
 
           {/* Prominent Action Buttons */}
           <motion.div
+            id="hero-buttons"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}

@@ -74,9 +74,12 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
 
 export default function Stats() {
   return (
-    <section className="w-full flex justify-center py-2">
+    <section id="stats-section" className="w-full flex justify-center py-2">
       {/* Centered card matching exact reference dimensions and ample internal space */}
-      <div className="w-full max-w-[1040px] bg-[#090909] border border-white/[0.14] rounded-2xl px-8 py-8 sm:px-12 sm:py-9 lg:px-8 lg:py-8 shadow-2xl">
+      <div
+        id="stats-card"
+        className="w-full max-w-[1040px] bg-[#090909] border border-white/[0.14] rounded-2xl px-8 py-8 sm:px-12 sm:py-9 lg:px-8 lg:py-8 shadow-2xl transition-all"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 items-center">
           {siteData.stats.map((stat, i) => (
             <div key={stat.label} className="flex items-center justify-between lg:justify-start w-full relative">

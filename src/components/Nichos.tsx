@@ -39,7 +39,7 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Nichos() {
   return (
-    <section className="w-full py-2">
+    <section id="nichos-section" className="w-full py-2 transition-all">
       {/* Section Header with Horizontal Lines */}
       <div className="flex items-center justify-center gap-4 mb-8">
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-white/20 flex-1 max-w-[140px]" />

@@ -7,7 +7,7 @@ export default function Comunidad() {
   const { community } = siteData;
 
   return (
-    <section className="w-full py-3">
+    <section id="comunidad-section" className="w-full py-3 transition-all">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         {/* Left Column: Community description & Demographics Card (4 cols) */}

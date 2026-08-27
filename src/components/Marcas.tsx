@@ -65,7 +65,7 @@ const brandLogos = [
 
 export default function Marcas() {
   return (
-    <section className="w-full py-4 overflow-hidden select-none">
+    <section id="marcas-section" className="w-full py-4 overflow-hidden select-none transition-all">
       {/* Section Header with Horizontal Accent Lines */}
       <div className="flex items-center justify-center gap-4 mb-8">
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-white/20 flex-1 max-w-[140px]" />
