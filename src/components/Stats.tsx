@@ -6,24 +6,26 @@ import { siteData } from "@/data/siteData";
 
 const icons: Record<string, React.ReactNode> = {
   users: (
-    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <svg className="w-8 h-8 sm:w-9 sm:h-9 text-[#E53935] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
       <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
     </svg>
   ),
   eye: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+    <svg className="w-8 h-8 sm:w-9 sm:h-9 text-[#E53935] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
   ),
   signal: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0" />
+    <svg className="w-8 h-8 sm:w-9 sm:h-9 text-[#E53935] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="2" fill="currentColor" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 8.5a5 5 0 000 7m7-7a5 5 0 010 7M5.5 5.5a9 9 0 000 13m13-13a9 9 0 010 13" />
     </svg>
   ),
   trending: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+    <svg className="w-8 h-8 sm:w-9 sm:h-9 text-[#E53935] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 21v-4m5 4v-7m5 7v-5m5 5v-9" />
     </svg>
   ),
 };
@@ -37,7 +39,6 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
   useEffect(() => {
     if (!isInView) return;
 
-    // Parse prefix like "+"
     const hasPlus = rawValue.startsWith("+");
     const cleanStr = rawValue.replace(/[^0-9]/g, "");
     const target = parseInt(cleanStr, 10);
@@ -47,16 +48,14 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
     }
 
     let startTimestamp: number | null = null;
-    const duration = 2000; // ms
+    const duration = 1800;
 
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      // EaseOutExpo
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = Math.floor(ease * target);
 
-      // Format with dot separator (e.g. 22.885, 3.097.230)
       const formatted = current.toLocaleString("de-DE");
       setDisplayValue(`${hasPlus ? "+" : ""}${formatted}`);
 
@@ -75,40 +74,41 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
 
 export default function Stats() {
   return (
-    <section className="w-full relative">
-      {/* Background ambient red glow behind card */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-[#E53935]/15 via-transparent to-[#E53935]/10 rounded-3xl blur-xl opacity-75 pointer-events-none" />
-
-      {/* Main floating card */}
-      <div className="relative bg-[#0d0d0d]/90 backdrop-blur-xl border border-white/[0.09] hover:border-white/[0.16] rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl transition-all">
-        {/* Top ambient highlight line */}
-        <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-transparent" />
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/[0.08]">
+    <section className="w-full">
+      {/* Exact replica of the reference box with generous internal space */}
+      <div className="w-full bg-[#0a0a0a] border border-white/[0.12] rounded-2xl px-6 py-7 sm:px-10 sm:py-8 lg:px-10 lg:py-8 shadow-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
           {siteData.stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex items-center gap-4 lg:px-8 justify-start group cursor-default"
-            >
-              {/* Glowing Icon Container */}
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#E53935]/20 via-[#E53935]/10 to-transparent border border-[#E53935]/35 flex items-center justify-center text-[#E53935] flex-shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(229,57,53,0.35)] transition-all duration-300">
-                {icons[stat.icon]}
-              </div>
+            <div key={stat.label} className="flex items-center justify-between lg:justify-start w-full">
+              {/* Stat Item Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="flex items-center gap-4 sm:gap-5 w-full lg:px-6 xl:px-8 justify-start"
+              >
+                {/* Standalone Red Icon */}
+                <div className="flex items-center justify-center">
+                  {icons[stat.icon]}
+                </div>
 
-              {/* Stats Value & Label */}
-              <div>
-                <div className="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-black font-bebas leading-none mb-1.5 tracking-tight group-hover:text-[#E53935] transition-colors">
-                  <AnimatedCounter rawValue={stat.value} />
+                {/* Text Content */}
+                <div className="flex flex-col">
+                  <div className="text-white text-2xl sm:text-3xl lg:text-[26px] xl:text-[28px] font-black font-inter tracking-tight leading-none mb-1">
+                    <AnimatedCounter rawValue={stat.value} />
+                  </div>
+                  <div className="text-white/60 text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold tracking-wider whitespace-pre-line uppercase font-inter leading-tight">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-white/45 group-hover:text-white/70 text-[9.5px] sm:text-[10px] font-bold tracking-wider whitespace-pre-line uppercase font-inter leading-tight transition-colors">
-                  {stat.label}
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+
+              {/* Vertical Red Divider Line between items on desktop */}
+              {i < siteData.stats.length - 1 && (
+                <div className="hidden lg:block w-[1px] h-10 xl:h-12 bg-[#E53935]/50 flex-shrink-0 mx-1" />
+              )}
+            </div>
           ))}
         </div>
       </div>
