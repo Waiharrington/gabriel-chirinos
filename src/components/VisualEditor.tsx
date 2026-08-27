@@ -17,11 +17,11 @@ interface ElementStyle {
 type StyleConfig = Record<string, Partial<ElementStyle>>;
 
 const EDITABLE_ELEMENTS = [
+  { id: "hero-buttons", label: "🦸 Botones 'VER MEDIA KIT'" },
   { id: "hero-title", label: "🦸 Título 'CONECTO MARCAS'" },
   { id: "hero-script", label: "🦸 Subtítulo 'en movimiento'" },
   { id: "hero-badge", label: "🦸 Badge 'CREADOR DE CONTENIDO'" },
   { id: "hero-desc", label: "🦸 Párrafo de Descripción" },
-  { id: "hero-buttons", label: "🦸 Botones 'VER MEDIA KIT'" },
   { id: "hero-content", label: "🦸 Hero: Bloque Completo" },
   { id: "stats-card", label: "📊 Tarjeta de Estadísticas (Caja)" },
   { id: "stats-section", label: "📊 Sección de Estadísticas" },
@@ -33,35 +33,40 @@ const EDITABLE_ELEMENTS = [
 ];
 
 const DEFAULT_STYLES: StyleConfig = {
-  "hero-title": { translateX: 0, translateY: 0, scale: 100 },
-  "hero-script": { translateX: 0, translateY: 0, scale: 100 },
-  "hero-badge": { translateX: 0, translateY: 0, scale: 100 },
-  "hero-desc": { translateX: 0, translateY: 0, scale: 100 },
-  "hero-buttons": { translateX: 0, translateY: 0, scale: 100 },
+  "hero-buttons": { translateX: 159, translateY: 0, scale: 100 },
+  "hero-title": { translateX: 153, translateY: -5, scale: 100 },
+  "hero-script": { translateX: 156, translateY: -26, scale: 100 },
+  "hero-badge": { translateX: 158, translateY: -29, scale: 100 },
+  "hero-desc": { translateX: 158, translateY: -24, scale: 100 },
   "hero-content": { translateX: 0, translateY: 0, scale: 100, maxWidth: 600 },
   "stats-card": { translateX: 0, translateY: 0, scale: 100, maxWidth: 1040, paddingY: 32, paddingX: 40 },
 };
 
-const STORAGE_KEY = "gabriel_chirinos_visual_styles_v2";
+const STORAGE_KEY = "gabriel_chirinos_visual_styles_v3";
 
 export default function VisualEditor() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [selectedId, setSelectedId] = useState<string>("hero-title");
+  const [selectedId, setSelectedId] = useState<string>("hero-buttons");
   const [styles, setStyles] = useState<StyleConfig>(DEFAULT_STYLES);
   const [copied, setCopied] = useState(false);
-  const [dragMode, setDragMode] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [dragCoords, setDragCoords] = useState({ x: 0, y: 0 });
 
   const dragStartRef = useRef<{ mouseX: number; mouseY: number; elemX: number; elemY: number; targetId: string } | null>(null);
 
-  // Load from localStorage
+  // Load from localStorage on start
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         setStyles(JSON.parse(saved));
+      } else {
+        // also check fallback
+        const v2 = localStorage.getItem("gabriel_chirinos_visual_styles_v2");
+        if (v2) {
+          setStyles(JSON.parse(v2));
+        }
       }
     } catch {
       // ignore
@@ -108,7 +113,7 @@ export default function VisualEditor() {
         rules.push(`transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
       }
 
-      // Visual highlight when selected
+      // Visual highlight when editor is open and element is active
       if (editorOpen && id === activeId) {
         rules.push(`outline: 2px dashed #E53935 !important; outline-offset: 6px !important;`);
         rules.push(`cursor: grab !important;`);
@@ -144,7 +149,6 @@ export default function VisualEditor() {
     };
 
     const handleMouseDown = (e: MouseEvent) => {
-      // Don't drag if clicking inside the editor UI itself
       const editorPanel = document.getElementById("visual-editor-panel");
       if (editorPanel && editorPanel.contains(e.target as Node)) return;
 
@@ -153,21 +157,19 @@ export default function VisualEditor() {
 
       setSelectedId(targetInfo.id);
 
-      if (dragMode) {
-        e.preventDefault();
-        const curX = styles[targetInfo.id]?.translateX || 0;
-        const curY = styles[targetInfo.id]?.translateY || 0;
+      e.preventDefault();
+      const curX = styles[targetInfo.id]?.translateX || DEFAULT_STYLES[targetInfo.id]?.translateX || 0;
+      const curY = styles[targetInfo.id]?.translateY || DEFAULT_STYLES[targetInfo.id]?.translateY || 0;
 
-        dragStartRef.current = {
-          mouseX: e.clientX,
-          mouseY: e.clientY,
-          elemX: curX,
-          elemY: curY,
-          targetId: targetInfo.id,
-        };
-        setIsDragging(true);
-        setDragCoords({ x: curX, y: curY });
-      }
+      dragStartRef.current = {
+        mouseX: e.clientX,
+        mouseY: e.clientY,
+        elemX: curX,
+        elemY: curY,
+        targetId: targetInfo.id,
+      };
+      setIsDragging(true);
+      setDragCoords({ x: curX, y: curY });
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -184,7 +186,7 @@ export default function VisualEditor() {
       setStyles((prev) => ({
         ...prev,
         [targetId]: {
-          ...(prev[targetId] || {}),
+          ...(prev[targetId] || DEFAULT_STYLES[targetId] || {}),
           translateX: newX,
           translateY: newY,
         },
@@ -201,13 +203,12 @@ export default function VisualEditor() {
     // Keyboard Arrow Nudging
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
-      // Don't interfere if typing in an input
       if (["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement)?.tagName)) return;
 
       e.preventDefault();
       const step = e.shiftKey ? 10 : 1;
-      const curX = styles[selectedId]?.translateX || 0;
-      const curY = styles[selectedId]?.translateY || 0;
+      const curX = styles[selectedId]?.translateX || DEFAULT_STYLES[selectedId]?.translateX || 0;
+      const curY = styles[selectedId]?.translateY || DEFAULT_STYLES[selectedId]?.translateY || 0;
 
       let newX = curX;
       let newY = curY;
@@ -220,7 +221,7 @@ export default function VisualEditor() {
       setStyles((prev) => ({
         ...prev,
         [selectedId]: {
-          ...(prev[selectedId] || {}),
+          ...(prev[selectedId] || DEFAULT_STYLES[selectedId] || {}),
           translateX: newX,
           translateY: newY,
         },
@@ -238,13 +239,13 @@ export default function VisualEditor() {
       window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, dragMode, styles, selectedId]);
+  }, [isOpen, styles, selectedId]);
 
   const handleUpdate = (field: keyof ElementStyle, value: number) => {
     setStyles((prev) => ({
       ...prev,
       [selectedId]: {
-        ...(prev[selectedId] || {}),
+        ...(prev[selectedId] || DEFAULT_STYLES[selectedId] || {}),
         [field]: value,
       },
     }));
@@ -255,13 +256,17 @@ export default function VisualEditor() {
     if (elStyle && elStyle[field] !== undefined) {
       return elStyle[field] as number;
     }
+    const def = DEFAULT_STYLES[selectedId];
+    if (def && def[field] !== undefined) {
+      return def[field] as number;
+    }
     return fallback;
   };
 
   const handleResetCurrent = () => {
     setStyles((prev) => ({
       ...prev,
-      [selectedId]: { translateX: 0, translateY: 0, scale: 100, marginTop: 0, marginBottom: 0 },
+      [selectedId]: { ...(DEFAULT_STYLES[selectedId] || {}) },
     }));
   };
 
