@@ -10,13 +10,15 @@ export default function Header() {
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#E53935]/40 to-transparent" />
       
       <div className="w-full max-w-[1200px] mx-auto px-8 sm:px-16 lg:px-24 py-3.5 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo aligned with Hero text column */}
         <motion.a
+          id="header-logo"
+          data-editable-name="Header: Logo 'GABRIEL CHIRINOS'"
           href="#home"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col leading-none group cursor-pointer"
+          className="flex flex-col leading-none group cursor-pointer lg:translate-x-[158px] transition-all"
         >
           <span className="text-white text-xl sm:text-2xl font-black italic tracking-wider font-bebas group-hover:text-white transition-colors">
             GABRIEL

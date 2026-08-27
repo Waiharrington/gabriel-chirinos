@@ -38,10 +38,9 @@ export default function Hero() {
           className="w-full h-full object-cover object-center scale-[1.01] transform transition-transform duration-1000 ease-out"
         />
 
-        {/* Ambient Dark Pocket Gradients ensuring text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/90 via-[#050505]/50 to-transparent w-full md:w-[65%]" />
+        {/* Ambient Dark Pocket Gradients ensuring text readability without harsh top cuts */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/90 via-[#050505]/40 to-transparent w-full md:w-[60%]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent h-32 bottom-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/60 via-transparent to-transparent h-24 top-0" />
 
         {/* Interactive Dynamic Spotlight following cursor */}
         <motion.div

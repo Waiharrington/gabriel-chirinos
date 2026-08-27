@@ -17,6 +17,7 @@ interface ElementStyle {
 type StyleConfig = Record<string, Partial<ElementStyle>>;
 
 const EDITABLE_ELEMENTS = [
+  { id: "header-logo", label: "🏷️ Header: Logo 'GABRIEL CHIRINOS'" },
   { id: "hero-buttons", label: "🦸 Botones 'VER MEDIA KIT'" },
   { id: "hero-title", label: "🦸 Título 'CONECTO MARCAS'" },
   { id: "hero-script", label: "🦸 Subtítulo 'en movimiento'" },
@@ -33,6 +34,7 @@ const EDITABLE_ELEMENTS = [
 ];
 
 const DEFAULT_STYLES: StyleConfig = {
+  "header-logo": { translateX: 158, translateY: 0, scale: 100 },
   "hero-buttons": { translateX: 159, translateY: 0, scale: 100 },
   "hero-title": { translateX: 153, translateY: -5, scale: 100 },
   "hero-script": { translateX: 156, translateY: -26, scale: 100 },
@@ -42,12 +44,12 @@ const DEFAULT_STYLES: StyleConfig = {
   "stats-card": { translateX: 0, translateY: 0, scale: 100, maxWidth: 1040, paddingY: 32, paddingX: 40 },
 };
 
-const STORAGE_KEY = "gabriel_chirinos_visual_styles_v3";
+const STORAGE_KEY = "gabriel_chirinos_visual_styles_v4";
 
 export default function VisualEditor() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [selectedId, setSelectedId] = useState<string>("hero-buttons");
+  const [selectedId, setSelectedId] = useState<string>("header-logo");
   const [styles, setStyles] = useState<StyleConfig>(DEFAULT_STYLES);
   const [copied, setCopied] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -62,10 +64,9 @@ export default function VisualEditor() {
       if (saved) {
         setStyles(JSON.parse(saved));
       } else {
-        // also check fallback
-        const v2 = localStorage.getItem("gabriel_chirinos_visual_styles_v2");
-        if (v2) {
-          setStyles(JSON.parse(v2));
+        const v3 = localStorage.getItem("gabriel_chirinos_visual_styles_v3");
+        if (v3) {
+          setStyles(JSON.parse(v3));
         }
       }
     } catch {
