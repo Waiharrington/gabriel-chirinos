@@ -74,10 +74,11 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
 
 export default function Stats() {
   return (
-    <section id="stats-section" className="w-full flex justify-center py-2">
+    <section id="stats-section" data-editable-name="Sección de Estadísticas" className="w-full flex justify-center py-2 transition-all">
       {/* Centered card matching exact reference dimensions and ample internal space */}
       <div
         id="stats-card"
+        data-editable-name="Tarjeta de Estadísticas (Caja)"
         className="w-full max-w-[1040px] bg-[#090909] border border-white/[0.14] rounded-2xl px-8 py-8 sm:px-12 sm:py-9 lg:px-8 lg:py-8 shadow-2xl transition-all"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 items-center">
