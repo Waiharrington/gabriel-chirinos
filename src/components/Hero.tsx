@@ -30,17 +30,17 @@ export default function Hero() {
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full h-[560px] sm:h-[620px] lg:h-[660px] overflow-hidden flex items-center bg-[#050505] select-none"
     >
-      {/* Hero Background Image from SVG with Parallax Depth */}
+      {/* Pristine Hero Background Image (PNG) with Parallax Depth */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/photos/hero-bg.svg"
+          src="/photos/hero-banner.png"
           alt="Gabriel Chirinos Hero Background"
           className="w-full h-full object-cover object-center scale-[1.01] transform transition-transform duration-1000 ease-out"
         />
 
-        {/* Ambient Dark Pocket Gradients ensuring text readability without harsh top cuts */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/90 via-[#050505]/40 to-transparent w-full md:w-[60%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent h-32 bottom-0" />
+        {/* Soft Ambient Left Dark Pocket Gradient ensuring text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/90 via-[#050505]/30 to-transparent w-full md:w-[60%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent h-24 bottom-0" />
 
         {/* Interactive Dynamic Spotlight following cursor */}
         <motion.div
