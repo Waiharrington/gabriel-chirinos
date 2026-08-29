@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface ElementStyle {
@@ -245,7 +245,6 @@ export default function VisualEditor() {
   const [activeTab, setActiveTab] = useState<"spacing" | "text" | "style">("spacing");
   const [selectedId, setSelectedId] = useState<string>("stats-card");
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [isTextEditingMode, setIsTextEditingMode] = useState(false);
 
   const [styles, setStyles] = useState<StyleConfig>(() => {
     if (typeof window === "undefined") return DEFAULT_STYLES;
@@ -362,7 +361,7 @@ export default function VisualEditor() {
     };
   }, [isOpen]);
 
-  const handleUpdate = (field: keyof ElementStyle, value: any) => {
+  const handleUpdate = <K extends keyof ElementStyle>(field: K, value: ElementStyle[K]) => {
     setStyles((prev) => ({
       ...prev,
       [selectedId]: {
@@ -372,7 +371,7 @@ export default function VisualEditor() {
     }));
   };
 
-  const currentVal = (field: keyof ElementStyle, fallback: any = 0): any => {
+  const currentVal = <K extends keyof ElementStyle>(field: K, fallback?: ElementStyle[K]): ElementStyle[K] | undefined => {
     const elStyle = styles[selectedId];
     if (elStyle && elStyle[field] !== undefined) {
       return elStyle[field];
