@@ -30,12 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Cursor default cursor hide on hover-capable devices */
-@media (hover: hover) and (pointer: fine) {
-  body, a, button, input, select, textarea, [role="button"] {
-    cursor: none !important;
-  }
-}
+
 
 .font-bebas {
   font-family: var(--font-bebas), "Bebas Neue", Impact, sans-serif !important;
