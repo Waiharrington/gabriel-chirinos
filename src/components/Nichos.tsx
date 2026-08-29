@@ -41,7 +41,7 @@ export default function Nichos() {
   return (
     <section id="nichos-section" className="w-full py-2 transition-all">
       {/* Section Header with Horizontal Lines */}
-      <div className="flex items-center justify-center gap-4 mb-8">
+      <div id="nichos-title" data-editable-name="Nichos: Título 'NICHOS EN LOS QUE CONECTO'" className="flex items-center justify-center gap-4 mb-8 transition-all">
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-white/20 flex-1 max-w-[140px]" />
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
@@ -55,10 +55,12 @@ export default function Nichos() {
       </div>
 
       {/* 6 Niches in 6 columns with glass hover cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div id="nichos-grid" data-editable-name="Nichos: Cuadrícula Completa" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 transition-all">
         {siteData.niches.map((niche, i) => (
           <motion.div
             key={niche.label}
+            id={`nicho-card-${i}`}
+            data-editable-name={`Nicho ${i + 1}: ${niche.label.replace("\n", " ")}`}
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

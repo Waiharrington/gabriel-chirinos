@@ -15,7 +15,7 @@ export default function RunClub() {
   };
 
   return (
-    <section className="w-full py-3">
+    <section id="runclub-section" data-editable-name="Run Club: Sección Completa" className="w-full py-3 transition-all">
       {/* Title & Subtitle */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -23,19 +23,19 @@ export default function RunClub() {
         viewport={{ once: true }}
         className="text-center mb-7"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E53935]/30 bg-[#250a0a]/60 text-[#E53935] text-[10px] font-bold tracking-[0.2em] uppercase mb-2 font-inter">
+        <div id="runclub-badge" data-editable-name="Run Club: Badge 'COMUNIDAD & DISCIPLINA'" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E53935]/30 bg-[#250a0a]/60 text-[#E53935] text-[10px] font-bold tracking-[0.2em] uppercase mb-2 font-inter transition-all">
           COMUNIDAD & DISCIPLINA
         </div>
-        <h2 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-wider font-bebas">
+        <h2 id="runclub-title" data-editable-name="Run Club: Título 'LA VUELTA RUN CLUB'" className="text-white text-2xl sm:text-3xl font-black uppercase tracking-wider font-bebas transition-all">
           LA VUELTA <span className="text-[#E53935] italic font-bebas">RUN CLUB</span>
         </h2>
-        <p className="text-white/60 text-xs sm:text-[13px] max-w-md mx-auto font-inter mt-1.5 leading-relaxed">
+        <p id="runclub-desc" data-editable-name="Run Club: Descripción" className="text-white/60 text-xs sm:text-[13px] max-w-md mx-auto font-inter mt-1.5 leading-relaxed transition-all">
           {siteData.runClub.description}
         </p>
       </motion.div>
 
       {/* Carousel Container */}
-      <div className="relative group px-1">
+      <div id="runclub-carousel" data-editable-name="Run Club: Carrusel de Fotos" className="relative group px-1 transition-all">
         {/* Left Arrow Button */}
         <button
           onClick={() => scroll("left")}
@@ -56,6 +56,8 @@ export default function RunClub() {
           {siteData.runClub.images.map((img, i) => (
             <motion.div
               key={i}
+              id={`runclub-photo-${i}`}
+              data-editable-name={`Run Club: Foto ${i + 1}`}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

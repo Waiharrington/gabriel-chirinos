@@ -1,10 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+function subscribePointer(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const media = window.matchMedia("(pointer: fine)");
+  media.addEventListener("change", callback);
+  return () => media.removeEventListener("change", callback);
+}
+
+function getPointerSnapshot() {
+  return typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export default function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
+  const isFinePointer = useSyncExternalStore(
+    subscribePointer,
+    getPointerSnapshot,
+    getServerSnapshot
+  );
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
@@ -19,12 +38,7 @@ export default function CustomCursor() {
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Only enable on desktop with fine mouse pointer
-    if (typeof window === "undefined" || !window.matchMedia("(pointer: fine)").matches) {
-      return;
-    }
-
-    setMounted(true);
+    if (!isFinePointer) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -63,9 +77,9 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, [mouseX, mouseY, isVisible, isFinePointer]);
 
-  if (!mounted) return null;
+  if (!isFinePointer) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden select-none">

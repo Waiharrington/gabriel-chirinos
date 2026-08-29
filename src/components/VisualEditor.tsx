@@ -16,22 +16,150 @@ interface ElementStyle {
 
 type StyleConfig = Record<string, Partial<ElementStyle>>;
 
-const EDITABLE_ELEMENTS = [
-  { id: "header-logo", label: "🏷️ Header: Logo 'GABRIEL CHIRINOS'" },
-  { id: "hero-buttons", label: "🦸 Botones 'VER MEDIA KIT'" },
-  { id: "hero-title", label: "🦸 Título 'CONECTO MARCAS'" },
-  { id: "hero-script", label: "🦸 Subtítulo 'en movimiento'" },
-  { id: "hero-badge", label: "🦸 Badge 'CREADOR DE CONTENIDO'" },
-  { id: "hero-desc", label: "🦸 Párrafo de Descripción" },
-  { id: "hero-content", label: "🦸 Hero: Bloque Completo" },
-  { id: "stats-card", label: "📊 Tarjeta de Estadísticas (Caja)" },
-  { id: "stats-section", label: "📊 Sección de Estadísticas" },
-  { id: "marcas-section", label: "🏷️ Sección de Marcas" },
-  { id: "comunidad-section", label: "👥 Sección Comunidad" },
-  { id: "nichos-section", label: "🎯 Sección Nichos" },
-  { id: "services", label: "💼 Sección Servicios" },
-  { id: "main-container", label: "📦 Contenedor Principal (Página)" },
+interface ElementGroup {
+  category: string;
+  items: { id: string; label: string }[];
+}
+
+export const EDITABLE_GROUPS: ElementGroup[] = [
+  {
+    category: "🏷️ Header (Navegación)",
+    items: [
+      { id: "header-logo", label: "Logo 'GABRIEL CHIRINOS'" },
+      { id: "header-socials", label: "Redes Sociales (IG, TT, YT)" },
+      { id: "header-cta-btn", label: "Botón 'CONTACTO'" },
+    ],
+  },
+  {
+    category: "🦸 Hero (Portada Principal)",
+    items: [
+      { id: "hero-content", label: "Bloque Completo del Hero" },
+      { id: "hero-badge", label: "Badge 'CREADOR DE CONTENIDO & ATLETA'" },
+      { id: "hero-title", label: "Título 'CONECTO MARCAS CON PERSONAS'" },
+      { id: "hero-script", label: "Subtítulo Script 'en movimiento.'" },
+      { id: "hero-desc", label: "Párrafo de Descripción" },
+      { id: "hero-buttons", label: "Contenedor de Botones CTA" },
+      { id: "hero-btn-primary", label: "Botón 'VER MEDIA KIT'" },
+      { id: "hero-btn-secondary", label: "Botón 'TRABAJEMOS JUNTOS'" },
+    ],
+  },
+  {
+    category: "📊 Estadísticas (Stats)",
+    items: [
+      { id: "stats-section", label: "Sección Completa de Estadísticas" },
+      { id: "stats-card", label: "Tarjeta / Caja Principal de Métricas" },
+      { id: "stat-item-0", label: "Métrica 1: 22.885 Seguidores" },
+      { id: "stat-item-1", label: "Métrica 2: 3M Visualizaciones" },
+      { id: "stat-item-2", label: "Métrica 3: 1.7M Alcance" },
+      { id: "stat-item-3", label: "Métrica 4: +676 Nuevos Seguidores" },
+    ],
+  },
+  {
+    category: "🎯 Nichos de Contenido",
+    items: [
+      { id: "nichos-section", label: "Sección Completa de Nichos" },
+      { id: "nichos-title", label: "Título 'NICHOS EN LOS QUE CONECTO'" },
+      { id: "nichos-grid", label: "Cuadrícula Completa de Nichos" },
+      { id: "nicho-card-0", label: "Nicho 1: Fitness & Running" },
+      { id: "nicho-card-1", label: "Nicho 2: Deportes & Bienestar" },
+      { id: "nicho-card-2", label: "Nicho 3: Ropa & Accesorios" },
+      { id: "nicho-card-3", label: "Nicho 4: Suplementos & Nutrición" },
+      { id: "nicho-card-4", label: "Nicho 5: Tecnología & Gadgets" },
+      { id: "nicho-card-5", label: "Nicho 6: Estilo de Vida & Motivación" },
+    ],
+  },
+  {
+    category: "👥 Comunidad y Videos (Reels)",
+    items: [
+      { id: "comunidad-section", label: "Sección Completa Comunidad" },
+      { id: "comunidad-title", label: "Título 'MI COMUNIDAD'" },
+      { id: "comunidad-desc", label: "Descripción de Comunidad" },
+      { id: "comunidad-card-demo", label: "Tarjeta Demográfica (Audiencia)" },
+      { id: "comunidad-demo-age", label: "Texto Edad '18 - 35 AÑOS'" },
+      { id: "comunidad-demo-chart", label: "Gráfico Donut (% Género)" },
+      { id: "comunidad-videos-grid", label: "Cuadrícula de 5 Videos" },
+      { id: "comunidad-video-0", label: "Video 1: 10K (2.1M views)" },
+      { id: "comunidad-video-1", label: "Video 2: Mi Rutina de Pierna (1.6M)" },
+      { id: "comunidad-video-2", label: "Video 3: 5 Consejos para Correr (952K)" },
+      { id: "comunidad-video-3", label: "Video 4: Nunca te rindas (1.2M)" },
+      { id: "comunidad-video-4", label: "Video 5: La Vuelta Run Club (870K)" },
+    ],
+  },
+  {
+    category: "💼 Servicios para Marcas",
+    items: [
+      { id: "services", label: "Sección Completa de Servicios" },
+      { id: "services-title", label: "Título '¿QUÉ PUEDO HACER...?'" },
+      { id: "services-grid", label: "Cuadrícula Completa de Servicios" },
+      { id: "service-card-0", label: "Servicio 1: Content Creation" },
+      { id: "service-card-1", label: "Servicio 2: Brand Ambassador" },
+      { id: "service-card-2", label: "Servicio 3: Product Placement" },
+      { id: "service-card-3", label: "Servicio 4: Eventos & Activaciones" },
+      { id: "service-card-4", label: "Servicio 5: UGC para Anuncios" },
+    ],
+  },
+  {
+    category: "🏃 La Vuelta Run Club",
+    items: [
+      { id: "runclub-section", label: "Sección Completa Run Club" },
+      { id: "runclub-badge", label: "Badge 'COMUNIDAD & DISCIPLINA'" },
+      { id: "runclub-title", label: "Título 'LA VUELTA RUN CLUB'" },
+      { id: "runclub-desc", label: "Descripción Run Club" },
+      { id: "runclub-carousel", label: "Carrusel Completo de Fotos" },
+      { id: "runclub-photo-0", label: "Foto 1 del Run Club" },
+      { id: "runclub-photo-1", label: "Foto 2 del Run Club" },
+      { id: "runclub-photo-2", label: "Foto 3 del Run Club" },
+      { id: "runclub-photo-3", label: "Foto 4 del Run Club" },
+      { id: "runclub-photo-4", label: "Foto 5 del Run Club" },
+      { id: "runclub-photo-5", label: "Foto 6 del Run Club" },
+      { id: "runclub-photo-6", label: "Foto 7 del Run Club" },
+    ],
+  },
+  {
+    category: "🏷️ Marcas Aliadas",
+    items: [
+      { id: "marcas-section", label: "Sección Completa de Marcas" },
+      { id: "marcas-title", label: "Título 'MARCAS QUE HAN CONFIADO'" },
+      { id: "marcas-marquee", label: "Barra Animada de Logos" },
+    ],
+  },
+  {
+    category: "⭐ Testimonios",
+    items: [
+      { id: "testimonios-section", label: "Sección Completa Testimonios" },
+      { id: "testimonios-title", label: "Título 'LO QUE DICEN LAS MARCAS'" },
+      { id: "testimonios-grid", label: "Cuadrícula de Testimonios" },
+      { id: "testimonio-card-0", label: "Testimonio 1: adidas" },
+      { id: "testimonio-card-1", label: "Testimonio 2: HOKA" },
+      { id: "testimonio-card-2", label: "Testimonio 3: GARMIN" },
+    ],
+  },
+  {
+    category: "📬 Footer & Contacto",
+    items: [
+      { id: "contact", label: "Footer Completo" },
+      { id: "footer-card", label: "Tarjeta Banner de Gabriel" },
+      { id: "footer-badge", label: "Badge 'TRABAJEMOS EN TU MARCA'" },
+      { id: "footer-title", label: "Título 'HAGAMOS ALGO'" },
+      { id: "footer-script", label: "Subtítulo Script 'ÉPICO JUNTOS.'" },
+      { id: "footer-desc", label: "Descripción del Footer" },
+      { id: "footer-buttons", label: "Contenedor de Botones" },
+      { id: "footer-btn-primary", label: "Botón 'VER MEDIA KIT'" },
+      { id: "footer-btn-secondary", label: "Botón 'HABLEMOS'" },
+      { id: "footer-socials", label: "Enlaces de Redes Sociales" },
+      { id: "footer-watermark", label: "Logo Watermark 'LA VUELTA'" },
+      { id: "footer-copyright", label: "Texto de Copyright" },
+    ],
+  },
+  {
+    category: "📦 Estructura Global",
+    items: [
+      { id: "main-container", label: "Contenedor Principal de la Página" },
+    ],
+  },
 ];
+
+const ALL_EDITABLE_IDS = EDITABLE_GROUPS.flatMap((g) => g.items.map((i) => i.id));
 
 const DEFAULT_STYLES: StyleConfig = {
   "header-logo": { translateX: 158, translateY: 0, scale: 100 },
@@ -41,38 +169,84 @@ const DEFAULT_STYLES: StyleConfig = {
   "hero-badge": { translateX: 158, translateY: -29, scale: 100 },
   "hero-desc": { translateX: 158, translateY: -24, scale: 100 },
   "hero-content": { translateX: 0, translateY: 0, scale: 100, maxWidth: 600 },
-  "stats-card": { translateX: 0, translateY: 0, scale: 100, maxWidth: 1040, paddingY: 32, paddingX: 40 },
+  "stats-card": { translateX: -6, translateY: 40, scale: 100, maxWidth: 1040, paddingY: 32, paddingX: 40 },
 };
 
-const STORAGE_KEY = "gabriel_chirinos_visual_styles_v4";
+const STORAGE_KEY = "gabriel_chirinos_visual_styles_v5";
+
+function applyStylesToDOM(config: StyleConfig, activeId: string, editorOpen: boolean) {
+  if (typeof document === "undefined") return;
+  let cssRules = "";
+
+  Object.entries(config).forEach(([id, s]) => {
+    if (!s) return;
+    const selector = `#${id}`;
+    const rules: string[] = [];
+
+    if (s.marginTop !== undefined) rules.push(`margin-top: ${s.marginTop}px !important;`);
+    if (s.marginBottom !== undefined) rules.push(`margin-bottom: ${s.marginBottom}px !important;`);
+    if (s.paddingY !== undefined) {
+      rules.push(`padding-top: ${s.paddingY}px !important;`);
+      rules.push(`padding-bottom: ${s.paddingY}px !important;`);
+    }
+    if (s.paddingX !== undefined) {
+      rules.push(`padding-left: ${s.paddingX}px !important;`);
+      rules.push(`padding-right: ${s.paddingX}px !important;`);
+    }
+    if (s.maxWidth !== undefined && s.maxWidth > 0) {
+      rules.push(`max-width: ${s.maxWidth}px !important;`);
+    }
+
+    const tx = s.translateX || 0;
+    const ty = s.translateY || 0;
+    const sc = (s.scale || 100) / 100;
+
+    if (tx !== 0 || ty !== 0 || sc !== 1) {
+      rules.push(`transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
+    }
+
+    // Visual highlight when editor is open and element is active
+    if (editorOpen && id === activeId) {
+      rules.push(`outline: 2px dashed #E53935 !important; outline-offset: 6px !important;`);
+      rules.push(`cursor: grab !important;`);
+    }
+
+    if (rules.length > 0) {
+      cssRules += `${selector} { ${rules.join(" ")} }\n`;
+    }
+  });
+
+  let styleEl = document.getElementById("visual-editor-injected-styles");
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = "visual-editor-injected-styles";
+    document.head.appendChild(styleEl);
+  }
+  styleEl.innerHTML = cssRules;
+}
 
 export default function VisualEditor() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [selectedId, setSelectedId] = useState<string>("header-logo");
-  const [styles, setStyles] = useState<StyleConfig>(DEFAULT_STYLES);
+  const [searchFilter, setSearchFilter] = useState<string>("");
+  const [styles, setStyles] = useState<StyleConfig>(() => {
+    if (typeof window === "undefined") return DEFAULT_STYLES;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) return JSON.parse(saved);
+      const v4 = localStorage.getItem("gabriel_chirinos_visual_styles_v4");
+      if (v4) return JSON.parse(v4);
+    } catch {
+      // ignore
+    }
+    return DEFAULT_STYLES;
+  });
   const [copied, setCopied] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragCoords, setDragCoords] = useState({ x: 0, y: 0 });
 
   const dragStartRef = useRef<{ mouseX: number; mouseY: number; elemX: number; elemY: number; targetId: string } | null>(null);
-
-  // Load from localStorage on start
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        setStyles(JSON.parse(saved));
-      } else {
-        const v3 = localStorage.getItem("gabriel_chirinos_visual_styles_v3");
-        if (v3) {
-          setStyles(JSON.parse(v3));
-        }
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
 
   // Update dynamic styles and save
   useEffect(() => {
@@ -84,56 +258,6 @@ export default function VisualEditor() {
     }
   }, [styles, selectedId, isOpen]);
 
-  const applyStylesToDOM = (config: StyleConfig, activeId: string, editorOpen: boolean) => {
-    let cssRules = "";
-
-    Object.entries(config).forEach(([id, s]) => {
-      if (!s) return;
-      const selector = `#${id}`;
-      const rules: string[] = [];
-
-      if (s.marginTop !== undefined) rules.push(`margin-top: ${s.marginTop}px !important;`);
-      if (s.marginBottom !== undefined) rules.push(`margin-bottom: ${s.marginBottom}px !important;`);
-      if (s.paddingY !== undefined) {
-        rules.push(`padding-top: ${s.paddingY}px !important;`);
-        rules.push(`padding-bottom: ${s.paddingY}px !important;`);
-      }
-      if (s.paddingX !== undefined) {
-        rules.push(`padding-left: ${s.paddingX}px !important;`);
-        rules.push(`padding-right: ${s.paddingX}px !important;`);
-      }
-      if (s.maxWidth !== undefined && s.maxWidth > 0) {
-        rules.push(`max-width: ${s.maxWidth}px !important;`);
-      }
-
-      const tx = s.translateX || 0;
-      const ty = s.translateY || 0;
-      const sc = (s.scale || 100) / 100;
-
-      if (tx !== 0 || ty !== 0 || sc !== 1) {
-        rules.push(`transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
-      }
-
-      // Visual highlight when editor is open and element is active
-      if (editorOpen && id === activeId) {
-        rules.push(`outline: 2px dashed #E53935 !important; outline-offset: 6px !important;`);
-        rules.push(`cursor: grab !important;`);
-      }
-
-      if (rules.length > 0) {
-        cssRules += `${selector} { ${rules.join(" ")} }\n`;
-      }
-    });
-
-    let styleEl = document.getElementById("visual-editor-injected-styles");
-    if (!styleEl) {
-      styleEl = document.createElement("style");
-      styleEl.id = "visual-editor-injected-styles";
-      document.head.appendChild(styleEl);
-    }
-    styleEl.innerHTML = cssRules;
-  };
-
   // Direct Click-to-Select and Drag-and-Drop listener
   useEffect(() => {
     if (!isOpen) return;
@@ -141,7 +265,7 @@ export default function VisualEditor() {
     const findEditableTarget = (el: HTMLElement | null): { id: string; element: HTMLElement } | null => {
       let curr = el;
       while (curr && curr !== document.body) {
-        if (curr.id && EDITABLE_ELEMENTS.some((item) => item.id === curr?.id)) {
+        if (curr.id && ALL_EDITABLE_IDS.includes(curr.id)) {
           return { id: curr.id, element: curr };
         }
         curr = curr.parentElement;
@@ -271,8 +395,14 @@ export default function VisualEditor() {
     }));
   };
 
+  const handleResetAll = () => {
+    if (window.confirm("¿Seguro que deseas reiniciar todos los estilos a los valores por defecto?")) {
+      setStyles(DEFAULT_STYLES);
+    }
+  };
+
   const handleCopyCSS = () => {
-    let output = "/* 🎨 Estilos visuales personalizados */\n\n";
+    let output = "/* 🎨 Estilos visuales personalizados para Gabriel Chirinos Landing */\n\n";
     Object.entries(styles).forEach(([id, s]) => {
       if (!s) return;
       const tx = s.translateX || 0;
@@ -292,8 +422,18 @@ export default function VisualEditor() {
 
     navigator.clipboard.writeText(output);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopied(false), 3000);
   };
+
+  // Find active element label
+  let activeLabel = selectedId;
+  for (const group of EDITABLE_GROUPS) {
+    const found = group.items.find((i) => i.id === selectedId);
+    if (found) {
+      activeLabel = `${group.category.split(" ")[0]} ${found.label}`;
+      break;
+    }
+  }
 
   return (
     <>
@@ -329,28 +469,28 @@ export default function VisualEditor() {
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
-            className="fixed bottom-5 right-5 z-[99999] w-[340px] sm:w-[380px] bg-[#0c0c0c]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl p-4 text-white flex flex-col gap-3 font-inter text-xs select-none"
-            style={{ maxHeight: isMinimized ? "auto" : "85vh", overflowY: isMinimized ? "hidden" : "auto" }}
+            className="fixed bottom-5 right-5 z-[99999] w-[350px] sm:w-[410px] bg-[#0c0c0c]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl p-4 text-white flex flex-col gap-3 font-inter text-xs select-none"
+            style={{ maxHeight: isMinimized ? "auto" : "88vh", overflowY: isMinimized ? "hidden" : "auto" }}
           >
             {/* Header with drag toggle & minimize */}
             <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#E53935] shadow-[0_0_8px_#E53935]" />
                 <h3 className="text-xs font-black uppercase tracking-wider font-bebas text-white">
-                  EDITOR DIRECTO (CLICK & DRAG)
+                  EDITOR VISUAL COMPLETO (CLICK & DRAG)
                 </h3>
               </div>
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setIsMinimized(!isMinimized)}
-                  className="text-white/60 hover:text-white px-2 py-0.5 text-xs bg-white/10 rounded"
+                  className="text-white/60 hover:text-white px-2 py-0.5 text-xs bg-white/10 hover:bg-white/20 rounded cursor-pointer"
                   title={isMinimized ? "Expandir" : "Minimizar"}
                 >
                   {isMinimized ? "▲" : "▼"}
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-white/60 hover:text-white px-2 py-0.5 text-xs bg-white/10 rounded"
+                  className="text-white/60 hover:text-white px-2 py-0.5 text-xs bg-white/10 hover:bg-white/20 rounded cursor-pointer"
                   title="Cerrar"
                 >
                   ✕
@@ -360,27 +500,70 @@ export default function VisualEditor() {
 
             {/* Instruction Tip */}
             <div className="bg-[#E53935]/15 border border-[#E53935]/30 rounded-lg p-2.5 text-[11px] text-white/90 leading-tight">
-              👉 <strong>¡Haz click directo en cualquier texto o caja</strong> de la pantalla y <strong>arrástralo con el mouse</strong> para moverlo libremente! También puedes usar las <strong>flechas del teclado</strong> (o Shift + Flechas para pasos de 10px).
+              👉 <strong>¡Haz click en cualquier elemento</strong> (textos, fotos, videos, botones) y <strong>arrástralo libremente</strong> o usa las <strong>flechas del teclado</strong> (Shift + Flechas = 10px).
             </div>
 
             {!isMinimized && (
               <>
-                {/* Element Selector Dropdown */}
-                <div>
-                  <label className="text-[10px] font-bold text-white/50 tracking-wider uppercase block mb-1">
-                    Elemento seleccionado actualmente:
-                  </label>
+                {/* Search & Element Selector Dropdown */}
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between items-center">
+                    <label className="text-[10px] font-bold text-white/50 tracking-wider uppercase block">
+                      Elemento seleccionado:
+                    </label>
+                    <span className="text-[10px] text-[#E53935] font-bold">
+                      #{selectedId}
+                    </span>
+                  </div>
+
+                  {/* Filter input */}
+                  <input
+                    type="text"
+                    placeholder="🔍 Buscar elemento (ej: video, foto, título...)"
+                    value={searchFilter}
+                    onChange={(e) => setSearchFilter(e.target.value)}
+                    className="w-full bg-[#181818] border border-white/15 rounded-lg px-2.5 py-1 text-white text-[11px] placeholder:text-white/30 focus:border-[#E53935] focus:outline-none"
+                  />
+
+                  {/* Grouped Select */}
                   <select
                     value={selectedId}
                     onChange={(e) => setSelectedId(e.target.value)}
                     className="w-full bg-[#181818] border border-white/15 rounded-lg px-2.5 py-1.5 text-white font-bold text-xs focus:border-[#E53935] focus:outline-none cursor-pointer"
                   >
-                    {EDITABLE_ELEMENTS.map((el) => (
-                      <option key={el.id} value={el.id} className="bg-[#111]">
-                        {el.label}
-                      </option>
-                    ))}
+                    {EDITABLE_GROUPS.map((group) => {
+                      const filteredItems = group.items.filter((item) =>
+                        searchFilter === ""
+                          ? true
+                          : item.label.toLowerCase().includes(searchFilter.toLowerCase()) ||
+                            group.category.toLowerCase().includes(searchFilter.toLowerCase())
+                      );
+                      if (filteredItems.length === 0) return null;
+                      return (
+                        <optgroup key={group.category} label={group.category} className="bg-[#111] font-bold text-[#E53935]">
+                          {filteredItems.map((el) => (
+                            <option key={el.id} value={el.id} className="bg-[#181818] text-white font-normal">
+                              {el.label}
+                            </option>
+                          ))}
+                        </optgroup>
+                      );
+                    })}
                   </select>
+                </div>
+
+                {/* Active Element Badge */}
+                <div className="bg-black/40 border border-white/10 px-2.5 py-1.5 rounded-lg flex items-center justify-between">
+                  <span className="text-white/80 text-[11px] font-medium truncate max-w-[240px]">
+                    📍 {activeLabel}
+                  </span>
+                  <button
+                    onClick={handleResetCurrent}
+                    className="text-[10px] text-[#E53935] hover:underline font-bold cursor-pointer"
+                    title="Reiniciar posición de este elemento"
+                  >
+                    Restablecer
+                  </button>
                 </div>
 
                 {/* Precision Sliders */}
@@ -393,8 +576,8 @@ export default function VisualEditor() {
                     </div>
                     <input
                       type="range"
-                      min="-350"
-                      max="350"
+                      min="-400"
+                      max="400"
                       step="1"
                       value={currentVal("translateX")}
                       onChange={(e) => handleUpdate("translateX", Number(e.target.value))}
@@ -410,8 +593,8 @@ export default function VisualEditor() {
                     </div>
                     <input
                       type="range"
-                      min="-350"
-                      max="350"
+                      min="-400"
+                      max="400"
                       step="1"
                       value={currentVal("translateY")}
                       onChange={(e) => handleUpdate("translateY", Number(e.target.value))}
@@ -428,7 +611,7 @@ export default function VisualEditor() {
                     <input
                       type="range"
                       min="0"
-                      max="120"
+                      max="140"
                       step="2"
                       value={currentVal("paddingY", 0)}
                       onChange={(e) => handleUpdate("paddingY", Number(e.target.value))}
@@ -444,8 +627,8 @@ export default function VisualEditor() {
                     </div>
                     <input
                       type="range"
-                      min="-100"
-                      max="150"
+                      min="-120"
+                      max="200"
                       step="2"
                       value={currentVal("marginTop", 0)}
                       onChange={(e) => handleUpdate("marginTop", Number(e.target.value))}
@@ -461,8 +644,8 @@ export default function VisualEditor() {
                     </div>
                     <input
                       type="range"
-                      min="50"
-                      max="150"
+                      min="40"
+                      max="160"
                       step="1"
                       value={currentVal("scale", 100)}
                       onChange={(e) => handleUpdate("scale", Number(e.target.value))}
@@ -473,18 +656,21 @@ export default function VisualEditor() {
 
                 {/* Actions */}
                 <div className="flex flex-col gap-2 pt-1 border-t border-white/10">
-                  <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={handleCopyCSS}
+                    className="w-full bg-[#E53935] hover:bg-[#C62828] text-white py-2.5 px-3 rounded-lg font-black tracking-wider uppercase text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-950/60"
+                  >
+                    <span>📋</span>
+                    <span>{copied ? "¡COPIADO! Pégalo a Antigravity en el chat" : "COPIAR CSS PARA GUARDAR"}</span>
+                  </button>
+
+                  <div className="flex justify-between items-center text-[10px] text-white/50 px-1">
+                    <span>Atajos: Arrastrar | Flechas</span>
                     <button
-                      onClick={handleCopyCSS}
-                      className="bg-[#E53935] hover:bg-[#C62828] text-white py-2 rounded-lg font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                      onClick={handleResetAll}
+                      className="text-white/40 hover:text-white underline cursor-pointer"
                     >
-                      <span>📋</span> {copied ? "¡Copiado!" : "Copiar CSS"}
-                    </button>
-                    <button
-                      onClick={handleResetCurrent}
-                      className="bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                    >
-                      <span>🔄</span> Reset
+                      Reiniciar todo
                     </button>
                   </div>
                 </div>

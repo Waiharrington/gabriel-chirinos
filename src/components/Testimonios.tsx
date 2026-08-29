@@ -5,9 +5,9 @@ import { siteData } from "@/data/siteData";
 
 export default function Testimonios() {
   return (
-    <section className="w-full py-3">
+    <section id="testimonios-section" data-editable-name="Testimonios: Sección Completa" className="w-full py-3 transition-all">
       {/* Section Header with Horizontal Lines */}
-      <div className="flex items-center justify-center gap-4 mb-8">
+      <div id="testimonios-title" data-editable-name="Testimonios: Título 'LO QUE DICEN LAS MARCAS'" className="flex items-center justify-center gap-4 mb-8 transition-all">
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-white/20 flex-1 max-w-[140px]" />
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
@@ -21,10 +21,12 @@ export default function Testimonios() {
       </div>
 
       {/* 3 Testimonial Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div id="testimonios-grid" data-editable-name="Testimonios: Cuadrícula Completa" className="grid grid-cols-1 md:grid-cols-3 gap-4 transition-all">
         {siteData.testimonials.map((testimonial, i) => (
           <motion.div
             key={testimonial.brand}
+            id={`testimonio-card-${i}`}
+            data-editable-name={`Testimonio ${i + 1}: ${testimonial.brand}`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

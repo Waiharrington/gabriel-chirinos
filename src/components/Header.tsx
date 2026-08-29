@@ -30,7 +30,7 @@ export default function Header() {
 
         {/* Right side: Social links & Contact CTA */}
         <div className="flex items-center gap-4 sm:gap-6">
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div id="header-socials" data-editable-name="Header: Redes Sociales" className="flex items-center gap-1 sm:gap-2 transition-all">
             {siteData.socialLinks.map((link) => (
               <a
                 key={link.platform}
@@ -60,6 +60,8 @@ export default function Header() {
           </div>
 
           <motion.a
+            id="header-cta-btn"
+            data-editable-name="Header: Botón Contacto"
             href="#contact"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}

@@ -10,7 +10,7 @@ export default function FooterCTA() {
       <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-72 bg-radial from-[#E53935]/15 via-transparent to-transparent blur-3xl pointer-events-none" />
 
       {/* Hero Banner Card of Gabriel running */}
-      <div className="relative min-h-[380px] sm:min-h-[420px] bg-[#0c0c0c]/95 border border-white/[0.09] rounded-3xl overflow-hidden flex items-center shadow-2xl group">
+      <div id="footer-card" data-editable-name="Footer: Tarjeta Banner Principal" className="relative min-h-[380px] sm:min-h-[420px] bg-[#0c0c0c]/95 border border-white/[0.09] rounded-3xl overflow-hidden flex items-center shadow-2xl group transition-all">
         
         {/* Background Image of Gabriel running with deep atmospheric fade */}
         <div className="absolute inset-0 z-0">
@@ -35,24 +35,26 @@ export default function FooterCTA() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E53935]/30 bg-[#250a0a]/70 text-[#E53935] text-[10px] font-bold tracking-[0.2em] uppercase mb-3 font-inter">
+                <div id="footer-badge" data-editable-name="Footer: Badge 'TRABAJEMOS EN TU MARCA'" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E53935]/30 bg-[#250a0a]/70 text-[#E53935] text-[10px] font-bold tracking-[0.2em] uppercase mb-3 font-inter transition-all">
                   TRABAJEMOS EN TU MARCA
                 </div>
 
-                <h2 className="text-white text-3.5xl sm:text-5xl lg:text-[3.6rem] font-black uppercase leading-[0.9] mb-1 tracking-tight font-bebas drop-shadow-lg">
+                <h2 id="footer-title" data-editable-name="Footer: Título 'HAGAMOS ALGO'" className="text-white text-3.5xl sm:text-5xl lg:text-[3.6rem] font-black uppercase leading-[0.9] mb-1 tracking-tight font-bebas drop-shadow-lg transition-all">
                   HAGAMOS ALGO
                 </h2>
-                <p className="font-script text-[#E53935] text-4xl sm:text-5xl lg:text-[4rem] mb-4 italic leading-none drop-shadow-[0_4px_12px_rgba(229,57,53,0.35)]">
+                <p id="footer-script" data-editable-name="Footer: Subtítulo Script 'ÉPICO JUNTOS.'" className="font-script text-[#E53935] text-4xl sm:text-5xl lg:text-[4rem] mb-4 italic leading-none drop-shadow-[0_4px_12px_rgba(229,57,53,0.35)] transition-all">
                   ÉPICO JUNTOS.
                 </p>
-                <p className="text-white/75 text-xs sm:text-[13.5px] leading-relaxed max-w-md mb-7 font-inter">
+                <p id="footer-desc" data-editable-name="Footer: Descripción" className="text-white/75 text-xs sm:text-[13.5px] leading-relaxed max-w-md mb-7 font-inter transition-all">
                   Si tu marca busca impacto real, conexión auténtica y resultados medibles, estoy listo para sumarme a tu próximo proyecto.
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div id="footer-buttons" data-editable-name="Footer: Contenedor Botones" className="flex flex-wrap gap-4 mb-8 transition-all">
                   {/* Button 1: VER MEDIA KIT */}
                   <motion.a
+                    id="footer-btn-primary"
+                    data-editable-name="Footer: Botón 'VER MEDIA KIT'"
                     href="#"
                     whileHover={{ scale: 1.03, translateY: -2 }}
                     whileTap={{ scale: 0.97 }}
@@ -68,6 +70,8 @@ export default function FooterCTA() {
 
                   {/* Button 2: HABLEMOS */}
                   <motion.a
+                    id="footer-btn-secondary"
+                    data-editable-name="Footer: Botón 'HABLEMOS'"
                     href={`mailto:${siteData.personal.email}`}
                     whileHover={{ scale: 1.03, translateY: -2 }}
                     whileTap={{ scale: 0.97 }}
@@ -81,7 +85,7 @@ export default function FooterCTA() {
                 </div>
 
                 {/* Social & Contact info */}
-                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-white/60 text-[11px] font-inter">
+                <div id="footer-socials" data-editable-name="Footer: Enlaces de Contacto" className="flex flex-wrap items-center gap-4 sm:gap-6 text-white/60 text-[11px] font-inter transition-all">
                   <a
                     href={siteData.socialLinks[0].url}
                     target="_blank"
@@ -114,7 +118,7 @@ export default function FooterCTA() {
             </div>
 
             {/* Right Watermark */}
-            <div className="lg:col-span-4 hidden lg:flex justify-end items-center">
+            <div id="footer-watermark" data-editable-name="Footer: Logo Watermark 'LA VUELTA'" className="lg:col-span-4 hidden lg:flex justify-end items-center transition-all">
               <div className="text-right border-l-2 border-[#E53935] pl-7 py-3">
                 <div className="text-white text-[3.8rem] xl:text-[4.8rem] font-black leading-none tracking-tighter uppercase font-bebas drop-shadow-md">
                   LA<br />VUELTA.
@@ -130,7 +134,7 @@ export default function FooterCTA() {
       </div>
 
       {/* Sub-footer Copyright */}
-      <div className="py-3">
+      <div id="footer-copyright" data-editable-name="Footer: Copyright" className="py-3 transition-all">
         <p className="text-white/30 text-[10.5px] text-center tracking-wider font-inter">
           {siteData.footer.copyright}
         </p>

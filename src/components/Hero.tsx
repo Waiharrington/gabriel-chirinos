@@ -121,6 +121,8 @@ export default function Hero() {
           >
             {/* Button 1: VER MEDIA KIT */}
             <motion.a
+              id="hero-btn-primary"
+              data-editable-name="Hero: Botón 'VER MEDIA KIT'"
               href="#contact"
               whileHover={{ scale: 1.03, translateY: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -136,6 +138,8 @@ export default function Hero() {
 
             {/* Button 2: TRABAJEMOS JUNTOS */}
             <motion.a
+              id="hero-btn-secondary"
+              data-editable-name="Hero: Botón 'TRABAJEMOS JUNTOS'"
               href="#contact"
               whileHover={{ scale: 1.03, translateY: -2 }}
               whileTap={{ scale: 0.97 }}

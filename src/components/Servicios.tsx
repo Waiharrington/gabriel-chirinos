@@ -36,10 +36,12 @@ export default function Servicios() {
     <section id="services" className="w-full py-2">
       {/* Title */}
       <motion.div
+        id="services-title"
+        data-editable-name="Servicios: Título '¿QUÉ PUEDO HACER...?'"
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-8"
+        className="text-center mb-8 transition-all"
       >
         <h2 className="text-white text-2xl sm:text-3xl font-black uppercase tracking-wider font-bebas">
           ¿QUÉ PUEDO HACER POR <span className="text-[#E53935] italic font-bebas">TU MARCA?</span>
@@ -48,10 +50,12 @@ export default function Servicios() {
       </motion.div>
 
       {/* 5 Service Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+      <div id="services-grid" data-editable-name="Servicios: Cuadrícula Completa" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 transition-all">
         {siteData.services.map((service, i) => (
           <motion.div
             key={service.title}
+            id={`service-card-${i}`}
+            data-editable-name={`Servicio ${i + 1}: ${service.title}`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

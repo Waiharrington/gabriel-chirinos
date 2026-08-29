@@ -67,7 +67,7 @@ export default function Marcas() {
   return (
     <section id="marcas-section" className="w-full py-4 overflow-hidden select-none transition-all">
       {/* Section Header with Horizontal Accent Lines */}
-      <div className="flex items-center justify-center gap-4 mb-8">
+      <div id="marcas-title" data-editable-name="Marcas: Título 'MARCAS QUE HAN CONFIADO'" className="flex items-center justify-center gap-4 mb-8 transition-all">
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#E53935]/40 to-white/20 flex-1 max-w-[140px]" />
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
@@ -81,7 +81,7 @@ export default function Marcas() {
       </div>
 
       {/* Infinite Seamless Scrolling Marquee with Edge Fade */}
-      <div className="relative w-full mask-edges-fade py-2">
+      <div id="marcas-marquee" data-editable-name="Marcas: Barra de Logos Animada" className="relative w-full mask-edges-fade py-2 transition-all">
         <div className="animate-marquee flex items-center gap-12 sm:gap-16 lg:gap-20">
           {/* First loop of brands */}
           {brandLogos.map((brand, i) => (

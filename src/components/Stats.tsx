@@ -34,21 +34,19 @@ const icons: Record<string, React.ReactNode> = {
 function AnimatedCounter({ rawValue }: { rawValue: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [displayValue, setDisplayValue] = useState("0");
+  const cleanStr = rawValue.replace(/[^0-9]/g, "");
+  const target = parseInt(cleanStr, 10);
+  const isNumeric = !isNaN(target);
+
+  const [displayValue, setDisplayValue] = useState(() => (isNumeric ? "0" : rawValue));
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || !isNumeric) return;
 
     const hasPlus = rawValue.startsWith("+");
-    const cleanStr = rawValue.replace(/[^0-9]/g, "");
-    const target = parseInt(cleanStr, 10);
-    if (isNaN(target)) {
-      setDisplayValue(rawValue);
-      return;
-    }
-
     let startTimestamp: number | null = null;
     const duration = 1800;
+    let frameId: number;
 
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
@@ -60,14 +58,15 @@ function AnimatedCounter({ rawValue }: { rawValue: string }) {
       setDisplayValue(`${hasPlus ? "+" : ""}${formatted}`);
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        frameId = requestAnimationFrame(step);
       } else {
         setDisplayValue(rawValue);
       }
     };
 
-    requestAnimationFrame(step);
-  }, [isInView, rawValue]);
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [isInView, rawValue, isNumeric, target]);
 
   return <span ref={ref}>{displayValue}</span>;
 }
@@ -86,11 +85,13 @@ export default function Stats() {
             <div key={stat.label} className="flex items-center justify-between lg:justify-start w-full relative">
               {/* Stat Content Block */}
               <motion.div
+                id={`stat-item-${i}`}
+                data-editable-name={`Estadística: ${stat.label.replace("\n", " ")}`}
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="flex items-center gap-4 sm:gap-5 w-full lg:px-5 xl:px-6 justify-start"
+                className="flex items-center gap-4 sm:gap-5 w-full lg:px-5 xl:px-6 justify-start transition-all"
               >
                 {/* Red Standalone Vector Icon */}
                 <div className="flex items-center justify-center flex-shrink-0">

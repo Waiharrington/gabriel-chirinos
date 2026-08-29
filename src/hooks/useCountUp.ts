@@ -8,18 +8,15 @@ export function useCountUp(
   startOnView: boolean = true
 ) {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [hasStarted, setHasStarted] = useState(!startOnView);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!startOnView) {
-      setHasStarted(true);
-      return;
-    }
+    if (!startOnView || hasStarted) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
+        if (entry.isIntersecting) {
           setHasStarted(true);
         }
       },

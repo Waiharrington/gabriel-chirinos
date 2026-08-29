@@ -18,21 +18,23 @@ export default function Comunidad() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-black mb-2 uppercase font-bebas tracking-wide leading-none">
+            <h2 id="comunidad-title" data-editable-name="Comunidad: Título 'MI COMUNIDAD'" className="text-white text-3xl sm:text-4xl lg:text-[2.6rem] font-black mb-2 uppercase font-bebas tracking-wide leading-none transition-all">
               MI <span className="text-[#E53935] italic font-bebas">COMUNIDAD</span>
             </h2>
-            <p className="text-white/65 text-xs sm:text-[13px] leading-relaxed max-w-sm mb-6 font-inter">
+            <p id="comunidad-desc" data-editable-name="Comunidad: Descripción" className="text-white/65 text-xs sm:text-[13px] leading-relaxed max-w-sm mb-6 font-inter transition-all">
               {community.description}
             </p>
           </motion.div>
 
           {/* Demographics Card with Ambient Glow */}
           <motion.div
+            id="comunidad-card-demo"
+            data-editable-name="Comunidad: Tarjeta Demográfica"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative group"
+            className="relative group transition-all"
           >
             {/* Glow backdrop */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#E53935]/20 to-transparent rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500 pointer-events-none" />
@@ -41,12 +43,12 @@ export default function Comunidad() {
               <p className="text-[#E53935] text-[9px] font-bold tracking-[0.25em] uppercase mb-1 font-inter">
                 AUDIENCIA PRINCIPAL
               </p>
-              <p className="text-white text-2xl sm:text-3xl font-black mb-4 font-bebas tracking-wide">
+              <p id="comunidad-demo-age" data-editable-name="Comunidad: Texto Edad '18 - 35 AÑOS'" className="text-white text-2xl sm:text-3xl font-black mb-4 font-bebas tracking-wide transition-all">
                 {community.ageRange}
               </p>
 
               {/* Gender Donut Chart Graphic & Percentages */}
-              <div className="flex items-center justify-between pt-3 border-t border-white/[0.08]">
+              <div id="comunidad-demo-chart" data-editable-name="Comunidad: Gráfico % Género" className="flex items-center justify-between pt-3 border-t border-white/[0.08] transition-all">
                 {/* 68% Hombres */}
                 <div className="flex flex-col">
                   <span className="text-white text-2xl font-black font-bebas leading-none">68%</span>
@@ -94,15 +96,17 @@ export default function Comunidad() {
 
         {/* Right Column: Exactly 5 Reels in 9:16 vertical cards (8 cols) */}
         <div className="lg:col-span-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3">
+          <div id="comunidad-videos-grid" data-editable-name="Comunidad: Cuadrícula de Videos" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 transition-all">
             {community.videos.map((video, i) => (
               <motion.div
                 key={video.title}
+                id={`comunidad-video-${i}`}
+                data-editable-name={`Video ${i + 1}: ${video.title.replace("\n", " ")}`}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="group cursor-pointer w-full relative"
+                className="group cursor-pointer w-full relative transition-all"
               >
                 <div className="aspect-[9/16] bg-[#121212] rounded-xl overflow-hidden relative border border-white/[0.09] group-hover:border-[#E53935] transition-all duration-300 shadow-lg group-hover:shadow-[0_0_25px_rgba(229,57,53,0.35)] group-hover:-translate-y-1">
                   <img
