@@ -177,6 +177,59 @@ const DEFAULT_STYLES: StyleConfig = {
 const STORAGE_KEY_STYLES = "gabriel_chirinos_builder_styles_v1";
 const STORAGE_KEY_TEXTS = "gabriel_chirinos_builder_texts_v1";
 
+function generateFullCSS(styles: StyleConfig, customTexts: TextConfig): string {
+  let output = "/* ==========================================\n";
+  output += "   🎨 CSS COMPLETO - GABRIEL CHIRINOS LANDING\n";
+  output += "   ========================================== */\n\n";
+
+  // Text changes documentation
+  if (Object.keys(customTexts).length > 0) {
+    output += "/* ✍️ TEXTOS MODIFICADOS:\n";
+    Object.entries(customTexts).forEach(([id, text]) => {
+      output += `   #${id} => "${text.replace(/\n/g, " ")}"\n`;
+    });
+    output += "*/\n\n";
+  }
+
+  // CSS Rules for each modified element
+  output += "/* 📐 REGLAS DE ESPACIADO, TIPOGRAFÍA Y ESTILO */\n\n";
+  Object.entries(styles).forEach(([id, s]) => {
+    if (!s) return;
+    const rules: string[] = [];
+
+    if (s.marginTop) rules.push(`  margin-top: ${s.marginTop}px !important;`);
+    if (s.marginBottom) rules.push(`  margin-bottom: ${s.marginBottom}px !important;`);
+    if (s.paddingY) {
+      rules.push(`  padding-top: ${s.paddingY}px !important;`);
+      rules.push(`  padding-bottom: ${s.paddingY}px !important;`);
+    }
+    if (s.paddingX) {
+      rules.push(`  padding-left: ${s.paddingX}px !important;`);
+      rules.push(`  padding-right: ${s.paddingX}px !important;`);
+    }
+    if (s.maxWidth) rules.push(`  max-width: ${s.maxWidth}px !important;`);
+    if (s.fontSize) rules.push(`  font-size: ${s.fontSize}px !important;`);
+    if (s.letterSpacing) rules.push(`  letter-spacing: ${s.letterSpacing}px !important;`);
+    if (s.textAlign) rules.push(`  text-align: ${s.textAlign} !important;`);
+    if (s.borderRadius) rules.push(`  border-radius: ${s.borderRadius}px !important;`);
+    if (s.opacity !== undefined && s.opacity < 100) rules.push(`  opacity: ${s.opacity / 100} !important;`);
+    if (s.color) rules.push(`  color: ${s.color} !important;`);
+
+    const tx = s.translateX || 0;
+    const ty = s.translateY || 0;
+    const sc = (s.scale || 100) / 100;
+    if (tx !== 0 || ty !== 0 || sc !== 1) {
+      rules.push(`  transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
+    }
+
+    if (rules.length > 0) {
+      output += `#${id} {\n${rules.join("\n")}\n}\n\n`;
+    }
+  });
+
+  return output;
+}
+
 function applyStylesToDOM(config: StyleConfig, activeId: string, editorOpen: boolean) {
   if (typeof document === "undefined") return;
   let cssRules = "";
@@ -245,6 +298,7 @@ export default function VisualEditor() {
   const [activeTab, setActiveTab] = useState<"spacing" | "text" | "style">("spacing");
   const [selectedId, setSelectedId] = useState<string>("stats-card");
   const [searchFilter, setSearchFilter] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [styles, setStyles] = useState<StyleConfig>(() => {
     if (typeof window === "undefined") return DEFAULT_STYLES;
@@ -322,7 +376,9 @@ export default function VisualEditor() {
 
     const handleClick = (e: MouseEvent) => {
       const editorPanel = document.getElementById("visual-builder-panel");
+      const modalPanel = document.getElementById("visual-builder-modal");
       if (editorPanel && editorPanel.contains(e.target as Node)) return;
+      if (modalPanel && modalPanel.contains(e.target as Node)) return;
 
       const targetInfo = findEditableTarget(e.target as HTMLElement);
       if (targetInfo) {
@@ -332,7 +388,9 @@ export default function VisualEditor() {
 
     const handleDoubleClick = (e: MouseEvent) => {
       const editorPanel = document.getElementById("visual-builder-panel");
+      const modalPanel = document.getElementById("visual-builder-modal");
       if (editorPanel && editorPanel.contains(e.target as Node)) return;
+      if (modalPanel && modalPanel.contains(e.target as Node)) return;
 
       const targetInfo = findEditableTarget(e.target as HTMLElement);
       if (targetInfo) {
@@ -406,52 +464,11 @@ export default function VisualEditor() {
     }
   };
 
-  const handleCopyCSS = () => {
-    let output = "/* ==========================================\n";
-    output += "   🎨 CAMBIOS VISUALES (ESTILO ELEMENTOR PRO)\n";
-    output += "   ========================================== */\n\n";
-
-    // Text changes
-    if (Object.keys(customTexts).length > 0) {
-      output += "/* ✍️ TEXTOS MODIFICADOS: */\n";
-      Object.entries(customTexts).forEach(([id, text]) => {
-        output += `/* #${id} => "${text.replace(/\n/g, "\\n")}" */\n`;
-      });
-      output += "\n";
-    }
-
-    // CSS Rules
-    output += "/* 📐 REGLAS DE ESPACIADO Y ESTILO: */\n";
-    Object.entries(styles).forEach(([id, s]) => {
-      if (!s) return;
-      const rules: string[] = [];
-
-      if (s.marginTop) rules.push(`  margin-top: ${s.marginTop}px;`);
-      if (s.marginBottom) rules.push(`  margin-bottom: ${s.marginBottom}px;`);
-      if (s.paddingY) {
-        rules.push(`  padding-top: ${s.paddingY}px;`);
-        rules.push(`  padding-bottom: ${s.paddingY}px;`);
-      }
-      if (s.paddingX) {
-        rules.push(`  padding-left: ${s.paddingX}px;`);
-        rules.push(`  padding-right: ${s.paddingX}px;`);
-      }
-      if (s.maxWidth) rules.push(`  max-width: ${s.maxWidth}px;`);
-      if (s.fontSize) rules.push(`  font-size: ${s.fontSize}px;`);
-      if (s.letterSpacing) rules.push(`  letter-spacing: ${s.letterSpacing}px;`);
-      if (s.textAlign) rules.push(`  text-align: ${s.textAlign};`);
-      if (s.borderRadius) rules.push(`  border-radius: ${s.borderRadius}px;`);
-      if (s.opacity !== undefined && s.opacity < 100) rules.push(`  opacity: ${s.opacity / 100};`);
-      if (s.color) rules.push(`  color: ${s.color};`);
-
-      if (rules.length > 0) {
-        output += `#${id} {\n${rules.join("\n")}\n}\n\n`;
-      }
-    });
-
+  const handleCopyFullCSS = () => {
+    const output = generateFullCSS(styles, customTexts);
     navigator.clipboard.writeText(output);
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
+    setTimeout(() => setCopied(false), 3500);
   };
 
   // Find active element label
@@ -464,8 +481,28 @@ export default function VisualEditor() {
     }
   }
 
+  const fullCSSCode = generateFullCSS(styles, customTexts);
+
   return (
     <>
+      {/* Toast Notification when copied */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: -50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -50, scale: 0.9 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[999999] bg-gradient-to-r from-emerald-600 to-green-600 text-white font-bold text-xs px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/20"
+          >
+            <span className="text-xl">✅</span>
+            <div>
+              <p className="font-black text-sm">¡TODO EL CSS COPIADO AL PORTAPAPELES!</p>
+              <p className="text-[11px] text-white/80">Ahora solo pégalo en el chat con Antigravity para guardarlo para siempre.</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating Trigger Button */}
       {!isOpen && (
         <div className="fixed bottom-5 right-5 z-[99990] flex items-center gap-2 select-none">
@@ -480,6 +517,68 @@ export default function VisualEditor() {
           </motion.button>
         </div>
       )}
+
+      {/* Modal / Code Viewer Popup */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div
+            id="visual-builder-modal"
+            className="fixed inset-0 z-[999999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-[#111] border border-white/20 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col p-6 shadow-2xl text-white font-inter"
+            >
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">📋</span>
+                  <h3 className="font-black text-sm uppercase font-bebas tracking-wider text-white">
+                    CÓDIGO CSS COMPLETO DE LA PÁGINA
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="text-white/60 hover:text-white px-2.5 py-1 text-xs bg-white/10 rounded cursor-pointer"
+                >
+                  ✕ Cerrar
+                </button>
+              </div>
+
+              <p className="text-xs text-white/70 mb-3">
+                Puedes copiar este bloque CSS completo con un clic y pegármelo en el chat para aplicar todos los cambios al proyecto de inmediato:
+              </p>
+
+              <textarea
+                readOnly
+                value={fullCSSCode}
+                rows={14}
+                className="w-full bg-[#050505] border border-white/15 rounded-xl p-3 font-mono text-xs text-emerald-400 focus:outline-none select-all"
+              />
+
+              <div className="flex justify-between items-center mt-4 pt-3 border-t border-white/10">
+                <span className="text-[11px] text-white/50">Incluye espaciados, márgenes y textos.</span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={handleCopyFullCSS}
+                    className="bg-[#E53935] hover:bg-[#c62828] text-white px-5 py-2 rounded-xl font-bold text-xs flex items-center gap-2 cursor-pointer shadow-lg shadow-red-950/50"
+                  >
+                    <span>📋</span>
+                    <span>{copied ? "¡Copiado!" : "Copiar al Portapapeles"}</span>
+                  </button>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl font-bold text-xs cursor-pointer"
+                  >
+                    Listo
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Main Elementor-Style Visual Builder Panel */}
       <AnimatePresence>
@@ -520,6 +619,17 @@ export default function VisualEditor() {
                 </button>
               </div>
             </div>
+
+            {/* Quick Top Action Button: COPIAR TODO EL CSS */}
+            {!isMinimized && (
+              <button
+                onClick={handleCopyFullCSS}
+                className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white py-2 px-3 rounded-xl font-black uppercase tracking-wider text-[11px] shadow-lg shadow-emerald-950/60 flex items-center justify-center gap-2 cursor-pointer transition-all border border-emerald-400/30 active:scale-98"
+              >
+                <span>📋</span>
+                <span>{copied ? "¡TODO EL CSS COPIADO!" : "COPIAR TODO EL CSS DE LA PÁGINA"}</span>
+              </button>
+            )}
 
             {/* Elementor Pro Tab Navigation */}
             {!isMinimized && (
@@ -623,7 +733,7 @@ export default function VisualEditor() {
 
                 {/* Quick Hint */}
                 <div className="bg-[#E53935]/15 border border-[#E53935]/30 rounded-lg p-2 text-[10.5px] text-white/90 leading-tight">
-                  💡 <strong>Tip Elementor:</strong> Haz <strong>click</strong> para seleccionar cualquier caja y <strong>doble click</strong> para editar texto directamente en pantalla.
+                  💡 <strong>Tip:</strong> Haz <strong>click</strong> para seleccionar cualquier caja y <strong>doble click</strong> para editar texto directamente en pantalla.
                 </div>
 
                 {/* TAB 1: SPACING & LAYOUT (Natural Box Model) */}
@@ -706,7 +816,7 @@ export default function VisualEditor() {
                       <div className="flex justify-between items-center mb-0.5">
                         <span className="text-white/80 font-medium text-[11px]">Ancho Máximo (Max Width)</span>
                         <span className="text-[#E53935] font-black font-mono">
-                          {currentVal("maxWidth", 0) > 0 ? `${currentVal("maxWidth")}px` : "Auto"}
+                          {(currentVal("maxWidth", 0) ?? 0) > 0 ? `${currentVal("maxWidth")}px` : "Auto"}
                         </span>
                       </div>
                       <input
@@ -759,7 +869,7 @@ export default function VisualEditor() {
                       <div className="flex justify-between items-center mb-0.5">
                         <span className="text-white/80 font-medium text-[11px]">Tamaño de Letra (Font Size)</span>
                         <span className="text-[#E53935] font-black font-mono">
-                          {currentVal("fontSize", 0) > 0 ? `${currentVal("fontSize")}px` : "Defecto"}
+                          {(currentVal("fontSize", 0) ?? 0) > 0 ? `${currentVal("fontSize")}px` : "Defecto"}
                         </span>
                       </div>
                       <input
@@ -876,17 +986,27 @@ export default function VisualEditor() {
                   </div>
                 )}
 
-                {/* Bottom Main Action: Copy CSS / Save */}
+                {/* Bottom Main Actions: Copy CSS Buttons */}
                 <div className="flex flex-col gap-2 pt-2 border-t border-white/10">
-                  <button
-                    onClick={handleCopyCSS}
-                    className="w-full bg-gradient-to-r from-[#E53935] to-[#c62828] hover:from-[#f44336] hover:to-[#d32f2f] text-white py-3 px-4 rounded-xl font-black tracking-wider uppercase text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-red-950/70 active:scale-98"
-                  >
-                    <span>💾</span>
-                    <span>{copied ? "¡COPIADO! Pégalo a Antigravity en el chat" : "GUARDAR Y COPIAR CAMBIOS"}</span>
-                  </button>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={handleCopyFullCSS}
+                      className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white py-3 px-3 rounded-xl font-black tracking-wider uppercase text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-emerald-950/60 active:scale-98"
+                    >
+                      <span>📋</span>
+                      <span>{copied ? "¡COPIADO!" : "COPIAR TODO EL CSS"}</span>
+                    </button>
 
-                  <div className="flex justify-between items-center text-[10px] text-white/50 px-1">
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="w-full bg-white/10 hover:bg-white/20 text-white py-3 px-3 rounded-xl font-bold tracking-wider uppercase text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border border-white/10"
+                    >
+                      <span>👁️</span>
+                      <span>VER CÓDIGO</span>
+                    </button>
+                  </div>
+
+                  <div className="flex justify-between items-center text-[10px] text-white/50 px-1 pt-1">
                     <span>⚡ Edición visual Elementor Pro</span>
                     <button
                       onClick={handleResetAll}
