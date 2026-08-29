@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface ElementStyle {
+  translateX?: number;
+  translateY?: number;
+  scale?: number;
   marginTop?: number;
   marginBottom?: number;
   paddingY?: number;
@@ -15,9 +18,6 @@ export interface ElementStyle {
   borderRadius?: number;
   opacity?: number;
   color?: string;
-  translateX?: number;
-  translateY?: number;
-  scale?: number;
 }
 
 export type StyleConfig = Record<string, Partial<ElementStyle>>;
@@ -168,14 +168,13 @@ export const EDITABLE_GROUPS: ElementGroup[] = [
 
 const ALL_EDITABLE_IDS = EDITABLE_GROUPS.flatMap((g) => g.items.map((i) => i.id));
 
-// Natural clean default styles without artificial translate3d overlaps
 const DEFAULT_STYLES: StyleConfig = {
   "stats-card": { maxWidth: 1040, paddingY: 32, paddingX: 40 },
   "hero-content": { maxWidth: 620 },
 };
 
-const STORAGE_KEY_STYLES = "gabriel_chirinos_builder_styles_v1";
-const STORAGE_KEY_TEXTS = "gabriel_chirinos_builder_texts_v1";
+const STORAGE_KEY_STYLES = "gabriel_chirinos_builder_styles_v2";
+const STORAGE_KEY_TEXTS = "gabriel_chirinos_builder_texts_v2";
 
 function generateFullCSS(styles: StyleConfig, customTexts: TextConfig): string {
   let output = "/* ==========================================\n";
@@ -192,10 +191,17 @@ function generateFullCSS(styles: StyleConfig, customTexts: TextConfig): string {
   }
 
   // CSS Rules for each modified element
-  output += "/* 📐 REGLAS DE ESPACIADO, TIPOGRAFÍA Y ESTILO */\n\n";
+  output += "/* 📐 REGLAS DE POSICIONAMIENTO, ESPACIADO Y ESTILO */\n\n";
   Object.entries(styles).forEach(([id, s]) => {
     if (!s) return;
     const rules: string[] = [];
+
+    const tx = s.translateX || 0;
+    const ty = s.translateY || 0;
+    const sc = (s.scale || 100) / 100;
+    if (tx !== 0 || ty !== 0 || sc !== 1) {
+      rules.push(`  transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
+    }
 
     if (s.marginTop) rules.push(`  margin-top: ${s.marginTop}px !important;`);
     if (s.marginBottom) rules.push(`  margin-bottom: ${s.marginBottom}px !important;`);
@@ -215,13 +221,6 @@ function generateFullCSS(styles: StyleConfig, customTexts: TextConfig): string {
     if (s.opacity !== undefined && s.opacity < 100) rules.push(`  opacity: ${s.opacity / 100} !important;`);
     if (s.color) rules.push(`  color: ${s.color} !important;`);
 
-    const tx = s.translateX || 0;
-    const ty = s.translateY || 0;
-    const sc = (s.scale || 100) / 100;
-    if (tx !== 0 || ty !== 0 || sc !== 1) {
-      rules.push(`  transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
-    }
-
     if (rules.length > 0) {
       output += `#${id} {\n${rules.join("\n")}\n}\n\n`;
     }
@@ -238,6 +237,14 @@ function applyStylesToDOM(config: StyleConfig, activeId: string, editorOpen: boo
     if (!s) return;
     const selector = `#${id}`;
     const rules: string[] = [];
+
+    // Free Transform (Translate X/Y and Scale)
+    const tx = s.translateX || 0;
+    const ty = s.translateY || 0;
+    const sc = (s.scale || 100) / 100;
+    if (tx !== 0 || ty !== 0 || sc !== 1) {
+      rules.push(`transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
+    }
 
     // Natural Box Model Spacing (Margin & Padding)
     if (s.marginTop !== undefined && s.marginTop !== 0) rules.push(`margin-top: ${s.marginTop}px !important;`);
@@ -264,17 +271,9 @@ function applyStylesToDOM(config: StyleConfig, activeId: string, editorOpen: boo
     if (s.borderRadius !== undefined) rules.push(`border-radius: ${s.borderRadius}px !important;`);
     if (s.opacity !== undefined && s.opacity < 100) rules.push(`opacity: ${s.opacity / 100} !important;`);
 
-    // Transforms (only if explicitly nudged)
-    const tx = s.translateX || 0;
-    const ty = s.translateY || 0;
-    const sc = (s.scale || 100) / 100;
-    if (tx !== 0 || ty !== 0 || sc !== 1) {
-      rules.push(`transform: translate3d(${tx}px, ${ty}px, 0) scale(${sc}) !important;`);
-    }
-
     // Visual highlight when editor is open and element is active
     if (editorOpen && id === activeId) {
-      rules.push(`outline: 2px dashed #E53935 !important; outline-offset: 4px !important;`);
+      rules.push(`outline: 2px dashed #E53935 !important; outline-offset: 4px !important; cursor: grab !important;`);
     }
 
     if (rules.length > 0) {
@@ -295,16 +294,22 @@ function applyStylesToDOM(config: StyleConfig, activeId: string, editorOpen: boo
 export default function VisualEditor() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [activeTab, setActiveTab] = useState<"spacing" | "text" | "style">("spacing");
-  const [selectedId, setSelectedId] = useState<string>("stats-card");
+  const [activeTab, setActiveTab] = useState<"movement" | "spacing" | "text" | "style">("movement");
+  const [selectedId, setSelectedId] = useState<string>("hero-content");
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragCoords, setDragCoords] = useState({ x: 0, y: 0 });
+
+  const dragStartRef = useRef<{ mouseX: number; mouseY: number; elemX: number; elemY: number; targetId: string } | null>(null);
 
   const [styles, setStyles] = useState<StyleConfig>(() => {
     if (typeof window === "undefined") return DEFAULT_STYLES;
     try {
       const saved = localStorage.getItem(STORAGE_KEY_STYLES);
       if (saved) return JSON.parse(saved);
+      const v1 = localStorage.getItem("gabriel_chirinos_builder_styles_v1");
+      if (v1) return JSON.parse(v1);
     } catch {
       // ignore
     }
@@ -340,7 +345,6 @@ export default function VisualEditor() {
     Object.entries(customTexts).forEach(([id, text]) => {
       const el = document.getElementById(id);
       if (el && !el.isContentEditable) {
-        // If element contains inner formatting like span or br, update text safely
         if (el.tagName === "P" || el.tagName === "SPAN" || el.tagName === "H1" || el.tagName === "H2" || el.tagName === "H3" || el.tagName === "A" || el.tagName === "DIV") {
           el.innerText = text;
         }
@@ -353,10 +357,9 @@ export default function VisualEditor() {
     }
   }, [customTexts]);
 
-  // Click-to-Select and ContentEditable Controller
+  // Click-to-Select, Direct Mouse Dragging & ContentEditable Controller
   useEffect(() => {
     if (!isOpen) {
-      // Disable contentEditable on all when closed
       document.querySelectorAll("[contenteditable=true]").forEach((el) => {
         el.removeAttribute("contenteditable");
       });
@@ -374,15 +377,57 @@ export default function VisualEditor() {
       return null;
     };
 
-    const handleClick = (e: MouseEvent) => {
+    const handleMouseDown = (e: MouseEvent) => {
       const editorPanel = document.getElementById("visual-builder-panel");
       const modalPanel = document.getElementById("visual-builder-modal");
       if (editorPanel && editorPanel.contains(e.target as Node)) return;
       if (modalPanel && modalPanel.contains(e.target as Node)) return;
 
       const targetInfo = findEditableTarget(e.target as HTMLElement);
-      if (targetInfo) {
-        setSelectedId(targetInfo.id);
+      if (!targetInfo) return;
+
+      setSelectedId(targetInfo.id);
+
+      // Start direct drag movement
+      const curX = styles[targetInfo.id]?.translateX || 0;
+      const curY = styles[targetInfo.id]?.translateY || 0;
+
+      dragStartRef.current = {
+        mouseX: e.clientX,
+        mouseY: e.clientY,
+        elemX: curX,
+        elemY: curY,
+        targetId: targetInfo.id,
+      };
+      setIsDragging(true);
+      setDragCoords({ x: curX, y: curY });
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!dragStartRef.current) return;
+      const { mouseX, mouseY, elemX, elemY, targetId } = dragStartRef.current;
+      const dx = Math.round(e.clientX - mouseX);
+      const dy = Math.round(e.clientY - mouseY);
+
+      const newX = elemX + dx;
+      const newY = elemY + dy;
+
+      setDragCoords({ x: newX, y: newY });
+
+      setStyles((prev) => ({
+        ...prev,
+        [targetId]: {
+          ...(prev[targetId] || {}),
+          translateX: newX,
+          translateY: newY,
+        },
+      }));
+    };
+
+    const handleMouseUp = () => {
+      if (dragStartRef.current) {
+        dragStartRef.current = null;
+        setIsDragging(false);
       }
     };
 
@@ -410,14 +455,48 @@ export default function VisualEditor() {
       }
     };
 
-    window.addEventListener("click", handleClick);
+    // Keyboard Arrow Nudging
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement)?.tagName)) return;
+
+      e.preventDefault();
+      const step = e.shiftKey ? 10 : 1;
+      const curX = styles[selectedId]?.translateX || 0;
+      const curY = styles[selectedId]?.translateY || 0;
+
+      let newX = curX;
+      let newY = curY;
+
+      if (e.key === "ArrowLeft") newX -= step;
+      if (e.key === "ArrowRight") newX += step;
+      if (e.key === "ArrowUp") newY -= step;
+      if (e.key === "ArrowDown") newY += step;
+
+      setStyles((prev) => ({
+        ...prev,
+        [selectedId]: {
+          ...(prev[selectedId] || {}),
+          translateX: newX,
+          translateY: newY,
+        },
+      }));
+    };
+
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
     window.addEventListener("dblclick", handleDoubleClick);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("click", handleClick);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("dblclick", handleDoubleClick);
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, styles, selectedId]);
 
   const handleUpdate = <K extends keyof ElementStyle>(field: K, value: ElementStyle[K]) => {
     setStyles((prev) => ({
@@ -485,6 +564,16 @@ export default function VisualEditor() {
 
   return (
     <>
+      {/* Floating Drag Coordinates Tooltip while dragging */}
+      {isDragging && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[999999] bg-[#E53935] text-white font-mono font-black text-xs px-5 py-2.5 rounded-full shadow-2xl pointer-events-none flex items-center gap-3 border border-white/30">
+          <span className="text-sm">🖐️ Moviendo:</span>
+          <span className="text-white underline">#{selectedId}</span>
+          <span className="bg-black/50 px-2 py-0.5 rounded">X: {dragCoords.x}px</span>
+          <span className="bg-black/50 px-2 py-0.5 rounded">Y: {dragCoords.y}px</span>
+        </div>
+      )}
+
       {/* Toast Notification when copied */}
       <AnimatePresence>
         {copied && (
@@ -512,8 +601,8 @@ export default function VisualEditor() {
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-[#E53935] to-[#b71c1c] hover:from-[#f44336] hover:to-[#c62828] text-white px-5 py-3 rounded-full shadow-[0_0_30px_rgba(229,57,53,0.6)] border border-white/20 flex items-center gap-2.5 text-xs font-black tracking-wider uppercase font-inter cursor-pointer transition-all"
           >
-            <span className="text-base">⚡</span>
-            <span>Editor Elementor Pro</span>
+            <span className="text-base">🖐️</span>
+            <span>Mover Elementos & Editor</span>
           </motion.button>
         </div>
       )}
@@ -558,7 +647,7 @@ export default function VisualEditor() {
               />
 
               <div className="flex justify-between items-center mt-4 pt-3 border-t border-white/10">
-                <span className="text-[11px] text-white/50">Incluye espaciados, márgenes y textos.</span>
+                <span className="text-[11px] text-white/50">Incluye posiciones libres, espaciados y textos.</span>
                 <div className="flex gap-2">
                   <button
                     onClick={handleCopyFullCSS}
@@ -597,9 +686,9 @@ export default function VisualEditor() {
                 <div className="w-3 h-3 rounded-full bg-[#E53935] shadow-[0_0_10px_#E53935]" />
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-wider font-bebas text-white leading-none">
-                    ELEMENTOR PRO BUILDER
+                    EDITOR VISUAL & MOVIMIENTO LIBRE
                   </h3>
-                  <p className="text-[10px] text-white/50 font-medium">Edición visual en vivo sin superposiciones</p>
+                  <p className="text-[10px] text-white/50 font-medium">Arrastra con el mouse o usa los controles</p>
                 </div>
               </div>
               <div className="flex items-center gap-1">
@@ -633,22 +722,34 @@ export default function VisualEditor() {
 
             {/* Elementor Pro Tab Navigation */}
             {!isMinimized && (
-              <div className="grid grid-cols-3 gap-1 bg-[#161616] p-1 rounded-xl border border-white/10">
+              <div className="grid grid-cols-4 gap-1 bg-[#161616] p-1 rounded-xl border border-white/10">
+                <button
+                  onClick={() => setActiveTab("movement")}
+                  className={`py-1.5 px-1 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-1 ${
+                    activeTab === "movement"
+                      ? "bg-[#E53935] text-white shadow-md"
+                      : "text-white/60 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <span>🎮</span>
+                  <span>Mover</span>
+                </button>
+
                 <button
                   onClick={() => setActiveTab("spacing")}
-                  className={`py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  className={`py-1.5 px-1 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-1 ${
                     activeTab === "spacing"
                       ? "bg-[#E53935] text-white shadow-md"
                       : "text-white/60 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   <span>📐</span>
-                  <span>Espaciado</span>
+                  <span>Espacio</span>
                 </button>
 
                 <button
                   onClick={() => setActiveTab("text")}
-                  className={`py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  className={`py-1.5 px-1 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-1 ${
                     activeTab === "text"
                       ? "bg-[#E53935] text-white shadow-md"
                       : "text-white/60 hover:text-white hover:bg-white/5"
@@ -660,7 +761,7 @@ export default function VisualEditor() {
 
                 <button
                   onClick={() => setActiveTab("style")}
-                  className={`py-1.5 px-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  className={`py-1.5 px-1 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex flex-col sm:flex-row items-center justify-center gap-1 ${
                     activeTab === "style"
                       ? "bg-[#E53935] text-white shadow-md"
                       : "text-white/60 hover:text-white hover:bg-white/5"
@@ -725,6 +826,7 @@ export default function VisualEditor() {
                     <button
                       onClick={handleResetCurrent}
                       className="text-[10px] text-[#E53935] hover:underline font-bold cursor-pointer"
+                      title="Reiniciar este elemento"
                     >
                       Restablecer
                     </button>
@@ -733,17 +835,131 @@ export default function VisualEditor() {
 
                 {/* Quick Hint */}
                 <div className="bg-[#E53935]/15 border border-[#E53935]/30 rounded-lg p-2 text-[10.5px] text-white/90 leading-tight">
-                  💡 <strong>Tip:</strong> Haz <strong>click</strong> para seleccionar cualquier caja y <strong>doble click</strong> para editar texto directamente en pantalla.
+                  🖐️ <strong>¡Haz click y arrastra con el mouse</strong> directamente cualquier elemento de la pantalla para colocarlo donde quieras! O usa las <strong>flechas del teclado</strong> (Shift + Flechas = 10px).
                 </div>
 
-                {/* TAB 1: SPACING & LAYOUT (Natural Box Model) */}
+                {/* TAB 1: FREE MOVEMENT (X, Y, SCALE & DRAG) */}
+                {activeTab === "movement" && (
+                  <div className="flex flex-col gap-3 bg-[#141414] p-3 rounded-xl border border-white/10">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#E53935] border-b border-white/10 pb-1 flex items-center justify-between">
+                      <span className="flex items-center gap-1.5">
+                        <span>🎮</span> Mover Libremente (Posición 2D)
+                      </span>
+                      <span className="text-[10px] text-white/40 font-mono">
+                        X: {currentVal("translateX", 0)}px | Y: {currentVal("translateY", 0)}px
+                      </span>
+                    </h4>
+
+                    {/* Horizontal Position X */}
+                    <div>
+                      <div className="flex justify-between items-center mb-0.5">
+                        <span className="text-white/80 font-medium text-[11px]">↔️ Mover Horizontal (X)</span>
+                        <span className="text-[#E53935] font-black font-mono">{currentVal("translateX", 0)}px</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="-500"
+                        max="500"
+                        step="1"
+                        value={currentVal("translateX", 0)}
+                        onChange={(e) => handleUpdate("translateX", Number(e.target.value))}
+                        className="w-full accent-[#E53935] cursor-pointer"
+                      />
+                    </div>
+
+                    {/* Vertical Position Y */}
+                    <div>
+                      <div className="flex justify-between items-center mb-0.5">
+                        <span className="text-white/80 font-medium text-[11px]">↕️ Mover Vertical (Y)</span>
+                        <span className="text-[#E53935] font-black font-mono">{currentVal("translateY", 0)}px</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="-500"
+                        max="500"
+                        step="1"
+                        value={currentVal("translateY", 0)}
+                        onChange={(e) => handleUpdate("translateY", Number(e.target.value))}
+                        className="w-full accent-[#E53935] cursor-pointer"
+                      />
+                    </div>
+
+                    {/* Scale / Size */}
+                    <div>
+                      <div className="flex justify-between items-center mb-0.5">
+                        <span className="text-white/80 font-medium text-[11px]">🔍 Tamaño / Escala (%)</span>
+                        <span className="text-[#E53935] font-black font-mono">{currentVal("scale", 100)}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="40"
+                        max="180"
+                        step="1"
+                        value={currentVal("scale", 100)}
+                        onChange={(e) => handleUpdate("scale", Number(e.target.value))}
+                        className="w-full accent-[#E53935] cursor-pointer"
+                      />
+                    </div>
+
+                    {/* Quick Move Nudge Pad */}
+                    <div className="flex flex-col items-center gap-1 pt-1 border-t border-white/5">
+                      <span className="text-[10px] text-white/50 mb-0.5">Mover con Botones Rápidos:</span>
+                      <div className="grid grid-cols-3 gap-1 w-36">
+                        <div />
+                        <button
+                          onClick={() => handleUpdate("translateY", (currentVal("translateY", 0) ?? 0) - 5)}
+                          className="bg-[#222] hover:bg-[#E53935] text-white py-1 rounded font-bold text-xs"
+                          title="Arriba (5px)"
+                        >
+                          ▲
+                        </button>
+                        <div />
+                        <button
+                          onClick={() => handleUpdate("translateX", (currentVal("translateX", 0) ?? 0) - 5)}
+                          className="bg-[#222] hover:bg-[#E53935] text-white py-1 rounded font-bold text-xs"
+                          title="Izquierda (5px)"
+                        >
+                          ◀
+                        </button>
+                        <button
+                          onClick={() => {
+                            handleUpdate("translateX", 0);
+                            handleUpdate("translateY", 0);
+                          }}
+                          className="bg-[#333] hover:bg-[#444] text-[9px] text-white font-bold py-1 rounded"
+                          title="Centrar posición"
+                        >
+                          0,0
+                        </button>
+                        <button
+                          onClick={() => handleUpdate("translateX", (currentVal("translateX", 0) ?? 0) + 5)}
+                          className="bg-[#222] hover:bg-[#E53935] text-white py-1 rounded font-bold text-xs"
+                          title="Derecha (5px)"
+                        >
+                          ▶
+                        </button>
+                        <div />
+                        <button
+                          onClick={() => handleUpdate("translateY", (currentVal("translateY", 0) ?? 0) + 5)}
+                          className="bg-[#222] hover:bg-[#E53935] text-white py-1 rounded font-bold text-xs"
+                          title="Abajo (5px)"
+                        >
+                          ▼
+                        </button>
+                        <div />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 2: SPACING & LAYOUT (Natural Box Model) */}
                 {activeTab === "spacing" && (
                   <div className="flex flex-col gap-3 bg-[#141414] p-3 rounded-xl border border-white/10">
                     <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#E53935] border-b border-white/10 pb-1 flex items-center gap-1.5">
                       <span>📐</span> Disposición y Espaciado Natural (Box Model)
                     </h4>
 
-                    {/* Margen Arriba (Empuja hacia abajo sin montarse) */}
+                    {/* Margen Arriba */}
                     <div>
                       <div className="flex justify-between items-center mb-0.5">
                         <span className="text-white/80 font-medium text-[11px]">Margen Arriba (Margin Top)</span>
@@ -760,7 +976,7 @@ export default function VisualEditor() {
                       />
                     </div>
 
-                    {/* Margen Abajo (Separa de la sección siguiente) */}
+                    {/* Margen Abajo */}
                     <div>
                       <div className="flex justify-between items-center mb-0.5">
                         <span className="text-white/80 font-medium text-[11px]">Margen Abajo (Margin Bottom)</span>
@@ -832,7 +1048,7 @@ export default function VisualEditor() {
                   </div>
                 )}
 
-                {/* TAB 2: TYPOGRAPHY & TEXT CONTENT */}
+                {/* TAB 3: TYPOGRAPHY & TEXT CONTENT */}
                 {activeTab === "text" && (
                   <div className="flex flex-col gap-3 bg-[#141414] p-3 rounded-xl border border-white/10">
                     <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#E53935] border-b border-white/10 pb-1 flex items-center gap-1.5">
@@ -922,7 +1138,7 @@ export default function VisualEditor() {
                   </div>
                 )}
 
-                {/* TAB 3: STYLE & BORDERS */}
+                {/* TAB 4: STYLE & BORDERS */}
                 {activeTab === "style" && (
                   <div className="flex flex-col gap-3 bg-[#141414] p-3 rounded-xl border border-white/10">
                     <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#E53935] border-b border-white/10 pb-1 flex items-center gap-1.5">
@@ -1007,7 +1223,7 @@ export default function VisualEditor() {
                   </div>
 
                   <div className="flex justify-between items-center text-[10px] text-white/50 px-1 pt-1">
-                    <span>⚡ Edición visual Elementor Pro</span>
+                    <span>Atajos: Arrastrar | Flechas (Shift = 10px)</span>
                     <button
                       onClick={handleResetAll}
                       className="text-white/40 hover:text-red-400 underline cursor-pointer"
