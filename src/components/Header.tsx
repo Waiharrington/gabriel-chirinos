@@ -18,7 +18,7 @@ export default function Header() {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col leading-none group cursor-pointer lg:translate-x-[158px] transition-all"
+          className="flex flex-col leading-none group cursor-pointer transition-all"
         >
           <span className="text-white text-xl sm:text-2xl font-black italic tracking-wider font-bebas group-hover:text-white transition-colors">
             GABRIEL
