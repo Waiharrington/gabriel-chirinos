@@ -16,10 +16,10 @@ export const siteData = {
   },
 
   stats: [
-    { value: "24.247", label: "SEGUIDORES", icon: "users" },
-    { value: "3.097.230", label: "VISUALIZACIONES\n(30 DÍAS)", icon: "eye" },
-    { value: "1.754.791", label: "ALCANCE\n(30 DÍAS)", icon: "signal" },
-    { value: "+676", label: "NUEVOS SEGUIDORES\n(30 DÍAS)", icon: "trending" },
+    { value: "24.250", label: "SEGUIDORES", icon: "users" },
+    { value: "4.639.715", label: "VISUALIZACIONES\n(60 DÍAS)", icon: "eye" },
+    { value: "2.156.994", label: "ESPECTADORES\n(60 DÍAS)", icon: "signal" },
+    { value: "+1.476", label: "SEGUIDORES NETOS\n(60 DÍAS)", icon: "trending" },
   ],
 
   niches: [
