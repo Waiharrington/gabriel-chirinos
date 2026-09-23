@@ -38,7 +38,7 @@ export const siteData = {
       "Una comunidad real, activa y comprometida. Personas que confían en mis recomendaciones y toman acción.",
     videos: [
       {
-        title: "NEVO 1",
+        title: "NEVO",
         href: "https://www.instagram.com/reel/Da5hlCfRMYy/?stkn=NzBkY2xmZHlzcjQw",
         image: "/photos/suplementos-nutricion.jpg",
       },
@@ -58,7 +58,7 @@ export const siteData = {
         image: "/photos/hero-editorial.jpg",
       },
       {
-        title: "NEVO 2",
+        title: "NEVO",
         href: "https://www.instagram.com/reel/DZTIroWgVMi/?stkn=MXRobWYyd3BuMGNzag==",
         image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg",
       },
