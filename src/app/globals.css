@@ -936,9 +936,6 @@ h2 {
   .wordmark {
     font-size: 18px;
   }
-  .wordmark-first {
-    display: none;
-  }
   .desktop-nav {
     display: none;
   }
@@ -979,7 +976,7 @@ h2 {
     width: 76%;
   }
   .hero-image {
-    object-position: 34% center;
+    object-position: 12% center;
   }
   .hero-media::after {
     background: linear-gradient(90deg, #111 0%, rgba(17, 17, 17, 0.58) 37%, rgba(17, 17, 17, 0.06) 86%);
