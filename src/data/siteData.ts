@@ -27,7 +27,7 @@ export const siteData = {
     { label: "DEPORTES &\nBIENESTAR", icon: "heart" },
     { label: "ROPA &\nACCESORIOS", icon: "shirt" },
     { label: "SUPLEMENTOS &\nNUTRICIÓN", icon: "flask" },
-    { label: "TECNOLOGÍA &\nGADGETS", icon: "cpu" },
+    { label: "ACCESORIOS PARA\nATLETAS", icon: "shirt" },
     { label: "ESTILO DE VIDA &\nMOTIVACIÓN", icon: "flame" },
   ],
 
@@ -41,38 +41,63 @@ export const siteData = {
       { type: "MUJERES", percentage: 32 },
     ],
     videos: [
-      { title: "10K", views: "2.1M", image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg" },
-      { title: "MI RUTINA\nDE PIERNA", views: "1.6M", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg" },
-      { title: "5 CONSEJOS\nPARA CORRER\nMEJOR", views: "952K", image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM.jpeg" },
-      { title: "NUNCA\nTE RINDAS", views: "1.2M", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg" },
-      { title: "LA VUELTA\nRUN CLUB", views: "870K", image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg" },
+      {
+        title: "10K",
+        views: "2.1M",
+        image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg",
+      },
+      {
+        title: "MI RUTINA\nDE PIERNA",
+        views: "1.6M",
+        image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg",
+      },
+      {
+        title: "5 CONSEJOS\nPARA CORRER\nMEJOR",
+        views: "952K",
+        image: "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM.jpeg",
+      },
+      {
+        title: "NUNCA\nTE RINDAS",
+        views: "1.2M",
+        image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg",
+      },
+      {
+        title: "LA VUELTA\nRUN CLUB",
+        views: "870K",
+        image: "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg",
+      },
     ],
   },
 
   services: [
     {
       title: "CONTENT CREATION",
-      description: "Contenido auténtico y adaptado a tu marca para Instagram, TikTok y más.",
+      description:
+        "Contenido auténtico y adaptado a tu marca para Instagram, TikTok y más.",
       icon: "camera",
     },
     {
       title: "BRAND AMBASSADOR",
-      description: "Represento tu marca con credibilidad y conexión real con mi audiencia.",
+      description:
+        "Represento tu marca con credibilidad y conexión real con mi audiencia.",
       icon: "award",
     },
     {
       title: "PRODUCT PLACEMENT",
-      description: "Integración natural de tu producto/servicio en mi contenido.",
+      description:
+        "Integración natural de tu producto/servicio en mi contenido.",
       icon: "package",
     },
     {
       title: "EVENTOS & ACTIVACIONES",
-      description: "Cobertura de eventos, lanzamientos y experiencias de marca.",
+      description:
+        "Cobertura de eventos, lanzamientos y experiencias de marca.",
       icon: "calendar",
     },
     {
       title: "UGC PARA ANUNCIOS",
-      description: "Contenido optimizado para campañas publicitarias que convierten.",
+      description:
+        "Contenido optimizado para campañas publicitarias que convierten.",
       icon: "video",
     },
   ],
@@ -93,23 +118,34 @@ export const siteData = {
     ],
   },
 
-  brands: ["adidas", "GATORADE", "GARMIN.", "HOKA", "DECATHLON", "SUUNTO", "wahoo"],
+  brands: [
+    "adidas",
+    "GATORADE",
+    "GARMIN.",
+    "HOKA",
+    "DECATHLON",
+    "SUUNTO",
+    "wahoo",
+  ],
 
   testimonials: [
     {
-      quote: "Gabriel genera contenido de alta calidad que conecta de verdad con la audiencia. Su profesionalismo y compromiso marcan la diferencia.",
+      quote:
+        "Gabriel genera contenido de alta calidad que conecta de verdad con la audiencia. Su profesionalismo y compromiso marcan la diferencia.",
       brand: "MARCA 1",
       role: "Marketing Manager",
       logo: "adidas",
     },
     {
-      quote: "Trabajar con Gabriel fue una de las mejores decisiones. El contenido superó nuestras expectativas y los resultados fueron increíbles.",
+      quote:
+        "Trabajar con Gabriel fue una de las mejores decisiones. El contenido superó nuestras expectativas y los resultados fueron increíbles.",
       brand: "MARCA 2",
       role: "Brand Director",
       logo: "HOKA",
     },
     {
-      quote: "Su autenticidad y pasión por lo que hace se reflejan en cada pieza de contenido. 100% recomendado.",
+      quote:
+        "Su autenticidad y pasión por lo que hace se reflejan en cada pieza de contenido. 100% recomendado.",
       brand: "MARCA 3",
       role: "CEO",
       logo: "GARMIN.",
