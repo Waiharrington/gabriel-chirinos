@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue, Dancing_Script } from "next/font/google";
+import ScrollEffects from "@/components/ScrollEffects";
 import "./globals.css";
 
 const inter = Inter({
@@ -55,7 +56,10 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${bebasNeue.variable} ${dancingScript.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <ScrollEffects />
+        {children}
+      </body>
     </html>
   );
 }

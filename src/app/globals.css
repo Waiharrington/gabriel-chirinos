@@ -55,6 +55,59 @@
 .section {
   padding-block: clamp(64px, 7vw, 112px);
 }
+[data-scroll-state] {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 560ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--scroll-delay, 0ms);
+}
+[data-scroll-state="visible"] {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+[data-scroll-state="hidden"] {
+  transition-delay: 0ms;
+}
+[data-scroll-state]:focus-within {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .niche,
+  .story,
+  .service,
+  .brand-logo,
+  .gallery-controls button,
+  .button,
+  .text-link {
+    transition:
+      color 220ms ease,
+      background-color 220ms ease,
+      border-color 220ms ease,
+      transform 260ms ease,
+      box-shadow 260ms ease;
+  }
+  .niche:hover,
+  .story:hover,
+  .service:hover {
+    transform: translateY(-4px);
+  }
+  .service:hover > svg,
+  .service:hover .service-icon {
+    transform: translateX(4px);
+  }
+  .gallery-controls button:hover,
+  .button:hover,
+  .text-link:hover {
+    transform: translateY(-2px);
+  }
+}
 .eyebrow {
   font-size: 11px;
   font-weight: 700;
@@ -1196,5 +1249,10 @@ a.brand-logo:focus-visible {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+  [data-scroll-state] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
   }
 }
