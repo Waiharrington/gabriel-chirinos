@@ -4,6 +4,7 @@ import Image from "next/image";
 import { siteData as data } from "@/data/siteData";
 
 const contact = `mailto:${data.personal.email}?subject=${encodeURIComponent("Colaboración con Gabriel Chirinos")}`;
+const whatsappContact = "https://wa.link/t9vxxc";
 function Arrow() {
   return (
     <svg
@@ -158,7 +159,7 @@ export default function Portfolio() {
             ))}
           </nav>
           <div className="header-actions">
-            <a className="button button-dark header-contact" href="#contact">
+            <a className="button button-dark header-contact" href={whatsappContact}>
               Hablemos <Arrow />
             </a>
             <button
@@ -216,7 +217,7 @@ export default function Portfolio() {
               <p className="hero-description">{data.personal.description}</p>
             </div>
             <div className="button-row">
-              <a className="button button-light" href="#contact">
+              <a className="button button-light" href={whatsappContact}>
                 Trabajemos juntos <Arrow />
               </a>
               <a className="hero-secondary-link" href="#nichos-section">
@@ -357,7 +358,7 @@ export default function Portfolio() {
                 Trabajemos juntos para crear contenido auténtico, relevante y
                 con impacto real.
               </p>
-              <a className="button button-dark" href={contact}>
+              <a className="button button-dark" href={whatsappContact}>
                 Hablemos <Arrow />
               </a>
             </div>
@@ -366,7 +367,7 @@ export default function Portfolio() {
                 <a
                   className="service"
                   key={service.title}
-                  href={`mailto:${data.personal.email}?subject=${encodeURIComponent(`Colaboración: ${service.title}`)}`}
+                  href={whatsappContact}
                 >
                   <span className="service-icon">
                     <ServiceIcon name={service.icon} />
@@ -497,7 +498,7 @@ export default function Portfolio() {
               ¿Quieres conocer más sobre mi trabajo? Hablemos de tu marca y de
               lo que podemos crear juntos.
             </p>
-            <a className="text-link" href={contact}>
+            <a className="text-link" href={whatsappContact}>
               Conversemos sobre tu proyecto <Arrow />
             </a>
           </div>
@@ -518,7 +519,7 @@ export default function Portfolio() {
                 medibles, estoy listo para sumarme a tu próximo proyecto.
               </p>
               <div className="button-row">
-                <a className="button button-light" href={contact}>
+                <a className="button button-light" href={whatsappContact}>
                   Hablemos <Arrow />
                 </a>
               </div>
