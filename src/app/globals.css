@@ -101,10 +101,17 @@ h2 {
     background 0.2s,
     color 0.2s;
 }
-.button span,
-.text-link span {
-  font-size: 22px;
-  line-height: 1;
+.arrow-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+.direction-arrow {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 .button-dark {
   background: var(--ink);
@@ -506,6 +513,10 @@ h2 {
   width: 48px;
   height: 48px;
   font-size: 22px;
+}
+.gallery-controls .direction-arrow {
+  width: 22px;
+  height: 22px;
 }
 .gallery-controls button:hover {
   color: black;

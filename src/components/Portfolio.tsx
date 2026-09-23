@@ -6,7 +6,19 @@ import { siteData as data } from "@/data/siteData";
 const kit = `mailto:${data.personal.email}?subject=${encodeURIComponent("Solicitud de media kit")}`;
 const contact = `mailto:${data.personal.email}?subject=${encodeURIComponent("Colaboración con Gabriel Chirinos")}`;
 function Arrow() {
-  return <span aria-hidden="true">↗</span>;
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="arrow-icon">
+      <path d="M5 19 19 5M8 5h11v11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" />
+    </svg>
+  );
+}
+function DirectionArrow({ direction }: { direction: "left" | "right" | "down" }) {
+  const transforms = { left: "rotate(180 12 12)", right: "", down: "rotate(90 12 12)" };
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="direction-arrow" transform={transforms[direction]}>
+      <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="miter" />
+    </svg>
+  );
 }
 function Heading({
   number,
@@ -124,7 +136,7 @@ export default function Portfolio() {
           </div>
           <div className="shell hero-bottom">
             <span>FITNESS / RUNNING / LIFESTYLE</span>
-            <a href="#stats-section">CONOCE MI MUNDO ↓</a>
+            <a href="#stats-section">CONOCE MI MUNDO <DirectionArrow direction="down" /></a>
           </div>
         </section>
         <section
@@ -262,10 +274,10 @@ export default function Portfolio() {
                   onClick={() => scroll(-1)}
                   aria-label="Ver fotos anteriores"
                 >
-                  ←
+                  <DirectionArrow direction="left" />
                 </button>
                 <button onClick={() => scroll(1)} aria-label="Ver más fotos">
-                  →
+                  <DirectionArrow direction="right" />
                 </button>
               </div>
             </div>
