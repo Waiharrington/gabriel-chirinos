@@ -304,22 +304,6 @@ export default function Portfolio() {
                 />
                 <p className="body-copy">{data.community.description}</p>
               </div>
-              <div className="audience">
-                <p className="eyebrow">AUDIENCIA PRINCIPAL</p>
-                <strong>{data.community.ageRange}</strong>
-                <div className="audience-bar" aria-hidden="true">
-                  <span
-                    style={{ width: `${data.community.gender[0].percentage}%` }}
-                  />
-                </div>
-                <div className="audience-labels">
-                  {data.community.gender.map((g) => (
-                    <span key={g.type}>
-                      <b>{g.percentage}%</b> {g.type}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
             <div className="story-grid">
               {data.community.videos.map((video, i) => (

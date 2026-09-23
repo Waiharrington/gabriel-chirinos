@@ -35,11 +35,6 @@ export const siteData = {
     title: "MI COMUNIDAD",
     description:
       "Una comunidad real, activa y comprometida. Personas que confían en mis recomendaciones y toman acción.",
-    ageRange: "18 - 55 AÑOS",
-    gender: [
-      { type: "HOMBRES", percentage: 68 },
-      { type: "MUJERES", percentage: 32 },
-    ],
     videos: [
       {
         title: "NEVO 1",

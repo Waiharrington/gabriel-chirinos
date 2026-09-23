@@ -10,7 +10,7 @@ export default function Comunidad() {
     <section id="comunidad-section" className="w-full py-3 transition-all">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        {/* Left Column: Community description & Demographics Card (4 cols) */}
+        {/* Left Column: Community description (4 cols) */}
         <div className="lg:col-span-4 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, x: -15 }}
@@ -26,72 +26,6 @@ export default function Comunidad() {
             </p>
           </motion.div>
 
-          {/* Demographics Card with Ambient Glow */}
-          <motion.div
-            id="comunidad-card-demo"
-            data-editable-name="Comunidad: Tarjeta Demográfica"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative group transition-all"
-          >
-            {/* Glow backdrop */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#E53935]/20 to-transparent rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500 pointer-events-none" />
-
-            <div className="relative bg-[#0e0e0e]/95 backdrop-blur-xl border border-white/[0.09] p-5 rounded-xl shadow-xl">
-              <p className="text-[#E53935] text-[9px] font-bold tracking-[0.25em] uppercase mb-1 font-inter">
-                AUDIENCIA PRINCIPAL
-              </p>
-              <p id="comunidad-demo-age" data-editable-name="Comunidad: Texto Edad '18 - 35 AÑOS'" className="text-white text-2xl sm:text-3xl font-black mb-4 font-bebas tracking-wide transition-all">
-                {community.ageRange}
-              </p>
-
-              {/* Gender Donut Chart Graphic & Percentages */}
-              <div id="comunidad-demo-chart" data-editable-name="Comunidad: Gráfico % Género" className="flex items-center justify-between pt-3 border-t border-white/[0.08] transition-all">
-                {/* 68% Hombres */}
-                <div className="flex flex-col">
-                  <span className="text-white text-2xl font-black font-bebas leading-none">68%</span>
-                  <span className="text-white/45 text-[9px] font-bold tracking-wider uppercase font-inter mt-0.5">
-                    HOMBRES
-                  </span>
-                </div>
-
-                {/* Donut Chart SVG */}
-                <div className="relative w-12 h-12 flex items-center justify-center">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                    {/* Background Ring (Women 32%) */}
-                    <path
-                      className="text-white/15"
-                      strokeWidth="3.8"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                    {/* Foreground Ring (Men 68%) */}
-                    <path
-                      className="text-[#E53935]"
-                      strokeDasharray="68, 100"
-                      strokeWidth="3.8"
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                  </svg>
-                  <div className="absolute w-2 h-2 rounded-full bg-[#E53935] shadow-[0_0_8px_#E53935]" />
-                </div>
-
-                {/* 32% Mujeres */}
-                <div className="flex flex-col text-right">
-                  <span className="text-white text-2xl font-black font-bebas leading-none">32%</span>
-                  <span className="text-white/45 text-[9px] font-bold tracking-wider uppercase font-inter mt-0.5">
-                    MUJERES
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Right Column: Reel cards */}
