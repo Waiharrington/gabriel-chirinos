@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { siteData as data } from "@/data/siteData";
 
 const contact = `mailto:${data.personal.email}?subject=${encodeURIComponent("Colaboración con Gabriel Chirinos")}`;
@@ -239,9 +240,16 @@ export default function Portfolio() {
         >
           <div className="stats-grid">
             {data.stats.map((stat) => (
-              <div className="stat" key={stat.label}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
+              <div
+                className="stat"
+                key={stat.label}
+                role="group"
+                aria-label={`${stat.value} ${stat.label.replaceAll("\n", " ")}`}
+              >
+                <strong aria-hidden="true">
+                  <AnimatedCounter value={stat.value} />
+                </strong>
+                <span aria-hidden="true">{stat.label}</span>
               </div>
             ))}
           </div>

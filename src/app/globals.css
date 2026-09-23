@@ -432,6 +432,7 @@ h2 {
   font-weight: 400;
   font-size: clamp(32px, 3.6vw, 52px);
   line-height: 1.1;
+  font-variant-numeric: tabular-nums;
 }
 .stat > span {
   display: block;
