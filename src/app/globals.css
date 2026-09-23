@@ -835,29 +835,25 @@ h2 {
 .brands-section {
   text-align: center;
 }
-.brand-marquee {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 48px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.brand-track {
-  display: flex;
-  width: max-content;
-  animation: brand-logo-scroll 36s linear infinite;
-}
-.brand-set {
-  display: flex;
-  flex: 0 0 auto;
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
-  gap: 56px;
-  padding-right: 56px;
+  gap: 28px 40px;
+  width: 100%;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.brand-grid li {
+  display: flex;
+  min-width: 0;
+  justify-content: center;
 }
 .brand-logo {
   display: grid;
-  flex: 0 0 148px;
-  height: 136px;
+  width: min(100%, 220px);
+  height: 148px;
   place-items: center;
   opacity: 0.78;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -872,22 +868,14 @@ a.brand-logo:focus-visible {
   height: 100%;
   object-fit: contain;
 }
-@keyframes brand-logo-scroll {
-  to {
-    transform: translateX(-50%);
-  }
-}
 @media (max-width: 600px) {
-  .brand-marquee {
+  .brand-grid {
     margin-top: 32px;
-  }
-  .brand-set {
-    gap: 32px;
-    padding-right: 32px;
+    gap: 20px 12px;
   }
   .brand-logo {
-    flex-basis: 108px;
-    height: 96px;
+    width: min(100%, 160px);
+    height: 112px;
   }
 }
 .references-section {
