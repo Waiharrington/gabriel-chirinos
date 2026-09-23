@@ -55,7 +55,7 @@ export const EDITABLE_GROUPS: ElementGroup[] = [
     items: [
       { id: "stats-section", label: "Sección Completa de Estadísticas" },
       { id: "stats-card", label: "Tarjeta / Caja Principal de Métricas" },
-      { id: "stat-item-0", label: "Métrica 1: 22.885 Seguidores" },
+      { id: "stat-item-0", label: "Métrica 1: 24.247 Seguidores" },
       { id: "stat-item-1", label: "Métrica 2: 3M Visualizaciones" },
       { id: "stat-item-2", label: "Métrica 3: 1.7M Alcance" },
       { id: "stat-item-3", label: "Métrica 4: +676 Nuevos Seguidores" },

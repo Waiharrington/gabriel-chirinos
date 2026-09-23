@@ -9,14 +9,14 @@ export const siteData = {
     description:
       "Creo contenido auténtico que inspira, motiva y genera resultados. Llevo tu marca al público correcto a través de historias reales.",
     location: "Venezuela",
-    email: "gabrielchirinos@gmail.com",
+    email: "Gabriel.estephan.Chirinos@gmail.com",
     instagram: "@gabrielchirinos",
     tiktok: "@gabrielchirinos",
     youtube: "@gabrielchirinos",
   },
 
   stats: [
-    { value: "22.885", label: "SEGUIDORES", icon: "users" },
+    { value: "24.247", label: "SEGUIDORES", icon: "users" },
     { value: "3.097.230", label: "VISUALIZACIONES\n(30 DÍAS)", icon: "eye" },
     { value: "1.754.791", label: "ALCANCE\n(30 DÍAS)", icon: "signal" },
     { value: "+676", label: "NUEVOS SEGUIDORES\n(30 DÍAS)", icon: "trending" },
