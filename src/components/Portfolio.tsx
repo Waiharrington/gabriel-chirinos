@@ -528,6 +528,15 @@ export default function Portfolio() {
               © {new Date().getFullYear()} Gabriel Chirinos.
               <br />
               {data.personal.location} / Todos los derechos reservados.
+              <br />
+              <a
+                className="site-credit"
+                href="https://somosdostudio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Desarrollado por somosdostudio.com
+              </a>
             </p>
           </div>
         </div>

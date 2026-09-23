@@ -905,6 +905,14 @@ h2 {
   line-height: 1.8;
   color: #bdbdbd;
 }
+.site-credit {
+  transition: color 0.2s ease;
+}
+.site-credit:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 @media (max-width: 900px) {
   .desktop-nav {
     gap: 20px;
