@@ -252,7 +252,10 @@ export default function Portfolio() {
           </div>
           <div className="niche-grid">
             {data.niches.map((niche, i) => {
-              const image = data.community.videos[[1, 3, 0, 2, 1, 4][i]].image;
+              const image =
+                i === 0
+                  ? "/photos/fitness-running.jpg"
+                  : data.community.videos[[1, 3, 0, 2, 1, 4][i]].image;
               return (
                 <article className={`niche niche-${i + 1}`} key={niche.label}>
                   <Image
