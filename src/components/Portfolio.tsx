@@ -50,6 +50,59 @@ function DirectionArrow({
     </svg>
   );
 }
+function ServiceIcon({ name }: { name: string }) {
+  const paths: Record<string, React.ReactNode> = {
+    camera: (
+      <>
+        <circle cx="10" cy="10" r="7" />
+        <path d="m9 7 5 3-5 3z" />
+      </>
+    ),
+    award: (
+      <>
+        <circle cx="10" cy="8" r="5" />
+        <path d="m7 12-1 9 5-3 5 3-1-9m3-8 1 2 2 1-2 2v3l-3-1-2 1" />
+      </>
+    ),
+    package: (
+      <>
+        <path d="m12 3 9 5-9 5-9-5 9-5Zm-9 5v9l9 5 9-5V8m-9 5v9" />
+      </>
+    ),
+    calendar: (
+      <>
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M16 3v4M8 3v4M3 10h18m-13 4h2m4 0h2m-8 4h2" />
+      </>
+    ),
+    video: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m10 9 5 3-5 3z" />
+      </>
+    ),
+  };
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {paths[name] ?? paths.camera}
+    </svg>
+  );
+}
+function RowArrow() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  );
+}
 function Heading({
   number,
   label,
@@ -281,32 +334,60 @@ export default function Portfolio() {
             </a>
           </div>
         </section>
-        <section id="servicios-section" className="shell section">
-          <div className="split-heading">
-            <Heading
-              number="03"
-              label="Colaboraciones"
-              title="TU MARCA. MÁS LEJOS."
-            />
-            <p className="body-copy">
-              Historias que se sienten reales.
-              <br />
-              Contenido pensado para conectar.
-            </p>
-          </div>
-          <div className="service-list">
-            {data.services.map((service, i) => (
-              <a
-                className="service"
-                key={service.title}
-                href={`mailto:${data.personal.email}?subject=${encodeURIComponent(`Colaboración: ${service.title}`)}`}
-              >
-                <span className="index">0{i + 1}</span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <Arrow />
+        <section id="servicios-section" className="section services-section">
+          <div className="shell services-layout">
+            <div className="services-intro">
+              <p className="eyebrow">03 / COLABORACIONES</p>
+              <h2>
+                TU MARCA,
+                <br />
+                MÁS LEJOS.
+              </h2>
+              <p className="body-copy">
+                Estrategia, creatividad y comunidad para llevar tu marca al
+                siguiente nivel.
+              </p>
+              <p className="services-promise">
+                Trabajemos juntos para crear contenido auténtico, relevante y
+                con impacto real.
+              </p>
+              <a className="button button-dark" href={contact}>
+                Hablemos <Arrow />
               </a>
-            ))}
+            </div>
+            <div className="service-list">
+              {data.services.map((service) => (
+                <a
+                  className="service"
+                  key={service.title}
+                  href={`mailto:${data.personal.email}?subject=${encodeURIComponent(`Colaboración: ${service.title}`)}`}
+                >
+                  <span className="service-icon">
+                    <ServiceIcon name={service.icon} />
+                  </span>
+                  <span className="service-copy">
+                    <strong>{service.title}</strong>
+                    <span>{service.description}</span>
+                  </span>
+                  <RowArrow />
+                </a>
+              ))}
+            </div>
+            <aside className="services-aside">
+              <p>
+                MARCAS REALES.
+                <br />
+                PERSONAS REALES.
+                <br />
+                RESULTADOS REALES.
+              </p>
+              <span aria-hidden="true" />
+              <p>
+                MÁS QUE PUBLICIDAD.
+                <br />
+                ES UNA CONEXIÓN REAL.
+              </p>
+            </aside>
           </div>
         </section>
         <section id="runclub-section" className="section runclub-section">

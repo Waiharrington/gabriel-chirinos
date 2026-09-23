@@ -556,6 +556,110 @@ h2 {
 .service > span:last-child {
   font-size: 28px;
 }
+.services-section {
+  padding-block: clamp(64px, 7vw, 104px);
+}
+.services-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.86fr) minmax(380px, 1.8fr) minmax(
+      130px,
+      0.58fr
+    );
+  align-items: stretch;
+}
+.services-intro {
+  padding: 4px clamp(24px, 3vw, 48px) 4px 0;
+  border-right: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.services-intro .eyebrow {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.services-intro h2 {
+  font-size: clamp(36px, 4vw, 54px);
+}
+.services-intro .body-copy {
+  font-size: 14px;
+  margin-top: 12px;
+}
+.services-promise {
+  padding-top: 16px;
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.services-intro .button {
+  margin-top: 24px;
+  min-height: 46px;
+  padding: 12px 18px;
+  gap: 24px;
+}
+.services-layout .service-list {
+  padding-inline: clamp(20px, 2.4vw, 38px);
+}
+.services-layout .service {
+  min-height: 76px;
+  padding: 10px 0;
+  grid-template-columns: 48px minmax(0, 1fr) 22px;
+  gap: 16px;
+  border-color: var(--line);
+}
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--ink);
+}
+.service-icon svg {
+  width: 19px;
+  height: 19px;
+}
+.service-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+.service-copy strong {
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.service-copy > span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+.services-layout .service > svg {
+  width: 16px;
+  height: 16px;
+}
+.services-aside {
+  border-left: 1px solid var(--line);
+  padding: 16px 0 16px clamp(20px, 2.4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.8;
+  letter-spacing: 0.025em;
+}
+.services-aside > span {
+  width: 24px;
+  height: 1px;
+  background: var(--ink);
+}
 .runclub-section {
   background: var(--ink);
   color: white;
@@ -732,6 +836,22 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 200px;
   }
+  .services-layout {
+    grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.5fr);
+  }
+  .services-aside {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 22px 0 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 28px;
+  }
+  .services-aside > span {
+    flex: 0 0 24px;
+  }
   .niche-1 {
     grid-row: span 1;
   }
@@ -873,18 +993,38 @@ h2 {
     align-items: flex-start;
     flex-direction: column;
   }
-  .service {
-    grid-template-columns: 24px 1fr 24px;
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .services-intro {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 28px;
+  }
+  .services-intro .eyebrow {
+    margin-bottom: 16px;
+  }
+  .services-intro h2 {
+    font-size: clamp(40px, 11vw, 58px);
+  }
+  .services-layout .service-list {
+    padding: 0;
+  }
+  .services-layout .service {
+    min-height: 72px;
+    grid-template-columns: 44px minmax(0, 1fr) 20px;
     gap: 12px;
-    padding-block: 24px;
   }
-  .service p {
-    grid-column: 2;
-    font-size: 13px;
+  .service-copy strong {
+    font-size: 11px;
   }
-  .service > span:last-child {
-    grid-column: 3;
-    grid-row: 1;
+  .service-copy > span {
+    font-size: 10px;
+  }
+  .services-aside {
+    gap: 14px;
+    font-size: 9px;
   }
   .run-gallery figure {
     flex-basis: 86%;
