@@ -361,7 +361,7 @@ h2 {
 }
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-bottom: 1px solid var(--line);
   padding-bottom: 40px;
 }
@@ -1069,9 +1069,9 @@ h2 {
   .stat {
     padding-inline: 16px 0;
   }
-  .stat:nth-child(3) {
+  .stat:nth-child(odd) {
     padding-left: 0;
-    border: 0;
+    border-left: 0;
   }
   .stat strong {
     font-size: clamp(30px, 8vw, 44px);

@@ -243,7 +243,7 @@ export default function Portfolio() {
             ))}
           </div>
           <p className="data-note">
-            Métricas de rendimiento correspondientes a los últimos 60 días.
+            Instagram: últimos 60 días. TikTok: datos actuales del perfil.
           </p>
         </section>
         <section id="nichos-section" className="shell section">

@@ -10,16 +10,17 @@ export const siteData = {
       "Creo contenido auténtico que inspira, motiva y genera resultados. Llevo tu marca al público correcto a través de historias reales.",
     location: "Venezuela",
     email: "Gabriel.estephan.Chirinos@gmail.com",
-    instagram: "@gabrielchirinos",
-    tiktok: "@gabrielchirinos",
-    youtube: "@gabrielchirinos",
+    instagram: "@gabrielechirinos",
+    tiktok: "@gabrielechirinos",
   },
 
   stats: [
-    { value: "24.250", label: "SEGUIDORES", icon: "users" },
-    { value: "4.639.715", label: "VISUALIZACIONES\n(60 DÍAS)", icon: "eye" },
-    { value: "2.156.994", label: "ESPECTADORES\n(60 DÍAS)", icon: "signal" },
-    { value: "+1.476", label: "SEGUIDORES NETOS\n(60 DÍAS)", icon: "trending" },
+    { value: "24.250", label: "SEGUIDORES INSTAGRAM", icon: "users" },
+    { value: "4.639.715", label: "VISUALIZACIONES INSTAGRAM\n(60 DÍAS)", icon: "eye" },
+    { value: "2.156.994", label: "ESPECTADORES INSTAGRAM\n(60 DÍAS)", icon: "signal" },
+    { value: "+1.476", label: "SEGUIDORES NETOS INSTAGRAM\n(60 DÍAS)", icon: "trending" },
+    { value: "16,9 mil", label: "SEGUIDORES TIKTOK", icon: "users" },
+    { value: "665,3 mil", label: "ME GUSTA TIKTOK", icon: "heart" },
   ],
 
   niches: [
@@ -201,9 +202,8 @@ export const siteData = {
   ],
 
   socialLinks: [
-    { platform: "Instagram", url: "https://instagram.com/gabrielchirinos" },
-    { platform: "TikTok", url: "https://tiktok.com/@gabrielchirinos" },
-    { platform: "YouTube", url: "https://youtube.com/@gabrielchirinos" },
+    { platform: "Instagram", url: "https://www.instagram.com/gabrielechirinos/" },
+    { platform: "TikTok", url: "https://www.tiktok.com/@gabrielechirinos" },
   ],
 
   footer: {
