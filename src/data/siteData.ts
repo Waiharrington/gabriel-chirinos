@@ -38,6 +38,11 @@ export const siteData = {
       "Una comunidad real, activa y comprometida. Personas que confían en mis recomendaciones y toman acción.",
     videos: [
       {
+        title: "ADIDAS",
+        href: "https://www.instagram.com/reel/DcleqWbxSLq/?stkn=d2JvYTB2am5xN25u",
+        image: "/photos/reel-covers/adidas.jpg",
+      },
+      {
         title: "NEVO",
         href: "https://www.instagram.com/reel/Da5hlCfRMYy/?stkn=NzBkY2xmZHlzcjQw",
         image: "/photos/reel-covers/nevo.jpg",
@@ -51,11 +56,6 @@ export const siteData = {
         title: "BURGER MÁSTER",
         href: "https://www.instagram.com/reel/DcbKAaOxYqe/?stkn=MWpoeWszazkydnp5Yg==",
         image: "/photos/reel-covers/burger-master.jpg",
-      },
-      {
-        title: "ADIDAS",
-        href: "https://www.instagram.com/reel/DcleqWbxSLq/?stkn=d2JvYTB2am5xN25u",
-        image: "/photos/reel-covers/adidas.jpg",
       },
       {
         title: "NEVO",
