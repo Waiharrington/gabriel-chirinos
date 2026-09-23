@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { siteData as data } from "@/data/siteData";
 
-const kit = `mailto:${data.personal.email}?subject=${encodeURIComponent("Solicitud de media kit")}`;
 const contact = `mailto:${data.personal.email}?subject=${encodeURIComponent("Colaboración con Gabriel Chirinos")}`;
 function Arrow() {
   return (
@@ -212,9 +211,6 @@ export default function Portfolio() {
               <a className="button button-light" href="#contact">
                 Trabajemos juntos <Arrow />
               </a>
-              <a className="text-link" href={kit}>
-                Solicitar media kit <Arrow />
-              </a>
             </div>
           </div>
           <div className="shell hero-bottom">
@@ -238,8 +234,7 @@ export default function Portfolio() {
             ))}
           </div>
           <p className="data-note">
-            Cifras del media kit. Solicita la versión actualizada para tu
-            campaña.
+            Alcance y crecimiento en redes durante los últimos 30 días.
           </p>
         </section>
         <section id="nichos-section" className="shell section">
@@ -482,9 +477,6 @@ export default function Portfolio() {
               <div className="button-row">
                 <a className="button button-light" href={contact}>
                   Hablemos <Arrow />
-                </a>
-                <a className="text-link" href={kit}>
-                  Solicitar media kit <Arrow />
                 </a>
               </div>
             </div>
