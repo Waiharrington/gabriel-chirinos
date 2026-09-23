@@ -26,10 +26,10 @@ function DirectionArrow({
 }: {
   direction: "left" | "right" | "down";
 }) {
-  const transforms = {
-    left: "rotate(180 12 12)",
-    right: "",
-    down: "rotate(90 12 12)",
+  const paths = {
+    left: "M20 12H5m6 6-6-6 6-6",
+    right: "M4 12h15m-6-6 6 6-6 6",
+    down: "M12 4v15m-6-6 6 6 6-6",
   };
   return (
     <svg
@@ -37,10 +37,9 @@ function DirectionArrow({
       viewBox="0 0 24 24"
       fill="none"
       className="direction-arrow"
-      transform={transforms[direction]}
     >
       <path
-        d="M4 12h15m-6-6 6 6-6 6"
+        d={paths[direction]}
         stroke="currentColor"
         strokeWidth="1.8"
         strokeLinecap="square"
