@@ -118,13 +118,13 @@ export const siteData = {
     description:
       "Fundador de La Vuelta Run Club, un espacio que promueve el running, la disciplina y la comunidad.",
     images: [
-      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (2).jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (2).jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM.jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM (1).jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (1).jpeg",
-      "/photos/WhatsApp Image 2026-08-20 at 4.56.59 PM (3).jpeg",
+      "/photos/la-vuelta-2026-08-30.jpeg",
+      "/photos/la-vuelta-2026-08-26.jpeg",
+      "/photos/la-vuelta-2026-09-02.jpeg",
+      "/photos/la-vuelta-2026-09-06.jpeg",
+      "/photos/la-vuelta-2026-09-09.jpeg",
+      "/photos/la-vuelta-2026-09-16.jpeg",
+      "/photos/la-vuelta-2026-09-20.jpeg",
     ],
   },
 
