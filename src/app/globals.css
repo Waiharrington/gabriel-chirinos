@@ -431,16 +431,13 @@ h2 {
 .niche > img {
   z-index: -2;
   object-fit: cover;
-  filter: grayscale(1);
   transition:
-    filter 0.45s ease,
     transform 0.65s ease;
 }
 .niche-5 > img {
   object-position: center 72%;
 }
 .niche:hover > img {
-  filter: grayscale(0.2);
   transform: scale(1.045);
 }
 .niche-shade {
