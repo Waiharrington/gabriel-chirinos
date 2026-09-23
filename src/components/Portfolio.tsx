@@ -257,11 +257,13 @@ export default function Portfolio() {
                   ? "/photos/fitness-running.jpg"
                   : i === 2
                     ? "/photos/ropa-accesorios.jpg"
-                    : i === 4
-                      ? "/photos/accesorios-atletas.jpg"
-                      : i === 5
-                        ? "/photos/lifestyle-motivation.jpg"
-                        : data.community.videos[[1, 4, 0, 2, 1, 4][i]].image;
+                    : i === 3
+                      ? "/photos/suplementos-nutricion.jpg"
+                      : i === 4
+                        ? "/photos/accesorios-atletas.jpg"
+                        : i === 5
+                          ? "/photos/lifestyle-motivation.jpg"
+                          : data.community.videos[[1, 4, 0, 2, 1, 4][i]].image;
               return (
                 <article className={`niche niche-${i + 1}`} key={niche.label}>
                   <Image
