@@ -141,9 +141,6 @@ export default function Portfolio() {
       <a className="skip-link" href="#main-container">
         Saltar al contenido
       </a>
-      <div className="announcement">
-        CREADOR DE CONTENIDO. ATLETA. SIEMPRE EN MOVIMIENTO.
-      </div>
       <header className="site-header">
         <div className="shell header-inner">
           <a
@@ -151,7 +148,8 @@ export default function Portfolio() {
             href="#home"
             aria-label="Gabriel Chirinos, inicio"
           >
-            GABRIEL<span>CHIRINOS.</span>
+            <span className="wordmark-first">GABRIEL</span>
+            <span>CHIRINOS.</span>
           </a>
           <nav className="desktop-nav" aria-label="Navegación principal">
             {links.map(([label, href]) => (
@@ -168,9 +166,12 @@ export default function Portfolio() {
               className="menu-toggle"
               aria-expanded={open}
               aria-controls="mobile-navigation"
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
               onClick={() => setOpen(!open)}
             >
-              {open ? "Cerrar −" : "Menú +"}
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -190,14 +191,20 @@ export default function Portfolio() {
       </header>
       <main id="main-container">
         <section id="home" className="hero">
-          <Image
-            className="hero-image"
-            src="/photos/hero-banner.png"
-            alt="Gabriel Chirinos celebrando una carrera con su medalla"
-            fill
-            priority
-            sizes="100vw"
-          />
+          <div className="hero-media">
+            <Image
+              className="hero-image"
+              src="/photos/hero-editorial.jpg"
+              alt="Gabriel Chirinos, atleta y creador de contenido"
+              fill
+              priority
+              sizes="(max-width: 600px) 76vw, 64vw"
+            />
+            <p className="hero-signature">
+              GABRIEL CHIRINOS
+              <span>ATLETA · CREADOR · COMUNIDAD</span>
+            </p>
+          </div>
           <div className="hero-shade" />
           <div className="shell hero-content">
             <p className="eyebrow">VENEZUELA / CREADOR & ATLETA</p>
@@ -210,6 +217,9 @@ export default function Portfolio() {
             <div className="button-row">
               <a className="button button-light" href="#contact">
                 Trabajemos juntos <Arrow />
+              </a>
+              <a className="hero-secondary-link" href="#nichos-section">
+                Explorar contenido <Arrow />
               </a>
             </div>
           </div>
@@ -234,7 +244,7 @@ export default function Portfolio() {
             ))}
           </div>
           <p className="data-note">
-            Alcance y crecimiento en redes durante los últimos 30 días.
+            Métricas de rendimiento correspondientes a los últimos 60 días.
           </p>
         </section>
         <section id="nichos-section" className="shell section">
