@@ -529,9 +529,12 @@ h2 {
 }
 .story-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 24px;
+}
+.story {
+  display: block;
 }
 .story-image {
   position: relative;
@@ -551,6 +554,10 @@ h2 {
 }
 .story:hover img {
   transform: scale(1.035);
+}
+.story:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 5px;
 }
 .story-number {
   position: absolute;
@@ -579,6 +586,20 @@ h2 {
   display: block;
   font-size: 10px;
   margin-top: 8px;
+}
+.story-reel-link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 140px;
+  font-size: 9px !important;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.story-reel-link .arrow-icon {
+  width: 14px;
+  height: 14px;
 }
 .split-heading {
   display: flex;
@@ -889,12 +910,13 @@ h2 {
     padding-left: 24px;
   }
   .story-grid {
-    grid-template-columns: repeat(5, 180px);
+    grid-template-columns: repeat(8, 180px);
     overflow-x: auto;
     padding-bottom: 16px;
     scroll-snap-type: x mandatory;
   }
   .story {
+    display: block;
     scroll-snap-align: start;
   }
   .niche-grid {
@@ -1085,7 +1107,7 @@ h2 {
     border-top: 1px solid #ccc;
   }
   .story-grid {
-    grid-template-columns: repeat(5, 72%);
+    grid-template-columns: repeat(8, 72%);
   }
   .split-heading {
     align-items: flex-start;

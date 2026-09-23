@@ -94,12 +94,16 @@ export default function Comunidad() {
           </motion.div>
         </div>
 
-        {/* Right Column: Exactly 5 Reels in 9:16 vertical cards (8 cols) */}
+        {/* Right Column: Reel cards */}
         <div className="lg:col-span-8">
           <div id="comunidad-videos-grid" data-editable-name="Comunidad: Cuadrícula de Videos" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 transition-all">
             {community.videos.map((video, i) => (
-              <motion.div
-                key={video.title}
+              <motion.a
+                href={video.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver reel de ${video.title} en Instagram`}
+                key={video.href}
                 id={`comunidad-video-${i}`}
                 data-editable-name={`Video ${i + 1}: ${video.title.replace("\n", " ")}`}
                 initial={{ opacity: 0, y: 15 }}
@@ -134,15 +138,15 @@ export default function Comunidad() {
                     </p>
                   </div>
 
-                  {/* Bottom Views Badge */}
+                  {/* Reel link badge */}
                   <div className="absolute bottom-2.5 left-2 right-2 flex items-center justify-center">
                     <div className="bg-black/70 backdrop-blur-md border border-white/10 px-2 py-0.5 rounded-full flex items-center gap-1.5 text-white text-[9.5px] font-bold font-inter">
                       <span className="text-[#E53935] text-[8px]">▶</span>
-                      <span>{video.views}</span>
+                      <span>VER REEL</span>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

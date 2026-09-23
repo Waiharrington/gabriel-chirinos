@@ -272,8 +272,8 @@ export default function Portfolio() {
                       : i === 4
                         ? "/photos/accesorios-atletas.jpg"
                         : i === 5
-                          ? "/photos/lifestyle-motivation.jpg"
-                          : data.community.videos[[1, 4, 0, 2, 1, 4][i]].image;
+                        ? "/photos/lifestyle-motivation.jpg"
+                          : "/photos/WhatsApp Image 2026-08-20 at 4.57.00 PM.jpeg";
               return (
                 <article className={`niche niche-${i + 1}`} key={niche.label}>
                   <Image
@@ -323,7 +323,14 @@ export default function Portfolio() {
             </div>
             <div className="story-grid">
               {data.community.videos.map((video, i) => (
-                <article className="story" key={video.image}>
+                <a
+                  className="story"
+                  key={video.href}
+                  href={video.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ver reel de ${video.title} en Instagram`}
+                >
                   <div className="story-image">
                     <Image
                       src={video.image}
@@ -334,10 +341,12 @@ export default function Portfolio() {
                     <span className="story-number">0{i + 1}</span>
                     <div className="story-caption">
                       <h3>{video.title.replaceAll("\n", " ")}</h3>
-                      <span>{video.views} visualizaciones</span>
+                      <span className="story-reel-link">
+                        Ver reel <Arrow />
+                      </span>
                     </div>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
             <a
