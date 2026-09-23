@@ -665,7 +665,9 @@ h2 {
   margin-bottom: 24px;
 }
 .services-intro h2 {
-  font-size: clamp(36px, 4vw, 54px);
+  font-size: clamp(22px, 2.1vw, 32px);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
 }
 .services-intro .body-copy {
   font-size: 14px;
@@ -1126,7 +1128,7 @@ h2 {
     margin-bottom: 16px;
   }
   .services-intro h2 {
-    font-size: clamp(40px, 11vw, 58px);
+    font-size: clamp(24px, 8.4vw, 36px);
   }
   .services-layout .service-list {
     padding: 0;

@@ -363,11 +363,7 @@ export default function Portfolio() {
           <div className="shell services-layout">
             <div className="services-intro">
               <p className="eyebrow">03 / COLABORACIONES</p>
-              <h2>
-                TU MARCA,
-                <br />
-                MÁS LEJOS.
-              </h2>
+              <h2>TU MARCA, MÁS LEJOS.</h2>
               <p className="body-copy">
                 Estrategia, creatividad y comunidad para llevar tu marca al
                 siguiente nivel.
