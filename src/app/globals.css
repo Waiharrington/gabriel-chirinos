@@ -406,12 +406,6 @@ h2 {
   line-height: 1.02;
   letter-spacing: 0.01em;
 }
-.niche-1 {
-  grid-row: span 2;
-}
-.niche-4 {
-  grid-column: span 2;
-}
 .index {
   font-size: 11px;
   color: var(--muted);
@@ -852,12 +846,6 @@ h2 {
   .services-aside > span {
     flex: 0 0 24px;
   }
-  .niche-1 {
-    grid-row: span 1;
-  }
-  .niche-4 {
-    grid-column: span 1;
-  }
   .contact-grid {
     gap: 32px;
   }
@@ -970,10 +958,6 @@ h2 {
   }
   .niche {
     padding: 16px;
-  }
-  .niche-1 {
-    grid-column: span 2;
-    grid-row: span 1;
   }
   .niche h3 {
     font-size: clamp(20px, 5.6vw, 28px);
