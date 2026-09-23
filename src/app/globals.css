@@ -874,6 +874,65 @@ a.brand-logo:focus-visible {
   height: 100%;
   object-fit: contain;
 }
+.pricing-section .section-heading {
+  margin-bottom: 32px;
+}
+.rate-table {
+  width: 100%;
+  border-top: 1px solid var(--line);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.rate-table th,
+.rate-table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.rate-table thead th {
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.rate-table thead th:first-child {
+  width: 34%;
+}
+.rate-table thead th:nth-child(2) {
+  width: 48%;
+}
+.rate-table thead th:last-child {
+  width: 18%;
+  text-align: right;
+}
+.rate-table tbody tr {
+  transition: background-color 180ms ease;
+}
+.rate-table tbody tr:hover {
+  background: var(--surface);
+}
+.rate-table tbody th {
+  font-size: clamp(16px, 1.6vw, 21px);
+  font-weight: 700;
+}
+.rate-includes {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.rate-price {
+  font-family: var(--font-bebas), Impact, sans-serif;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1;
+  text-align: right !important;
+  white-space: nowrap;
+}
+.rate-cta {
+  margin-top: 32px;
+}
 @media (max-width: 600px) {
   .brand-grid {
     margin-top: 32px;
@@ -882,6 +941,53 @@ a.brand-logo:focus-visible {
   .brand-logo {
     width: min(100%, 160px);
     height: 112px;
+  }
+  .rate-table,
+  .rate-table tbody {
+    display: block;
+  }
+  .rate-table {
+    border: 0;
+  }
+  .rate-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .rate-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    padding: 16px;
+    border: 1px solid var(--line);
+  }
+  .rate-table tbody th,
+  .rate-table tbody td {
+    padding: 0;
+    border: 0;
+  }
+  .rate-table tbody th {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 16px;
+  }
+  .rate-table .rate-includes {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 13px;
+  }
+  .rate-table .rate-price {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 28px;
+  }
+  .rate-cta {
+    width: 100%;
+    margin-top: 20px;
   }
 }
 .references-section {

@@ -433,12 +433,40 @@ export default function Portfolio() {
             </aside>
           </div>
         </section>
+        <section id="tarifario-section" className="shell section pricing-section">
+          <Heading
+            number="05"
+            label="Tarifas"
+            title="TARIFARIO DE CONTENIDO."
+          />
+          <table className="rate-table">
+            <thead>
+              <tr>
+                <th scope="col">Formato</th>
+                <th scope="col">Incluye</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.rates.map((rate) => (
+                <tr key={rate.format}>
+                  <th scope="row">{rate.format}</th>
+                  <td className="rate-includes">{rate.includes}</td>
+                  <td className="rate-price">{rate.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <a className="button button-dark rate-cta" href={whatsappContact}>
+            Hablemos de tu proyecto <Arrow />
+          </a>
+        </section>
         <section id="runclub-section" className="section runclub-section">
           <div className="shell">
             <div className="split-heading">
               <div>
                 <Heading
-                  number="05"
+                  number="06"
                   label="Comunidad & disciplina"
                   title="LA VUELTA RUN CLUB."
                 />
@@ -483,7 +511,7 @@ export default function Portfolio() {
           </div>
         </section>
         <section id="testimonios-section" className="shell references-section">
-          <p className="eyebrow">06 / EXPERIENCIAS DE COLABORACIÓN</p>
+          <p className="eyebrow">07 / EXPERIENCIAS DE COLABORACIÓN</p>
           <div>
             <h2>CADA PROYECTO TIENE UNA HISTORIA.</h2>
             <p className="body-copy">

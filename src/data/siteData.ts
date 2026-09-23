@@ -113,6 +113,49 @@ export const siteData = {
     },
   ],
 
+  rates: [
+    {
+      format: "Historia individual",
+      includes: "1 historia + mención + etiqueta",
+      price: "$15",
+    },
+    {
+      format: "Pack 3 historias",
+      includes: "3 historias + CTA + etiqueta",
+      price: "$30",
+    },
+    {
+      format: "Post",
+      includes: "Foto/carrusel + copy + etiquetas",
+      price: "$40",
+    },
+    {
+      format: "Reel",
+      includes: "Reel 15–60 seg + etiqueta",
+      price: "$65",
+    },
+    {
+      format: "Reel + 3 historias",
+      includes: "Reel + 3 historias de apoyo",
+      price: "$80",
+    },
+    {
+      format: "Post + 3 historias",
+      includes: "Publicación + historias",
+      price: "$65",
+    },
+    {
+      format: "2 Reels",
+      includes: "2 Reels + etiquetas",
+      price: "$120",
+    },
+    {
+      format: "2 Reels + 4 historias",
+      includes: "Campaña completa",
+      price: "$145",
+    },
+  ],
+
   runClub: {
     title: "LA VUELTA",
     titleAccent: "RUN CLUB",
