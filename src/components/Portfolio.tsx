@@ -255,7 +255,9 @@ export default function Portfolio() {
               const image =
                 i === 0
                   ? "/photos/fitness-running.jpg"
-                  : data.community.videos[[1, 3, 0, 2, 1, 4][i]].image;
+                  : i === 5
+                    ? "/photos/lifestyle-motivation.jpg"
+                    : data.community.videos[[1, 4, 0, 2, 1, 4][i]].image;
               return (
                 <article className={`niche niche-${i + 1}`} key={niche.label}>
                   <Image
