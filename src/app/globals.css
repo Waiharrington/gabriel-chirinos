@@ -1050,7 +1050,7 @@ a.brand-logo:focus-visible {
     padding-block: 92px 112px;
   }
   .hero-copy {
-    transform: translateY(-32px);
+    transform: translateY(-52px);
   }
   .hero .eyebrow {
     max-width: 250px;
@@ -1063,7 +1063,7 @@ a.brand-logo:focus-visible {
   .hero-description {
     max-width: 310px;
     font-size: 13px;
-    margin-block: 20px 24px;
+    margin-block: 64px 24px;
   }
   .hero .button-row {
     flex-direction: column;
