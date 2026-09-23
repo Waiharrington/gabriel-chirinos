@@ -846,10 +846,6 @@ h2 {
   width: max-content;
   animation: brand-logo-scroll 36s linear infinite;
 }
-.brand-marquee:hover .brand-track,
-.brand-marquee:focus-within .brand-track {
-  animation-play-state: paused;
-}
 .brand-set {
   display: flex;
   flex: 0 0 auto;

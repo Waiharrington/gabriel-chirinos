@@ -345,10 +345,54 @@ export default function Portfolio() {
             </a>
           </div>
         </section>
+        <section id="marcas-section" className="shell section brands-section">
+          <Heading
+            number="03"
+            label="Conexiones"
+            title="MARCAS EN EL CAMINO."
+          />
+          <div className="brand-marquee" aria-label="Logos de marcas colaboradoras">
+            <div className="brand-track">
+              <div className="brand-set">
+                {data.brands.map((brand) => (
+                  <a
+                    className="brand-logo"
+                    key={brand.name}
+                    href={brand.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver colaboración con ${brand.name} en Instagram`}
+                  >
+                    <Image
+                      src={brand.image}
+                      alt={brand.name}
+                      width={500}
+                      height={500}
+                      sizes="148px"
+                    />
+                  </a>
+                ))}
+              </div>
+              <div className="brand-set" aria-hidden="true">
+                {data.brands.map((brand) => (
+                  <span className="brand-logo" key={brand.name}>
+                    <Image
+                      src={brand.image}
+                      alt=""
+                      width={500}
+                      height={500}
+                      sizes="148px"
+                    />
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="servicios-section" className="section services-section">
           <div className="shell services-layout">
             <div className="services-intro">
-              <p className="eyebrow">03 / COLABORACIONES</p>
+              <p className="eyebrow">04 / COLABORACIONES</p>
               <h2>TU MARCA, MÁS LEJOS.</h2>
               <p className="body-copy">
                 Estrategia, creatividad y comunidad para llevar tu marca al
@@ -402,7 +446,7 @@ export default function Portfolio() {
             <div className="split-heading">
               <div>
                 <Heading
-                  number="04"
+                  number="05"
                   label="Comunidad & disciplina"
                   title="LA VUELTA RUN CLUB."
                 />
@@ -443,50 +487,6 @@ export default function Portfolio() {
                   </figcaption>
                 </figure>
               ))}
-            </div>
-          </div>
-        </section>
-        <section id="marcas-section" className="shell section brands-section">
-          <Heading
-            number="05"
-            label="Conexiones"
-            title="MARCAS EN EL CAMINO."
-          />
-          <div className="brand-marquee" aria-label="Logos de marcas colaboradoras">
-            <div className="brand-track">
-              <div className="brand-set">
-                {data.brands.map((brand) => (
-                  <a
-                    className="brand-logo"
-                    key={brand.name}
-                    href={brand.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Ver colaboración con ${brand.name} en Instagram`}
-                  >
-                    <Image
-                      src={brand.image}
-                      alt={brand.name}
-                      width={500}
-                      height={500}
-                      sizes="148px"
-                    />
-                  </a>
-                ))}
-              </div>
-              <div className="brand-set" aria-hidden="true">
-                {data.brands.map((brand) => (
-                  <span className="brand-logo" key={brand.name}>
-                    <Image
-                      src={brand.image}
-                      alt=""
-                      width={500}
-                      height={500}
-                      sizes="148px"
-                    />
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </section>
