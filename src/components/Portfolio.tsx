@@ -7,16 +7,46 @@ const kit = `mailto:${data.personal.email}?subject=${encodeURIComponent("Solicit
 const contact = `mailto:${data.personal.email}?subject=${encodeURIComponent("Colaboración con Gabriel Chirinos")}`;
 function Arrow() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="arrow-icon">
-      <path d="M5 19 19 5M8 5h11v11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" />
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="arrow-icon"
+    >
+      <path
+        d="M5 19 19 5M8 5h11v11"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="square"
+      />
     </svg>
   );
 }
-function DirectionArrow({ direction }: { direction: "left" | "right" | "down" }) {
-  const transforms = { left: "rotate(180 12 12)", right: "", down: "rotate(90 12 12)" };
+function DirectionArrow({
+  direction,
+}: {
+  direction: "left" | "right" | "down";
+}) {
+  const transforms = {
+    left: "rotate(180 12 12)",
+    right: "",
+    down: "rotate(90 12 12)",
+  };
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="direction-arrow" transform={transforms[direction]}>
-      <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="miter" />
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      className="direction-arrow"
+      transform={transforms[direction]}
+    >
+      <path
+        d="M4 12h15m-6-6 6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+      />
     </svg>
   );
 }
@@ -136,7 +166,9 @@ export default function Portfolio() {
           </div>
           <div className="shell hero-bottom">
             <span>FITNESS / RUNNING / LIFESTYLE</span>
-            <a href="#stats-section">CONOCE MI MUNDO <DirectionArrow direction="down" /></a>
+            <a href="#stats-section">
+              CONOCE MI MUNDO <DirectionArrow direction="down" />
+            </a>
           </div>
         </section>
         <section
@@ -158,19 +190,38 @@ export default function Portfolio() {
           </p>
         </section>
         <section id="nichos-section" className="shell section">
-          <Heading
-            number="01"
-            label="Territorios"
-            title="DONDE LA PASIÓN CONECTA."
-          />
+          <div className="territory-heading">
+            <Heading
+              number="01"
+              label="Territorios"
+              title="DONDE LA PASIÓN CONECTA."
+            />
+            <p>
+              Seis formas de contar historias
+              <br />
+              que hacen que una marca se sienta.
+            </p>
+          </div>
           <div className="niche-grid">
-            {data.niches.map((niche, i) => (
-              <div className="niche" key={niche.label}>
-                <span className="index">0{i + 1}</span>
-                <h3>{niche.label.replace("\n", " ")}</h3>
-                <Arrow />
-              </div>
-            ))}
+            {data.niches.map((niche, i) => {
+              const image = data.community.videos[[1, 3, 0, 2, 1, 4][i]].image;
+              return (
+                <article className={`niche niche-${i + 1}`} key={niche.label}>
+                  <Image
+                    src={image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 600px) 88vw, (max-width: 900px) 45vw, 33vw"
+                  />
+                  <span className="niche-shade" />
+                  <span className="niche-topline">
+                    <span>0{i + 1}</span>
+                    <Arrow />
+                  </span>
+                  <h3>{niche.label.replace("\n", " ")}</h3>
+                </article>
+              );
+            })}
           </div>
         </section>
         <section id="comunidad-section" className="section community-section">
