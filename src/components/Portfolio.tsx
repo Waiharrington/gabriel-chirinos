@@ -206,13 +206,15 @@ export default function Portfolio() {
           </div>
           <div className="hero-shade" />
           <div className="shell hero-content">
-            <p className="eyebrow">VENEZUELA / CREADOR & ATLETA</p>
-            <h1>
-              CONECTO MARCAS
-              <br />
-              CON PERSONAS<span>EN MOVIMIENTO.</span>
-            </h1>
-            <p className="hero-description">{data.personal.description}</p>
+            <div className="hero-copy">
+              <p className="eyebrow">VENEZUELA / CREADOR & ATLETA</p>
+              <h1>
+                CONECTO MARCAS
+                <br />
+                CON PERSONAS<span>EN MOVIMIENTO.</span>
+              </h1>
+              <p className="hero-description">{data.personal.description}</p>
+            </div>
             <div className="button-row">
               <a className="button button-light" href="#contact">
                 Trabajemos juntos <Arrow />

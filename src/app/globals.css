@@ -1049,6 +1049,9 @@ a.brand-logo:focus-visible {
   .hero-content {
     padding-block: 92px 112px;
   }
+  .hero-copy {
+    transform: translateY(-32px);
+  }
   .hero .eyebrow {
     max-width: 250px;
     margin-bottom: 20px;
