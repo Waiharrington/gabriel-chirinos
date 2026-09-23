@@ -129,13 +129,51 @@ export const siteData = {
   },
 
   brands: [
-    "adidas",
-    "GATORADE",
-    "GARMIN.",
-    "HOKA",
-    "DECATHLON",
-    "SUUNTO",
-    "wahoo",
+    {
+      name: "BURGERMASTER",
+      image: "/logos/brand-burgermaster.png",
+      href: "https://www.instagram.com/reel/DcbKAaOxYqe/?stkn=MWpoeWszazkydnp5Yg==",
+    },
+    {
+      name: "GIUNTI",
+      image: "/logos/brand-giunti.png",
+      href: "https://www.instagram.com/reel/DP1fkgsEYec/?stkn=MTRjdHpwOHdlMm9pdg==",
+    },
+    {
+      name: "LION TEA",
+      image: "/logos/brand-liontea.png",
+      href: "https://www.instagram.com/p/DdhmCNflhLD/",
+    },
+    {
+      name: "NEVO",
+      image: "/logos/brand-nevo.png",
+      href: "https://www.instagram.com/reel/DZTIroWgVMi/?stkn=MXRobWYyd3BuMGNzag==",
+    },
+    {
+      name: "RS",
+      image: "/logos/brand-rs.png",
+      href: "https://www.instagram.com/p/Dc4Hw0qEdN_/?stkn=MTRubTVodDgyMzJkcA==",
+    },
+    {
+      name: "ZIZOU",
+      image: "/logos/brand-zizou.png",
+      href: "https://www.instagram.com/reel/DPhLZgSER3K/?stkn=YmMzZ2JxOHpwN3g3",
+    },
+    {
+      name: "ADIDAS",
+      image: "/logos/brand-adidas.png",
+      href: "https://www.instagram.com/reel/DcleqWbxSLq/?stkn=d2JvYTB2am5xN25u",
+    },
+    {
+      name: "BRTH",
+      image: "/logos/brand-brth.png",
+      href: "https://www.instagram.com/reel/DKGIgSavG1N/?stkn=N3czZzE2YmgyNjJm",
+    },
+    {
+      name: "MCY RUN",
+      image: "/logos/brand-mcy-run.png",
+      href: "https://www.instagram.com/reel/DbwVqKyvWxg/?stkn=MW9iMXBmZjgycmJ1dQ==",
+    },
   ],
 
   testimonials: [

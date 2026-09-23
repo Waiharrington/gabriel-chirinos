@@ -451,7 +451,22 @@ export default function Portfolio() {
           />
           <div className="brand-grid">
             {data.brands.map((brand) => (
-              <span key={brand}>{brand}</span>
+              <a
+                className="brand-card"
+                key={brand.name}
+                href={brand.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver colaboración con ${brand.name} en Instagram`}
+              >
+                <Image
+                  src={brand.image}
+                  alt={brand.name}
+                  width={500}
+                  height={500}
+                  sizes="(max-width: 600px) 42vw, (max-width: 900px) 28vw, 20vw"
+                />
+              </a>
             ))}
           </div>
         </section>
