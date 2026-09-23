@@ -55,9 +55,7 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${bebasNeue.variable} ${dancingScript.variable}`}
     >
-      <body className="min-h-screen bg-[#050505] text-white antialiased font-inter selection:bg-red-600/40 overflow-x-hidden">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
