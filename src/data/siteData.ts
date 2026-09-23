@@ -25,7 +25,7 @@ export const siteData = {
   niches: [
     { label: "FITNESS &\nRUNNING", icon: "dumbbell" },
     { label: "DEPORTES &\nBIENESTAR", icon: "heart" },
-    { label: "ROPA &\nACCESORIOS", icon: "shirt" },
+    { label: "ROPA &\nCALZADO", icon: "shirt" },
     { label: "SUPLEMENTOS &\nNUTRICIÓN", icon: "flask" },
     { label: "ACCESORIOS PARA\nATLETAS", icon: "shirt" },
     { label: "ESTILO DE VIDA &\nMOTIVACIÓN", icon: "flame" },
